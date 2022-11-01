@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="8dp">
+
+    <ImageView
+        android:id="@+id/iv_Left"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/sb1" />
+
+    <TextView
+        android:id="@+id/labMenuName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/iv_Left"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:text="菜单名称"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="#333333"/>
+
+    <TextView
+        android:id="@+id/labVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/iv"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@color/gray"/>
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/icon_set_more" />
+
+    <View
+        android:id="@+id/hline"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/labMenuName"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/search_line_gray2"/>
+</RelativeLayout>

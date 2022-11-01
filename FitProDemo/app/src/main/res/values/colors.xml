@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="theme_color">#62CC74</color>
+    <color name="colorPrimary">#62CC74</color>
+    <color name="colorPrimaryDark">#62CC74</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#333333</color>
+    <color name="text1">#62CC74</color>
+    <color name="gray">#999999</color>
+    <color name="gray_text">#9a9a9a</color>
+    <color name="background_color">#F6F6F6</color>
+    <color name="line_color">#E5E5E5</color>
+    <color name="line_gray">#e1e1e1</color>
+
+    <color name="red">#FF0000</color>
+    <color name="back_red">#FF0000</color>
+    <color name="green_two">#59BB59</color>
+    <color name="theme_blue_two">#625EA3</color>
+    <color name="btn_gray">#A8A69C</color>
+    <!--<color name="bottom_background">#F2F2F2</color>-->
+    <color name="bottom_background">#F8F8F8</color>
+    <color name="gender_picture_color">#33475F</color>
+    <color name="main_background_gray">#ACB3C5</color>
+
+
+    <color name="default_black_color">#333333</color>
+    <color name="default_black_color_1">#666666</color>
+    <color name="sport_item_bg_gray">#E5E5E5</color>
+
+    <color name="search_line_gray2">#cdcdcd</color>
+
+    <color name="sleep_background">#2f5cc3</color>
+    <color name="deep_sleep_background">#ff7997e8</color>
+    <color name="somnolence_sleep_background">#ffb9b6f0</color>
+    <color name="sober_sleep_background">#e4d8fc</color>
+    <color name="more_bh_color">#d55234</color>
+    <color name="measure_test_btn_bg">#5E8BFF</color>
+    <color name="measure_title_bg">#587AFC</color>
+</resources>

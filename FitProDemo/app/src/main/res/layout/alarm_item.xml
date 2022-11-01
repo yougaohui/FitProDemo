@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:descendantFocusability="blocksDescendants"
+                android:padding="@dimen/dp_10">
+
+    <TextView
+        android:id="@+id/alarm_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginBottom="4dp"
+        android:gravity="top"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_22"
+        tools:text="7:30" />
+
+    <LinearLayout
+        android:id="@+id/weeks_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/alarm_time"
+        android:layout_toLeftOf="@+id/alarm_del_btn"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/alarm_del_btn"
+        android:layout_width="42dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@color/red"
+        android:text="@string/alarm_del_txt"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
+
+
+
+
+
+
+

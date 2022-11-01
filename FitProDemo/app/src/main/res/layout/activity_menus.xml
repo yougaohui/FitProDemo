@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:clipChildren="false"
+              android:orientation="vertical"
+              tools:context="xfkj.fitpro.activity.MenusActivity">
+
+    <include
+        android:id="@+id/title_chunk"
+        layout="@layout/title_layout" />
+
+    <FrameLayout
+        android:id="@+id/frag_home"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        android:layout_weight="1"
+        android:elevation="@dimen/dp_5">
+    </FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/ui_btn_group"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/bottom_background"
+        android:elevation="@dimen/dp_10"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/sport_btn"
+            style="@style/MyBottomBarCheck"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/ui_sport_selector"
+            android:gravity="center"
+            android:text="@string/step_txt"
+            android:textSize="@dimen/sp_14" />
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_60"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_weight="1"
+            android:gravity="center">
+
+
+            <RadioButton
+                android:id="@+id/state_btn"
+                style="@style/MyBottomBarCheck"
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:checked="false"
+                android:drawableTop="@drawable/ui_statue_selector"
+                android:gravity="center"
+                android:textSize="@dimen/sp_14" />
+
+        </RelativeLayout>
+
+        <RadioButton
+            android:id="@+id/mine_btn"
+            style="@style/MyBottomBarCheck"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="false"
+            android:drawableTop="@drawable/ui_mine_selector"
+            android:gravity="center"
+            android:text="@string/more_txt"
+            android:textSize="@dimen/sp_14" />
+    </RadioGroup>
+
+</LinearLayout>

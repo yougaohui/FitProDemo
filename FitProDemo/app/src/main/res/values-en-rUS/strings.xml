@@ -1,0 +1,236 @@
+<resources>
+    <!--app名称-->
+    <string name="app_name">FitPro</string>
+
+    <!--公共-->
+    <string name="unconnected">Device disconnected</string>
+    <string name="connecting_txt">Connecting</string>
+    <string name="confirm_txt">Confirm</string>
+    <string name="cancel_txt">Cancel</string>
+    <string name="setting">Committing…</string>
+    <string name="getdatas">Get Datas...</string>
+    <string name="no_more_data">no more data</string>
+    <string name="set">Set successful</string>
+    <string name="timeout_txt">Wait for timeout</string>
+    <string name="set_err">Set </string>
+    <string name="hours_txt">h</string>
+    <string name="second_txt">s</string>
+    <string name="minute_txt">m</string>
+    <string name="tips_txt">Kindly Reminder</string>
+    <string name="exit_tips">Press the exit procedure again</string>
+    <string name="is_not_supported_bluetooth">Your device does not support Bluetooth</string>
+    <string name="language">Language</string>
+
+    <!--开始页面-->
+    <string name="reg_tips">Setting your informations</string>
+    <string name="sex">Sex</string>
+    <string name="age">Age</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="target_step">Daily Target</string>
+    <string name="target_txt">Target</string>
+    <string name="next_noe">Connect Later</string>
+    <string name="next_two">Start Scan</string>
+    <string name="set_age">Age Setting</string>
+    <string name="girl">Female</string>
+    <string name="boy">Male</string>
+    <string name="step">Step</string>
+    <string name="age_unit">year</string>
+    <string name="set_sex">Sex Setting</string>
+    <string name="set_height">Height Setting</string>
+    <string name="set_weight">Weight Setting</string>
+    <string name="set_step">Target Setting</string>
+    <string name="sure_update">Confirm Editing</string>
+
+    <!--设备搜索设备连接页面-->
+    <string name="find_fitpro">Scan</string>
+    <string name="do_connecting_txt">Try to connect…</string>
+    <string name="bluetooth_connection">Bluetooth Base Connection</string>
+    <string name="set_time_txt">Time Setting</string>
+    <string name="set_uinfo_txt">User Profile Setting</string>
+    <string name="set_step_txt">Target Setting</string>
+    <string name="reinfecta_txt">Not Done</string>
+    <string name="completed_txt">completed</string>
+
+    <!--主页面底下菜单-->
+    <string name="more_txt">Set</string>
+
+    <!--Activity-title-->
+    <string name="more_stept">More Step Details</string>
+    <string name="more_sleep">More Sleep Details</string>
+    <string name="bluetooth_title">Dri</string>
+    <string name="long_sit">Long sit Remind</string>
+    <string name="alarm_set">My Alarms</string>
+    <string name="bright_screen_title">Bright Screen</string>
+    <string name="disturb_title">DND mode</string>
+    <string name="sleep_switch_title">Sleep Switch</string>
+    <string name="heart_auto_title">Automatic HR Measurement</string>
+
+    <!--抬腕亮屏设置-->
+    <string name="is_screen">Is Activity?</string>
+    <string name="is_next">Next</string>
+    <string name="bright_screen_set_tip">Turn the screen to yourself with your wrist up to light it</string>
+
+    <string name="disturb_set_tip">You will not receive notifications when DND is on</string>
+
+    <!--心率测量-->
+    <string name="sleep_assist">Sleep Assistant</string>
+    <string name="heart_frequency">Frequency</string>
+    <string name="heart_auto_tip">Turning on the automatic heart rate measurement reduces battery life</string>
+
+
+    <!--测量-->
+    <string name="measure_title">Measure</string>
+    <string name="start_measure">Start Measure</string>
+    <string name="measure_heart">Heart</string>
+    <string name="measure_blood">Blood</string>
+    <string name="measure_spo">Spo</string>
+
+    <!--更多-->
+    <string name="about">About</string>
+    <string name="app_version">APP Version</string>
+    <string name="back_to_welcome">Back To Scan</string>
+
+    <!--步数首页-->
+    <string name="cary_txt">Kcal</string>
+    <string name="km_txt">Km</string>
+    <string name="kcary_txt">kcal</string>
+    <string name="trget_txt">Target</string>
+    <string name="wcl_txt">Rate</string>
+    <string name="step_txt">step</string>
+
+    <!--更多步数-->
+    <string name="m_day">Day</string>
+    <string name="m_week">Week</string>
+    <string name="m_month">Month</string>
+    <string name="m_t_step">Total Steps</string>
+    <string name="m_t_distance">Total Distances</string>
+    <string name="m_t_calory">Total Calorie</string>
+    <string name="m_p_step">Average Steps</string>
+    <string name="m_p_distance">Average Distances</string>
+    <string name="m_p_calory">Average Calorie</string>
+
+
+    <!--睡眠-->
+    <string name="sleep_qk_txt">Sleep Detail</string>
+    <string name="sober_txt">Awake</string>
+    <string name="deep_sleep_txt">Deep</string>
+    <string name="somnolence_sleep_txt">Light</string>
+    <string name="none">None</string>
+    <string name="sleep_quality">Your Sleep Quality is </string>
+    <string name="commonly_txt">general</string>
+    <string name="excellent_txt">good</string>
+    <string name="good_txt">very good</string>
+
+    <!--测量-->
+    <string name="start_test_hb">Start Measuring</string>
+    <string name="stop_test_hb">Stop Measuring</string>
+    <string name="no_test_tip_text">More measuring benefit to health</string>
+    <string name="do_text_heart_blood">Do Measuring</string>
+    <string name="newly_test">newly</string>
+    <string name="more_heart">more</string>
+    <string name="more_blood">more</string>
+    <string name="avg_hb">avg</string>
+    <string name="max_hb">max</string>
+    <string name="min_hb">min</string>
+    <string name="b_type">type</string>
+    <string name="high_b">highest</string>
+    <string name="low_b">lowest</string>
+    <string name="diastolic">diastolic</string>
+    <string name="systolic">systolic</string>
+
+
+    <!--久坐提醒-->
+    <string name="is_warn_txt">Remind?</string>
+    <string name="is_siesta_txt">Not remind at noon</string>
+    <string name="long_sit_time_txt">Sitting Time</string>
+    <string name="warn_star_time_txt">Starting Time</string>
+    <string name="warn_end_time_txt">Ending Time</string>
+    <string name="err_starend_time">The end time can not be greater than the start time</string>
+    <string name="err_starend_time2">The end time can not be equal to the start time</string>
+
+    <!--设置首页-->
+    <string name="device_state_txt">State</string>
+    <string name="device_electric_txt">Battery</string>
+    <string name="upgrade_txt">Upgrade</string>
+    <string name="device_version_txt">Version</string>
+    <string name="find_device_txt">Find</string>
+    <string name="user_profile_txt">User Profile</string>
+    <string name="take_photos_txt">Remote Take Photos</string>
+    <string name="alarm_set_txt">Alarm Setting</string>
+    <string name="long_sit_txt">Long Sit Reminder</string>
+    <string name="push_setting_txt">Message Push</string>
+    <string name="other_setting_txt">Other</string>
+    <string name="device_reset_txt">Reset Device</string>
+    <string name="del_device_txt">Remove</string>
+    <string name="sync_info">Sync Setting Info</string>
+    <string name="syncing">Syncing</string>
+    <string name="sync_suc">Sync Success</string>
+    <string name="confirm_remove_device_txt">Delete all data and remove device?</string>
+    <string name="confirm_reset_device_txt">are you reset the device?</string>
+
+    <!--遥控拍照-->
+    <string name="camera_time_run">Set remote camera delay time</string>
+
+    <!--闹钟设置-->
+    <string name="no_alarm_txt">No Alarms</string>
+    <string name="more_alarm_txt">8 alarm are allowed at most</string>
+    <string name="has_alarm_txt">The alarm clock already exists</string>
+    <string name="get_alarms_txt">Get Alarm List</string>
+    <string name="mon_txt">Mon</string>
+    <string name="tue_txt">Tues</string>
+    <string name="wed_txt">Wed</string>
+    <string name="thu_txt">Thur</string>
+    <string name="fri_txt">Fir</string>
+    <string name="sat_txt">Sat</string>
+    <string name="sun_txt">Sun</string>
+    <string name="alarm_del_txt">Delete</string>
+    <string name="confirm_del_txt">Delete this Alarm？</string>
+
+    <!--开关设置-->
+    <string name="calls_remind">Calls Remind</string>
+    <string name="sms_remind">SMS Remind</string>
+    <string name="wechat_remind">Wechat Remind</string>
+    <string name="qq_remind">QQ Remind</string>
+    <string name="face_book_remind">FaceBook</string>
+    <string name="twitter_remind">Twitter</string>
+    <string name="skype_remind">Skype</string>
+    <string name="line_remind">Line</string>
+    <string name="whatsapp_remind">Whatsapp</string>
+    <string name="vibrate_setting">Vibrate Setting</string>
+    <string name="lift_screen">Lift wrist to bright screen</string>
+    <string name="sleep_monitoring">Sleep Monitoring</string>
+    <string name="automatic_heart_rate">Automatic heart rate measurement</string>
+    <string name="lr_hand_wearing">Left/Right hand wearing</string>
+
+
+    <string name="wx_sport">WeChat campaign</string>
+    <string name="ws_wait_qrcode">Generating a bound QR code, please wait...</string>
+    <string name="wx_bd1">1.Open WeChat sweep</string>
+    <string name="wx_bd2">2.Click on the top right corner to select the QR code from the album.</string>
+    <string name="wx_bd3">3.Click on the binding device in the scan result interface</string>
+
+    <string name="wx_jb">If the fitpro device is bound</string>
+    <string name="wx_jbff">Please unbind the current device unbind method first:</string>
+    <string name="wx_jb1">a.Go to the app settings page</string>
+    <string name="wx_jb2">b.Click the device to reset or remove the device while the fitpro is connected.</string>
+    <string name="wx_jb3">c.Unbind the device</string>
+    <string name="wx_save_tips">The two-dimensional code was successfully generated and saved in the album</string>
+    <string name="sleep">Sleep</string>
+    <string name="hour">h</string>
+    <string name="min">min</string>
+    <string name="measure">Measure</string>
+    <string name="app_update">App program version update...</string>
+    <string name="update">update</string>
+    <string name="cancel">cancel</string>
+    <string name="app_already_finish">The new version of APP is ready</string>
+    <string name="install_once">Whether to install updates immediately?</string>
+    <string name="install_update">Install update</string>
+    <string name="unkown_source">Request installation of unknown application sources</string>
+    <string name="allow_install">Go to Setup Allowed Installation?</string>
+    <string name="settings">Settings</string>
+    <string name="open_location_tips">Open Location Service/Location Information</string>
+    <string name="ok">Ok</string>
+    <string name="sleep_quality_tag">Quality</string>
+    <string name="_00_00">00h00m</string>
+</resources>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/title_chunk"
+        layout="@layout/title_layout"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ScrollView
+            android:id="@+id/mhbScroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_chunk"
+            android:fillViewport="true"
+            android:paddingBottom="@dimen/dp_50"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <HorizontalScrollView
+                    android:id="@+id/hsv_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_50"
+                    android:layout_gravity="center_horizontal"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <RadioGroup
+                            android:id="@+id/tabbar_items"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+                        </RadioGroup>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_color"/>
+
+                <!--图形-->
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/stepts_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_240"
+                    android:layout_marginBottom="1dp"
+                    android:gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/linear_underline"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/dp_15">
+
+                    <GridView
+                        android:id="@+id/gv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/line_color"
+                        android:horizontalSpacing="1dp"
+                        android:numColumns="3"
+                        android:padding="1px"
+                        android:verticalSpacing="1dp"></GridView>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <RadioGroup
+            android:id="@+id/ms_title_btns"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/day_btn"
+                style="@style/MyCheck"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/more_step_select"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:minHeight="@null"
+                android:tag="day"
+                android:text="@string/m_day"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18"/>
+
+            <RadioButton
+                android:id="@+id/week_btn"
+                style="@style/MyCheck"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/more_step_select"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:minHeight="@null"
+                android:tag="week"
+                android:text="@string/m_week"
+                android:textColor="@color/text1"
+                android:textSize="@dimen/sp_18"/>
+
+            <RadioButton
+                android:id="@+id/month_btn"
+                style="@style/MyCheck"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/more_step_select"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:minHeight="@null"
+                android:tag="month"
+                android:text="@string/m_month"
+                android:textColor="@color/text1"
+                android:textSize="@dimen/sp_18"/>
+
+        </RadioGroup>
+
+        <FrameLayout
+            android:id="@+id/frm_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+    </FrameLayout>
+</LinearLayout>

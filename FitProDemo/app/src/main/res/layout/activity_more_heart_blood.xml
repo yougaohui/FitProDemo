@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/more_bh_color"
+        android:layout_height="@dimen/dp_50">
+
+        <ImageView
+            android:id="@+id/mhb_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:scaleType="center"
+            android:src="@drawable/xfkj_back" />
+
+        <TextView
+            android:id="@+id/mhb_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/dp_5"
+            android:gravity="center"
+            android:text="title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_20"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/mhbScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:layout_marginTop="@dimen/dp_50"
+        android:paddingBottom="@dimen/dp_60"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <HorizontalScrollView
+                android:id="@+id/hbsv_menu"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="@dimen/dp_50"
+                android:scrollbars="none" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+                    <RadioGroup
+                        android:id="@+id/hb_tabbar_items"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal" >
+                    </RadioGroup>
+                </LinearLayout>
+            </HorizontalScrollView>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_2"
+                android:background="@color/line_color"></View>
+
+
+            <!--图形-->
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/hb_chart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_240"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="1"
+                android:gravity="center" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_5"
+                android:background="@color/line_color"></View>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <xfkj.fitpro.entity.MyGridView
+                    android:id="@+id/bhgv"
+                    android:layout_margin="@dimen/dp_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="3"/>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/dp_5"
+                    android:background="@color/line_color"/>
+
+                <xfkj.fitpro.entity.MyListView
+                    android:id="@+id/hb_lists"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <RadioGroup
+        android:layout_alignParentBottom="true"
+        android:id="@+id/more_title_btns"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/day_btn"
+            style="@style/MyCheck"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/more_hb_btns_select"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:minHeight="@null"
+            android:text="@string/m_day"
+            android:tag="day"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18" />
+
+        <RadioButton
+            android:id="@+id/week_btn"
+            style="@style/MyCheck"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/more_hb_btns_select"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:minHeight="@null"
+            android:text="@string/m_week"
+            android:tag="week"
+            android:textColor="@color/more_bh_color"
+            android:textSize="@dimen/sp_18" />
+
+        <RadioButton
+            android:id="@+id/month_btn"
+            style="@style/MyCheck"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/more_hb_btns_select"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:minHeight="@null"
+            android:text="@string/m_month"
+            android:tag="month"
+            android:textColor="@color/more_bh_color"
+            android:textSize="@dimen/sp_18" />
+
+    </RadioGroup>
+
+</RelativeLayout>

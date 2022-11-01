@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/ll"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+
+    <ScrollView
+		android:id="@+id/hbScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/dp_280"
+				android:paddingTop="@dimen/dp_10"
+				android:background="@drawable/background_shape"
+				android:orientation="vertical">
+
+            	<LinearLayout
+					android:id="@+id/show_instView"
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/dp_220"
+					android:layout_gravity="center_vertical"
+					android:paddingLeft="@dimen/dp_10"
+					android:paddingRight="@dimen/dp_10"
+					android:gravity="center"
+					android:orientation="vertical">
+
+					<xfkj.fitpro.entity.MyHeartView
+						android:id="@+id/heartView"
+						android:layout_width="wrap_content"
+						android:layout_height="220dp"/>
+				</LinearLayout>
+
+				<LinearLayout
+					android:id="@+id/show_testing"
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/dp_220"
+					android:layout_gravity="center_vertical"
+					android:gravity="center"
+					android:visibility="gone"
+					android:orientation="vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center"
+						android:gravity="center"
+						android:paddingBottom="@dimen/dp_10"
+						android:paddingTop="@dimen/dp_10"
+						android:text="@string/do_text_heart_blood"
+						android:textColor="@color/white"
+						android:textSize="@dimen/sp_24" />
+
+					<com.airbnb.lottie.LottieAnimationView
+						android:id="@+id/heart_rate"
+						android:layout_width="130dp"
+						android:layout_height="130dp"
+						android:layout_gravity="center"
+						app:lottie_autoPlay="true"
+						app:lottie_fileName="heart_rate.json"
+						app:lottie_loop="true"
+						android:visibility="gone" />
+
+				</LinearLayout>
+
+				<Button
+					android:id="@+id/test_hb_btn"
+					android:layout_width="180dp"
+					android:layout_height="35dp"
+					android:layout_gravity="center"
+					android:background="@drawable/heart_btn_shape"
+					android:gravity="center"
+					android:layout_marginLeft="@dimen/dp_60"
+					android:layout_marginRight="@dimen/dp_60"
+					android:textColor="@color/text1"
+					android:text="@string/start_test_hb" />
+            </LinearLayout>
+
+			<View
+				android:layout_width="fill_parent"
+				android:layout_height="@dimen/dp_5"
+				android:background="@color/line_color"></View>
+			<xfkj.fitpro.entity.MyListView
+				android:id="@+id/hb_list_item"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:divider="@android:color/transparent"
+				android:dividerHeight="0dp" />
+			<LinearLayout
+				android:id="@+id/no_hb_tip_box"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="@dimen/dp_80"
+				android:layout_marginBottom="@dimen/dp_80"
+				android:gravity="center"
+				android:orientation="vertical">
+
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/empty" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/dp_10"
+					android:text="@string/no_test_tip_text" />
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:id="@+id/ota_box">
+    <include
+        android:id="@+id/title_chunk"
+        layout="@layout/title_layout" />
+<!--
+    <ImageView
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:padding="5dp"
+        android:src="@drawable/close2" />
+
+    <Button
+        android:id="@+id/resetBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/applicationBtn"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:enabled="false"
+
+        android:text="exit ota" />
+
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/close2" />-->
+
+    <Button
+        android:id="@+id/applicationBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/applicationText"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/applicationText"
+        android:text="app" />
+
+    <Button
+        android:id="@+id/configurationBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/configurationText"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/configurationText"
+        android:text="conf" />
+
+
+    <EditText
+        android:id="@+id/confg_addr"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/patch_addr"
+
+        android:layout_alignParentStart="true"
+        android:editable="false"
+        android:enabled="false"
+        android:hint="addr"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/configurationText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:layout_below="@+id/applicationBtn"
+        android:layout_toStartOf="@+id/applicationBtn" />
+
+    <EditText
+        android:id="@+id/patch_addr"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+
+        android:editable="false"
+        android:enabled="false"
+        android:hint="addr"
+        android:visibility="gone"
+        android:layout_alignBaseline="@+id/patchBtn"
+        android:layout_alignBottom="@+id/patchBtn"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/patchText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:layout_below="@+id/configurationBtn"
+        android:layout_toStartOf="@+id/patchBtn" />
+
+    <Button
+        android:id="@+id/patchBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/user_data_text"
+        android:layout_alignStart="@+id/configurationBtn"
+        android:layout_below="@+id/configurationBtn"
+        android:text="patch" />
+
+    <EditText
+        android:id="@+id/user_data_addr"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/patchText"
+        android:hint="user addr"
+        android:inputType="text" />
+    <!--android:inputType="number"-->
+    <EditText
+        android:id="@+id/user_data_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/patchText"
+        android:layout_marginLeft="10dp"
+        android:layout_toStartOf="@+id/userBtn"
+        android:ems="9"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/userBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/progressBar"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/patchText"
+        android:text="user" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/user_data_text"
+        android:layout_toStartOf="@+id/userBtn" />
+
+    <TextView
+        android:id="@+id/tv_kbs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/userBtn"
+        android:layout_toRightOf="@+id/progressBar"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/downloadBtn"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/progressBar"
+        android:enabled="true"
+        android:text="Start Download" />
+
+    <EditText
+        android:id="@+id/app_addr"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/title_chunk"
+        android:editable="false"
+        android:enabled="false"
+        android:hint="addr"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/applicationText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_chunk"
+        android:singleLine="true"
+        android:layout_toStartOf="@+id/applicationBtn" />
+    <!--
+        <include
+            android:id="@+id/item_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/scan"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/downloadBtn"
+            layout="@layout/listitem_device" />
+    -->
+    <ListView
+        android:id="@+id/list_device"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/scanBtn"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/downloadBtn" />
+
+    <Button
+        android:id="@+id/scanBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="Start Scan" />
+
+    <Button
+        android:id="@+id/entryIsp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:enabled="false"
+        android:text="Entry Isp" />
+
+    <EditText
+        android:id="@+id/ispaddr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/scanBtn"
+        android:layout_alignBottom="@+id/scanBtn"
+        android:layout_centerHorizontal="true"
+        android:enabled="false"
+        android:hint="Isp Addr"
+        android:inputType="textPersonName" />
+
+</RelativeLayout>
+

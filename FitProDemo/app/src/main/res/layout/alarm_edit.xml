@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+    <TableLayout
+        android:id="@+id/pop_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ccc"
+        android:gravity="center_horizontal"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:background="#FFF">
+            <com.weigan.loopview.LoopView
+                android:id="@+id/time_hours"
+                android:layout_height="@dimen/dp_180"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:textSize="@dimen/sp_12"
+                app:awv_isLoop="true"
+                app:awv_centerTextColor="@color/black"
+                app:awv_textsize="26"
+                app:awv_itemsVisibleCount="7" />
+
+            <com.weigan.loopview.LoopView
+                android:id="@+id/time_minute"
+                android:layout_height="@dimen/dp_180"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:textSize="@dimen/sp_12"
+                app:awv_isLoop="true"
+                app:awv_centerTextColor="@color/black"
+                app:awv_textsize="26"
+                app:awv_itemsVisibleCount="7" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="@dimen/dp_2"
+            android:background="#FFF"
+            android:paddingLeft="@dimen/dp_15"
+            android:paddingRight="@dimen/dp_15"
+            android:paddingTop="@dimen/dp_15">
+
+            <CheckBox
+                android:id="@+id/mon_id"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_checkbox"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_5"
+                android:paddingTop="@dimen/dp_5"
+                android:text="@string/mon_txt"
+                android:textColor="@drawable/selector_text_color"
+                android:textSize="@dimen/sp_16" />
+
+            <CheckBox
+                android:id="@+id/tue_id"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_checkbox"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_5"
+                android:paddingTop="@dimen/dp_5"
+                android:text="@string/tue_txt"
+                android:textColor="@drawable/selector_text_color"
+                android:textSize="@dimen/sp_16" />
+
+            <CheckBox
+                android:id="@+id/wed_id"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_checkbox"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_5"
+                android:paddingTop="@dimen/dp_5"
+                android:text="@string/wed_txt"
+                android:textColor="@drawable/selector_text_color"
+                android:textSize="@dimen/sp_16" />
+
+            <CheckBox
+                android:id="@+id/thu_id"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_checkbox"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_5"
+                android:paddingTop="@dimen/dp_5"
+                android:text="@string/thu_txt"
+                android:textColor="@drawable/selector_text_color"
+                android:textSize="@dimen/sp_16" />
+        </TableRow>
+
+        <TableRow
+            android:background="#FFF"
+            android:paddingBottom="@dimen/dp_15"
+            android:paddingLeft="@dimen/dp_15"
+            android:paddingRight="@dimen/dp_15"
+            android:paddingTop="@dimen/dp_15">
+
+            <CheckBox
+                android:id="@+id/fri_id"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_checkbox"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_5"
+                android:paddingTop="@dimen/dp_5"
+                android:text="@string/fri_txt"
+                android:textColor="@drawable/selector_text_color"
+                android:textSize="@dimen/sp_16" />
+
+            <CheckBox
+                android:id="@+id/sat_id"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_checkbox"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_5"
+                android:paddingTop="@dimen/dp_5"
+                android:text="@string/sat_txt"
+                android:textColor="@drawable/selector_text_color"
+                android:textSize="@dimen/sp_16" />
+
+            <CheckBox
+                android:id="@+id/sun_id"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_checkbox"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_5"
+                android:paddingTop="@dimen/dp_5"
+                android:text="@string/sun_txt"
+                android:textColor="@drawable/selector_text_color"
+                android:textSize="@dimen/sp_16" />
+
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="@dimen/dp_2"
+            android:background="#FFF"
+            android:paddingBottom="@dimen/dp_15"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingRight="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_15">
+
+            <Button
+                android:id="@+id/cancel_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/alarm_set_cancel_btn"
+                android:text="@string/cancel_txt"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18" />
+
+            <Button
+                android:id="@+id/confirm_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/alarm_set_confirm_btn"
+                android:text="@string/confirm_txt"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18" />
+        </TableRow>
+    </TableLayout>
+
+
+</RelativeLayout>

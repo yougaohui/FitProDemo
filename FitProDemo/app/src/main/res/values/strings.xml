@@ -1,0 +1,251 @@
+<resources>
+    <!--app名称-->
+    <string name="app_name">FitProDemo</string>
+
+    <!--公共-->
+    <string name="unconnected">设备未连接</string>
+    <string name="connecting_txt">连接中</string>
+    <string name="confirm_txt">确定</string>
+    <string name="cancel_txt">取消</string>
+    <string name="setting">设置中...</string>
+    <string name="getdatas">获取数据中...</string>
+    <string name="no_more_data">没有更多数据</string>
+    <string name="set">设置成功</string>
+    <string name="timeout_txt">等待超时</string>
+    <string name="set_err">设置失败</string>
+    <string name="hours_txt">时</string>
+    <string name="second_txt">秒</string>
+    <string name="minute_txt">分</string>
+    <string name="tips_txt">温馨提示</string>
+    <string name="exit_tips">再按一次退出程序</string>
+    <string name="is_not_supported_bluetooth">您的设备不支持蓝牙</string>
+    <string name="language">选择语言</string>
+
+    <!--开始页面-->
+    <string name="reg_tips">请根据个人实际情况修改个人信息</string>
+    <string name="sex">性别</string>
+    <string name="age">年龄</string>
+    <string name="height">身高</string>
+    <string name="weight">体重</string>
+    <string name="target_step">每天目标步数</string>
+    <string name="target_txt">目标</string>
+    <string name="next_noe">暂不连接</string>
+    <string name="next_two">开始扫描</string>
+    <string name="set_age">设置年龄</string>
+    <string name="girl">女</string>
+    <string name="boy">男</string>
+    <string name="step">步</string>
+    <string name="age_unit">岁</string>
+    <string name="set_sex">选择性别</string>
+    <string name="set_height">设置身高</string>
+    <string name="set_weight">设置体重</string>
+    <string name="set_step">设置每天目标步数</string>
+    <string name="sure_update">确定修改</string>
+
+    <!--设备搜索设备连接页面-->
+    <string name="find_fitpro">搜索手环</string>
+    <string name="do_connecting_txt">正在努力完成连接..</string>
+    <string name="bluetooth_connection">蓝牙连接</string>
+    <string name="set_time_txt">设置手环时间</string>
+    <string name="set_uinfo_txt">设置个人信息</string>
+    <string name="set_step_txt">设置目标步数</string>
+    <string name="reinfecta_txt">未完成</string>
+    <string name="completed_txt">完成</string>
+
+    <!--主页面底下菜单-->
+    <string name="more_txt">设置</string>
+
+    <!--Activity-title-->
+    <string name="more_stept">更多步数</string>
+    <string name="more_sleep">更多睡眠</string>
+    <string name="bluetooth_title">设备详情</string>
+    <string name="long_sit">久坐提醒</string>
+    <string name="alarm_set">我的闹钟</string>
+    <string name="bright_screen_title">抬腕亮屏</string>
+    <string name="disturb_title">勿扰模式</string>
+    <string name="sleep_switch_title">睡眠开关</string>
+    <string name="heart_auto_title">心率测量</string>
+
+    <!--抬腕亮屏设置-->
+    <string name="is_screen">是否启用</string>
+    <string name="is_next">次日</string>
+    <string name="bright_screen_set_tip">抬起手腕将屏幕转向自己即可点亮屏幕</string>
+
+    <string name="disturb_set_tip">在勿扰期间内手环停止接收通知</string>
+
+    <!--心率测量-->
+    <string name="sleep_assist">辅助睡眠检测</string>
+    <string name="heart_frequency">测量频率</string>
+    <string name="heart_auto_tip">开启心率自动测量后会降低续航时长</string>
+
+
+    <!--测量-->
+    <string name="measure_title">测量</string>
+    <string name="start_measure">开始测量</string>
+    <string name="measure_heart">心率</string>
+    <string name="measure_blood">血压</string>
+    <string name="measure_spo">血氧</string>
+
+    <!--更多-->
+    <string name="about">关于我们</string>
+    <string name="app_version">APP版本</string>
+    <string name="back_to_welcome">返回连接页面</string>
+
+    <!--步数首页-->
+    <string name="cary_txt">Kcal</string>
+    <string name="km_txt">Km</string>
+    <string name="kcary_txt">千卡</string>
+    <string name="trget_txt">目标步数</string>
+    <string name="wcl_txt">完成率</string>
+    <string name="step_txt">首页</string>
+
+    <!--更多步数-->
+    <string name="m_day">日</string>
+    <string name="m_week">周</string>
+    <string name="m_month">月</string>
+    <string name="m_t_step">总步数</string>
+    <string name="m_t_distance">总距离</string>
+    <string name="m_t_calory">总卡路里</string>
+    <string name="m_p_step">平均步数</string>
+    <string name="m_p_distance">平均距离</string>
+    <string name="m_p_calory">平均卡路里</string>
+
+
+    <!--睡眠-->
+    <string name="sleep_qk_txt">睡眠情况</string>
+    <string name="sober_txt">清醒</string>
+    <string name="deep_sleep_txt">深睡</string>
+    <string name="somnolence_sleep_txt">浅睡</string>
+    <string name="none">暂无</string>
+    <string name="sleep_quality">睡眠质量</string>
+    <string name="commonly_txt">一般</string>
+    <string name="excellent_txt">很好</string>
+    <string name="good_txt">非常好</string>
+
+    <!--测量-->
+    <string name="start_test_hb">开始测量</string>
+    <string name="stop_test_hb">停止测量</string>
+    <string name="no_test_tip_text">多测量有助于关注身体健康额</string>
+    <string name="do_text_heart_blood">请放松，测量中...</string>
+    <string name="newly_test">最近测量</string>
+    <string name="more_heart">更多心率</string>
+    <string name="more_blood">更多血压</string>
+    <string name="avg_hb">平均值</string>
+    <string name="max_hb">最大值</string>
+    <string name="min_hb">最小值</string>
+    <string name="b_type">类型</string>
+    <string name="high_b">最高值</string>
+    <string name="low_b">最低值</string>
+    <string name="diastolic">舒张压</string>
+    <string name="systolic">收缩压</string>
+
+
+    <!--久坐提醒-->
+    <string name="is_warn_txt">是否提醒</string>
+    <string name="is_siesta_txt">午休免打扰</string>
+    <string name="long_sit_time_txt">久坐时长</string>
+    <string name="warn_star_time_txt">开始时间</string>
+    <string name="warn_end_time_txt">结束时间</string>
+    <string name="err_starend_time">结束时间不能大于开始时间</string>
+    <string name="err_starend_time2">结束时间不能等于开始时间</string>
+
+    <!--设置首页-->
+    <string name="device_state_txt">连接状态</string>
+    <string name="device_electric_txt">设备电量</string>
+    <string name="upgrade_txt">固件升级</string>
+    <string name="device_version_txt">设备版本</string>
+    <string name="find_device_txt">寻找手环</string>
+    <string name="user_profile_txt">个人信息</string>
+    <string name="take_photos_txt">遥控拍照</string>
+    <string name="alarm_set_txt">闹钟设置</string>
+    <string name="long_sit_txt">久坐提醒</string>
+    <string name="push_setting_txt">应用推送</string>
+    <string name="other_setting_txt">其他功能</string>
+    <string name="device_reset_txt">设备重置</string>
+    <string name="del_device_txt">移除设备</string>
+    <string name="sync_info">同步设置</string>
+    <string name="syncing">同步中</string>
+    <string name="sync_suc">同步完成</string>
+    <string name="confirm_remove_device_txt">您确定要删除数据并移除设备吗？</string>
+    <string name="confirm_reset_device_txt">您确定要重置设备吗？</string>
+
+    <!--遥控拍照-->
+    <string name="camera_time_run">设置遥控拍照延迟时间</string>
+
+    <!--闹钟设置-->
+    <string name="no_alarm_txt">您尚未创建有闹铃</string>
+    <string name="more_alarm_txt">最多允许设置8个闹钟</string>
+    <string name="has_alarm_txt">该闹钟已存在</string>
+    <string name="get_alarms_txt">获取闹铃列表</string>
+    <string name="mon_txt">周一</string>
+    <string name="tue_txt">周二</string>
+    <string name="wed_txt">周三</string>
+    <string name="thu_txt">周四</string>
+    <string name="fri_txt">周五</string>
+    <string name="sat_txt">周六</string>
+    <string name="sun_txt">周日</string>
+    <string name="alarm_del_txt">删除</string>
+    <string name="confirm_del_txt">确定移除选中的闹钟么？</string>
+
+    <!--开关设置-->
+    <string name="calls_remind">来电提醒</string>
+    <string name="sms_remind">短信推送</string>
+    <string name="wechat_remind">微信推送</string>
+    <string name="qq_remind">QQ消息推送</string>
+    <string name="face_book_remind">FaceBook</string>
+    <string name="twitter_remind">Twitter</string>
+    <string name="skype_remind">Skype</string>
+    <string name="line_remind">Line</string>
+    <string name="whatsapp_remind">Whatsapp</string>
+    <string name="instagram_remind">Instagram</string>
+    <string name="vibrate_setting">震动设置</string>
+    <string name="lift_screen">抬腕亮屏</string>
+    <string name="sleep_monitoring">睡眠监测</string>
+    <string name="automatic_heart_rate">心率自动测量</string>
+    <string name="lr_hand_wearing">左/右手佩戴</string>
+
+
+    <string name="wx_sport">微信运动</string>
+    <string name="ws_wait_qrcode">正在生成绑定二维码，请稍等...</string>
+    <string name="wx_bd1">1.打开微信扫一扫</string>
+    <string name="wx_bd2">2.点击右上角选择从相册选取二维码</string>
+    <string name="wx_bd3">3.在扫描结果界面点击绑定设备即可</string>
+
+    <string name="wx_jb">如已绑定手环设备</string>
+    <string name="wx_jbff">请先解绑当前设备解绑方法:</string>
+    <string name="wx_jb1">a.进入app设置页面</string>
+    <string name="wx_jb2">b.手环连接状态下点击设备重置或移除设备</string>
+    <string name="wx_jb3">c.即可解绑设备</string>
+    <string name="wx_save_tips">二维码生成成功,已保存到相册中</string>
+    <string name="sleep">睡眠</string>
+    <string name="hour">小时</string>
+    <string name="min">分</string>
+    <string name="measure">测量</string>
+    <string name="app_update">APP程序版本更新...</string>
+    <string name="update">更新</string>
+    <string name="cancel">取消</string>
+    <string name="app_already_finish">新版本APP已准备就绪</string>
+    <string name="install_once">是否马上安装更新?</string>
+    <string name="install_update">安装更新</string>
+    <string name="unkown_source">请求安装未知应用来源</string>
+    <string name="allow_install">前往设置允许安装?</string>
+    <string name="settings">设置</string>
+    <string name="open_location_tips">请打开定位服务/位置信息</string>
+    <string name="ok">确定</string>
+    <string name="sleep_quality_tag">睡眠质量</string>
+    <string name="_00_00">00时00分</string>
+    <string name="loadding_data">正在加载数据...</string>
+    <string name="check_upgrade">正在检测更新!</string>
+    <string name="last_version_not_upgrade">最新版本，不需要更新!</string>
+    <string name="ota_upgrade">OTA升级</string>
+    <string name="device_info_no_exist">没发现设备信息，请连接设备!</string>
+    <string name="upgrade_ota_tips">升级失败，建议重新升级或者重启手机蓝牙!</string>
+    <string name="matching_device">正在匹配设备中</string>
+    <string name="ota_out_memory_tips">OTA文件过大，可能导致升级失败，是否继续</string>
+    <string name="oat_upgrade_success">升级成功请手动启动设备开机</string>
+    <string name="loading_failed">数据加载失败!</string>
+    <string name="ota_upgrade_message">您有新的固件升级，请在线OTA更新，更新前，请先将手环先充满电。</string>
+    <string name="upgradding">正在升级...</string>
+    <string name="continuea">继续</string>
+    <string name="get_more_funcion">更多功能</string>
+</resources>

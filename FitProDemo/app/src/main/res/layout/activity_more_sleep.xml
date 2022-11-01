@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/sleep_background">
+
+        <ImageView
+            android:id="@+id/msleep_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:scaleType="center"
+            android:src="@drawable/xfkj_back"/>
+
+        <TextView
+            android:id="@+id/msleep_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/dp_5"
+            android:gravity="center"
+            android:text="title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_20"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/mhbScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_50"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/dp_5"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="-3dp"
+            android:background="@mipmap/sleep_bg"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <HorizontalScrollView
+                    android:id="@+id/hpv_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_50"
+                    android:gravity="center_horizontal"
+                    android:scrollbars="none"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                    <RadioGroup
+                        android:id="@+id/tabbar_p_items"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"/>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+
+            <!--下面部分-->
+            <LinearLayout
+                android:id="@+id/sleep_day_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!--睡眠质量文字显示-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_220">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp_160"
+                            android:layout_height="@dimen/dp_160"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/sleep_scale"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/m_sleep_qk_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableTop="@mipmap/sleep_icon"
+                                android:drawablePadding="@dimen/dp_10"
+                                android:text="@string/none"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_20"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tv_detail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp_10"
+                                android:text="@string/sleep_quality_tag"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_12"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20">
+                    <!--睡眠图表-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/m_sChartLinear"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_80"
+                            android:orientation="horizontal"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingTop="@dimen/dp_10">
+
+                            <TextView
+                                android:id="@+id/m_start_sleep_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:text="--:--"
+                                android:textColor="@color/gray"/>
+
+                            <TextView
+                                android:id="@+id/m_end_sleep_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:text="--:--"
+                                android:textColor="@color/gray"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <!--睡眠时间-->
+                    <TextView
+                        android:id="@+id/m_total_sleep_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:text="@string/_00_00"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_20"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_10"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/m_deep_sleep_bgview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@color/deep_sleep_background"/>
+
+                        <TextView
+                            android:id="@+id/m_somnolence_sleep_bgview"
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:background="@color/somnolence_sleep_background"/>
+
+                        <TextView
+                            android:id="@+id/m_sober_sleep_bgview"
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:background="@color/sober_sleep_background"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/dp_8"
+                        android:paddingBottom="@dimen/dp_5">
+
+                        <TextView
+                            android:id="@+id/m_deep_sleep_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/_00_00"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_16"/>
+
+                        <TextView
+                            android:id="@+id/m_somnolence_sleep_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/_00_00"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_16"/>
+
+                        <TextView
+                            android:id="@+id/m_sober_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/_00_00"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_16"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/m_dsleep_icon"
+                                android:layout_width="@dimen/dp_12"
+                                android:layout_height="@dimen/dp_12"
+                                android:background="@color/deep_sleep_background"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/dp_5"
+                                android:paddingRight="@dimen/dp_5"
+                                android:text="@string/deep_sleep_txt"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_14"/>
+
+                            <TextView
+                                android:id="@+id/m_deep_sleep_bfb"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_14"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/m_ssleep_icon"
+                                android:layout_width="@dimen/dp_12"
+                                android:layout_height="@dimen/dp_12"
+                                android:background="@color/somnolence_sleep_background"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/dp_5"
+                                android:paddingRight="@dimen/dp_5"
+                                android:text="@string/somnolence_sleep_txt"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_14"/>
+
+                            <TextView
+                                android:id="@+id/m_somnolence_sleep_bfb"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_14"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/m_sosleep_icon"
+                                android:layout_width="@dimen/dp_12"
+                                android:layout_height="@dimen/dp_12"
+                                android:background="@color/sober_sleep_background"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/dp_5"
+                                android:paddingRight="@dimen/dp_5"
+                                android:text="@string/sober_txt"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_14"/>
+
+                            <TextView
+                                android:id="@+id/tv_sober_times_percent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_14"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <RadioGroup
+        android:id="@+id/mp_title_btns"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <RadioButton
+            android:id="@+id/day_btn"
+            style="@style/MyCheck"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/more_sleep_select"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:minHeight="@null"
+            android:tag="day"
+            android:text="@string/m_day"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"/>
+
+        <RadioButton
+            android:id="@+id/week_btn"
+            style="@style/MyCheck"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/more_sleep_select"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:minHeight="@null"
+            android:tag="week"
+            android:text="@string/m_week"
+            android:textColor="@color/sleep_background"
+            android:textSize="@dimen/sp_18"/>
+
+        <RadioButton
+            android:id="@+id/month_btn"
+            style="@style/MyCheck"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/more_sleep_select"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:minHeight="@null"
+            android:tag="month"
+            android:text="@string/m_month"
+            android:textColor="@color/sleep_background"
+            android:textSize="@dimen/sp_18"/>
+
+    </RadioGroup>
+</RelativeLayout>

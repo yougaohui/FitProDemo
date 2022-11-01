@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="12dp"
+                android:paddingBottom="@dimen/dp_10"
+                android:background="@drawable/linear_underline"
+                android:paddingTop="12dp">
+
+    <TextView
+        android:id="@+id/labTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="left"
+        android:text="10秒"
+        android:textColor="@color/default_black_color"
+        android:textSize="@dimen/sp_16" />
+
+    <ImageView
+        android:id="@+id/labCheck"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:paddingRight="@dimen/dp_10"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/unchecked"/>
+</RelativeLayout>
