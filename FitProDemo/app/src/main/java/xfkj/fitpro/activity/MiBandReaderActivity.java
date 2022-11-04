@@ -1,5 +1,6 @@
 package xfkj.fitpro.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothDevice;
@@ -23,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.blankj.utilcode.util.PermissionUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.legend.bluetooth.fitprolib.bluetooth.BleManager;
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
@@ -228,7 +230,13 @@ public class MiBandReaderActivity extends BaseActivity implements AdapterView.On
 
     @Override
     protected void setViewsFunction() {
-
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                PermissionUtils.permission(Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN, Manifest.permission.BLUETOOTH_ADVERTISE).request();
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 
     @Override
