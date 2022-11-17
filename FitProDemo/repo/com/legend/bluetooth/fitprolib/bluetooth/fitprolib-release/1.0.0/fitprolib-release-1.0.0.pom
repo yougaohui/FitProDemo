@@ -6,8 +6,8 @@
   <version>1.0.0</version>
   <packaging>aar</packaging>
   <name>fitprolib-release</name>
-  <description>yidfdfds</description>
-  <url>./repo</url>
+  <description>"yidfdfds"</description>
+  <url>../repo</url>
   <developers>
     <developer>
       <id>yougaohui</id>
