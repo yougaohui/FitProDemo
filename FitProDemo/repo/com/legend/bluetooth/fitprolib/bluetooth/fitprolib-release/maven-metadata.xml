@@ -3,11 +3,11 @@
   <groupId>com.legend.bluetooth.fitprolib.bluetooth</groupId>
   <artifactId>fitprolib-release</artifactId>
   <versioning>
-    <latest>fitproLib</latest>
-    <release>fitproLib</release>
+    <latest>1.0.0</latest>
+    <release>1.0.0</release>
     <versions>
-      <version>fitproLib</version>
+      <version>1.0.0</version>
     </versions>
-    <lastUpdated>20221117032816</lastUpdated>
+    <lastUpdated>20221117060936</lastUpdated>
   </versioning>
 </metadata>

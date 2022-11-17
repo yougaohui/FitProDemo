@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.legend.bluetooth.fitprolib.bluetooth</groupId>
   <artifactId>fitprolib-release</artifactId>
-  <version>fitproLib</version>
+  <version>1.0.0</version>
   <packaging>aar</packaging>
   <name>fitprolib-release</name>
   <description>yidfdfds</description>
