@@ -1,11 +1,11 @@
 # FitProDemo
 # fitproSDK
 
-## 1，集成
+## 1、集成
 ### （1）将fitprolib-release.aar、otalib.aar放入lib目录下,并在应用build.gradle下引入.
 ### （2）build.gradle下引入 implementation 'com.blankj:utilcodex:1.31.0' 
 
-## 2,在Application初始化
+## 2、在Application初始化
     public class MyApplication extends Application {
       @Override
       public void onCreate() {
@@ -307,7 +307,7 @@
     另外，Android 7 到Android11 需要打开定位并获取定位权限才能扫描到这边。
     Android12及以上需要动态申请Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN, Manifest.permission.BLUETOOTH_ADVERTISE权限
 
-## 数据发送
+## 8、数据发送
 ### SDKCmdMannager
     SDKCmdMannager 封装了常用的指令发送接口，直接调用就可以。
 ### 自定义发送数据
