@@ -304,7 +304,7 @@
     BleManager.getInstance().scanLeDevice(false)表示停止扫描设备
 ### 扫描结果获取需要注册监听广播
     LeReceiver是SDK广播，可以监听所有SDK返回的数据,具体使用请参考示例代码MiBandReaderActivity.java
-    另外，Android 7 到Android11 需要打开定位并获取定位权限才能扫描到这边。
+    另外，Android 7 到Android11 需要打开定位并获取定位权限才能扫描到设备。
     Android12及以上需要动态申请Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN, Manifest.permission.BLUETOOTH_ADVERTISE权限
 
 ## 8、数据发送
@@ -313,3 +313,6 @@
 ### 自定义发送数据
     调用SDKTools.mService.commandPoolWrite可以发送自定义指令。例如
     SDKTools.mService.commandPoolWrite(new byte[]{0,0,1}, "测试用例");
+
+## 9、数据接收
+    需要注册LeReceiver广播才能接收到设备的相关数据，具体示例代码请参考Demo中的MyApplication.class,里面有各种数据的接收示例
