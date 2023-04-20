@@ -7,12 +7,12 @@
 
 ## 2,在Application初始化
     public class MyApplication extends Application {
-    @Override
-    public void onCreate() {
-    super.onCreate();
-    FitProSDK.getFitProSDK().init(this);
+      @Override
+      public void onCreate() {
+         super.onCreate();
+         FitProSDK.getFitProSDK().init(this);
+       }
     }
-
 
 ## 3、接口管理类 SDKCmdMannager
 
@@ -299,11 +299,17 @@
     public static final int what90 = 90; //睡眠数据返回
 
 ## 7.关于蓝牙扫描注意事项
-    SDK提供有扫描接口以及蓝牙相关工具类，扫描示例代码MiBandReaderActivity.java
+### .SDK提供有扫描接口以及蓝牙相关工具类，扫描示例代码MiBandReaderActivity.java
     BleManager.getInstance().scanLeDevice(true)表示扫描设备
     BleManager.getInstance().scanLeDevice(false)表示停止扫描设备
-    扫描结果获取需要注册监听广播
+### .扫描结果获取需要注册监听广播
     LeReceiver是SDK广播，可以监听所有SDK返回的数据,具体使用请参考示例代码MiBandReaderActivity.java
     另外，Android 7 到Android11 需要打开定位并获取定位权限才能扫描到这边。
     Android12及以上需要动态申请Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN, Manifest.permission.BLUETOOTH_ADVERTISE权限
 
+## 数据发送
+### SDKCmdMannager
+    SDKCmdMannager 封装了常用的指令发送接口，直接调用就可以。
+### 自定义发送数据
+    调用SDKTools.mService.commandPoolWrite可以发送自定义指令。例如
+    SDKTools.mService.commandPoolWrite(new byte[]{0,0,1}, "测试用例");
