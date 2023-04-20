@@ -298,7 +298,7 @@
     public static final int what80 = 80; //查找手机
     public static final int what90 = 90; //睡眠数据返回
 
-## 7.关于蓝牙扫描注意事项
+## 7、关于蓝牙扫描注意事项
 ### SDK提供有扫描接口以及蓝牙相关工具类，扫描示例代码MiBandReaderActivity.java
     BleManager.getInstance().scanLeDevice(true)表示扫描设备
     BleManager.getInstance().scanLeDevice(false)表示停止扫描设备
