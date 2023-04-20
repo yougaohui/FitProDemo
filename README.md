@@ -1,7 +1,9 @@
 # FitProDemo
 # fitproSDK
 
-## 1,将fitprolib-release.aar、otalib.aar放入lib目录下,并在应用build.gradle下引入。
+## 1,
+### （1）将fitprolib-release.aar、otalib.aar放入lib目录下,并在应用build.gradle下引入.
+### （2）build.gradle下引入 implementation 'com.blankj:utilcodex:1.31.0' 
 
 ## 2,在Application初始化
     public class MyApplication extends Application {
