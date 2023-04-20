@@ -4,12 +4,13 @@
 ## 1,将fitprolib-release.aar、otalib.aar放入lib目录下,并在应用build.gradle下引入。
 
 ## 2,在Application初始化
-public class MyApplication extends Application {
-@Override
-public void onCreate() {
-super.onCreate();
-FitProSDK.getFitProSDK().init(this);
-}
+
+### public class MyApplication extends Application {
+### @Override
+### public void onCreate() {
+### super.onCreate();
+### FitProSDK.getFitProSDK().init(this);
+### }
 
 @Override
 public void onTerminate() {
@@ -187,8 +188,6 @@ public void onTerminate() {
     public static boolean getPersonalInfo();
 
 
-
-
 ## 4、SDK工具类SDKTools
 
      /**
@@ -264,7 +263,7 @@ public void onTerminate() {
 
 
 ## 5、连接
-SDKTools.mService.connect2(addr);
+   SDKTools.mService.connect2(addr);
 
 
 ## 6、关于本地通信指令解释 Profile
