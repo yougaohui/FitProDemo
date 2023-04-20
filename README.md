@@ -13,14 +13,6 @@
     FitProSDK.getFitProSDK().init(this);
     }
 
-    @Override
-    public void onTerminate() {
-            super.onTerminate();
-            FitProSDK.getFitProSDK().onTerminate();
-        }
-    }
-
-
 
 ## 3、接口管理类 SDKCmdMannager
 
