@@ -297,3 +297,13 @@
     public static final int what72 = 72; //打开拍照
     public static final int what80 = 80; //查找手机
     public static final int what90 = 90; //睡眠数据返回
+
+## 7.关于蓝牙扫描注意事项
+    SDK提供有扫描接口以及蓝牙相关工具类，扫描示例代码MiBandReaderActivity.java
+    BleManager.getInstance().scanLeDevice(true)表示扫描设备
+    BleManager.getInstance().scanLeDevice(false)表示停止扫描设备
+    扫描结果获取需要注册监听广播
+    LeReceiver是SDK广播，可以监听所有SDK返回的数据,具体使用请参考示例代码MiBandReaderActivity.java
+    另外，Android 7 到Android11 需要打开定位并获取定位权限才能扫描到这边。
+    Android12及以上需要动态申请Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN, Manifest.permission.BLUETOOTH_ADVERTISE权限
+
