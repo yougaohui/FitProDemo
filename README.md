@@ -184,19 +184,9 @@
 ## 4、SDK工具类SDKTools
 
      /**
-     * 数据库名字
-     */
-    public final static String DBNAME = "fitpro";
-
-     /**
      * 应用程序根目录
      */
     public static String RootPath = "";
-
-     /**
-     * 数据库操作对象
-     */
-    public static SqliteDBAcces DBAcces = null;
 
     /**
      * 蓝牙服务通道对象
