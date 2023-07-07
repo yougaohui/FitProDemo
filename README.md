@@ -306,3 +306,5 @@
 
 ## 9、数据接收
     需要注册LeReceiver广播才能接收到设备的相关数据，具体示例代码请参考Demo中的MyApplication.java,里面有各种数据的接收示例
+
+
