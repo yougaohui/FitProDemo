@@ -1,18 +1,23 @@
 package xfkj.fitpro.activity;
 
+import static xfkj.fitpro.service.NotifyService.showNotifyPermissionDialog;
+
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ActivityUtils;
+import com.blankj.utilcode.util.PermissionUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.legend.bluetooth.fitprolib.utils.SaveKeyValues;
 
 import xfkj.fitpro.R;
 import xfkj.fitpro.base.BaseActivity;
-
-import static xfkj.fitpro.service.NotifyService.showNotifyPermissionDialog;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener
 {
@@ -183,7 +188,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener
         {
             boolean is_Connected = vid == R.id.next_one ? false : true;
             if(is_Connected){
-                intent.setClass(this, MiBandReaderActivity.class);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    final String[] permission = new String[]{Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN};
+                    if(!PermissionUtils.isGranted(permission)){
+                        PermissionUtils.permission(permission).callback(new PermissionUtils.SimpleCallback() {
+                            @Override
+                            public void onGranted() {
+                                ActivityUtils.startActivity(MiBandReaderActivity.class);
+                            }
+
+                            @Override
+                            public void onDenied() {
+                                ToastUtils.showShort("请通过蓝牙权限再试");
+                            }
+                        }).request();
+                        return;
+                    }
+                    intent.setClass(this, MiBandReaderActivity.class);
+                }else {
+                    intent.setClass(this, MiBandReaderActivity.class);
+                }
             }else{
                 intent.setClass(this, MenusActivity.class);
             }
