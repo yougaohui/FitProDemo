@@ -14,10 +14,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
-
-import androidx.annotation.RequiresApi;
-import androidx.core.view.ViewCompat;
-
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -25,16 +21,27 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.annotation.RequiresApi;
+import androidx.core.view.ViewCompat;
+
+import com.blankj.utilcode.constant.PermissionConstants;
 import com.blankj.utilcode.util.AppUtils;
+import com.blankj.utilcode.util.ConvertUtils;
 import com.blankj.utilcode.util.CrashUtils;
+import com.blankj.utilcode.util.FileIOUtils;
+import com.blankj.utilcode.util.FileUtils;
+import com.blankj.utilcode.util.PathUtils;
+import com.blankj.utilcode.util.PermissionUtils;
 import com.blankj.utilcode.util.ProcessUtils;
 import com.blankj.utilcode.util.ServiceUtils;
 import com.blankj.utilcode.util.TimeUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.blankj.utilcode.util.Utils;
+import com.blankj.utilcode.util.ViewUtils;
 import com.legend.bluetooth.fitprolib.application.FitProSDK;
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
 import com.legend.bluetooth.fitprolib.bluetooth.ProfilePlus;
+import com.legend.bluetooth.fitprolib.bluetooth.ReceiveData;
 import com.legend.bluetooth.fitprolib.model.ClockDialInfoBody;
 import com.legend.bluetooth.fitprolib.model.DeviceHardInfoModel;
 import com.legend.bluetooth.fitprolib.model.MeasureBloodModel;
@@ -49,6 +56,7 @@ import com.legend.bluetooth.fitprolib.utils.SDKTools;
 import com.legend.bluetooth.fitprolib.utils.SaveKeyValues;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -64,6 +72,7 @@ import java.util.concurrent.FutureTask;
 
 import xfkj.fitpro.db.SqliteDBAcces;
 import xfkj.fitpro.service.NotifyService;
+import xfkj.fitpro.utils.PermissionUtil;
 
 public class MyApplication extends Application {
 
@@ -158,6 +167,15 @@ public class MyApplication extends Application {
             leReceiver = new LeReceiver(this, mHandler);
             leReceiver.registerLeReceiver();
         }
+
+        //打印原始流
+        String path =  PathUtils.getExternalAppCachePath() + File.separator + "recv.log";
+        FileUtils.createOrExistsFile(path);
+        ReceiveData.setDataChangeListener(bytes -> {
+            ViewUtils.runOnUiThread(() -> {
+                FileIOUtils.writeFileFromString(path, TimeUtils.getNowString() + ":" + ConvertUtils.bytes2HexString(bytes) + "\n", true);
+            });
+        });
     }
 
     @Override
