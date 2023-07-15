@@ -169,12 +169,10 @@ public class MyApplication extends Application {
         }
 
         //打印原始流
-        String path =  PathUtils.getExternalAppCachePath() + File.separator + "recv.log";
+        String path = PathUtils.getExternalAppCachePath() + File.separator + "recv.log";
         FileUtils.createOrExistsFile(path);
         ReceiveData.setDataChangeListener(bytes -> {
-            ViewUtils.runOnUiThread(() -> {
-                FileIOUtils.writeFileFromString(path, TimeUtils.getNowString() + ":" + ConvertUtils.bytes2HexString(bytes) + "\n", true);
-            });
+            FileIOUtils.writeFileFromString(path, TimeUtils.getNowString() + ":" + ConvertUtils.bytes2HexString(bytes) + "\n", true);
         });
     }
 
