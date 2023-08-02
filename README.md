@@ -307,4 +307,10 @@
 ## 9、数据接收
     需要注册LeReceiver广播才能接收到设备的相关数据，具体示例代码请参考Demo中的MyApplication.java,里面有各种数据的接收示例
 
-
+## 10、天气
+    DEMO里Utils->weather->WeatherProxy是天气的业务代理实现。天气需要客户请求自己的天气接口，并按照WeatherProxy的示例发送天气数据。
+### 天气类型
+    协议支持多天气和单个天气。
+    FitProSpUtils.isSupport3DaysWeather()表示true支持多天气
+    FitProSpUtils.isSupportWeather()表示true支持一天的天气
+    
