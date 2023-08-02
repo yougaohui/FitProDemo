@@ -231,7 +231,7 @@ public class MiBandReaderActivity extends BaseActivity implements AdapterView.On
     @Override
     protected void setViewsFunction() {
         try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 PermissionUtils.permission(Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN, Manifest.permission.BLUETOOTH_ADVERTISE).request();
             }
         } catch (Exception exception) {

@@ -52,6 +52,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.test.BluetoothCommandActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.PlusCmdActivity"
             android:exported="false" />
         <activity android:name=".activity.MiBandReaderActivity" /> <!-- 适配android7.0应用间共享文件FileProvider -->

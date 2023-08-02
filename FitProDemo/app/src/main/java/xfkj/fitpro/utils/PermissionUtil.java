@@ -30,7 +30,7 @@ public class PermissionUtil {
         if (permissionUtil == null) {
             permissionUtil = new PermissionUtil();
         }
-        reqPermission = new HashMap<String, String[]>();
+        reqPermission = new HashMap<>();
         return permissionUtil;
     }
 

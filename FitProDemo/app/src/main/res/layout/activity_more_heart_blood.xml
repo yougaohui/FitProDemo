@@ -89,7 +89,7 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <xfkj.fitpro.entity.MyGridView
+                <xfkj.fitpro.view.MyGridView
                     android:id="@+id/bhgv"
                     android:layout_margin="@dimen/dp_10"
                     android:layout_width="match_parent"
@@ -101,7 +101,7 @@
                     android:layout_height="@dimen/dp_5"
                     android:background="@color/line_color"/>
 
-                <xfkj.fitpro.entity.MyListView
+                <xfkj.fitpro.view.MyListView
                     android:id="@+id/hb_lists"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

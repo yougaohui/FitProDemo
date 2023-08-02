@@ -248,4 +248,5 @@
     <string name="upgradding">正在升级...</string>
     <string name="continuea">继续</string>
     <string name="get_more_funcion">更多功能</string>
+    <string name="weather_debug">天气调试</string>
 </resources>

@@ -38,7 +38,7 @@
 					android:gravity="center"
 					android:orientation="vertical">
 
-					<xfkj.fitpro.entity.MyHeartView
+					<xfkj.fitpro.view.MyHeartView
 						android:id="@+id/heartView"
 						android:layout_width="wrap_content"
 						android:layout_height="220dp"/>
@@ -93,7 +93,7 @@
 				android:layout_width="fill_parent"
 				android:layout_height="@dimen/dp_5"
 				android:background="@color/line_color"></View>
-			<xfkj.fitpro.entity.MyListView
+			<xfkj.fitpro.view.MyListView
 				android:id="@+id/hb_list_item"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
