@@ -12,4 +12,6 @@ public class Constants {
      * 消息loading弹框
      */
     public static LoadingDailog dialog;
+    //是否是设备主动选择替换表盘
+    public static boolean isDeviceChoicePic = false;
 }

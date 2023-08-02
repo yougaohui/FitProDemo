@@ -52,6 +52,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.watchTheme1.ClockDialDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.watchTheme1.ClockDialListActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.test.BluetoothCommandActivity"
             android:exported="false" />
         <activity

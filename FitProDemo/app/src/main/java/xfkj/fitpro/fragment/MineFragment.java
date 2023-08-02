@@ -1,5 +1,12 @@
 package xfkj.fitpro.fragment;
 
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static com.legend.bluetooth.fitprolib.utils.BleUtils.refreshBleAppFromSystem;
+import static com.legend.bluetooth.fitprolib.utils.BleUtils.releaseAllScanClient;
+import static com.legend.bluetooth.fitprolib.utils.BleUtils.setLeServiceEnable;
+import static xfkj.fitpro.application.MyApplication.getRequset;
+import static xfkj.fitpro.application.MyApplication.setLanguage;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -9,9 +16,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +23,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.ConvertUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
 import com.legend.bluetooth.fitprolib.bluetooth.ReceiveData;
 import com.legend.bluetooth.fitprolib.bluetooth.SDKCmdMannager;
+import com.legend.bluetooth.fitprolib.model.ClockDialInfoBody;
 import com.legend.bluetooth.fitprolib.receiver.LeReceiver;
 import com.legend.bluetooth.fitprolib.utils.SDKTools;
 import com.legend.bluetooth.fitprolib.utils.SaveKeyValues;
@@ -46,18 +57,15 @@ import xfkj.fitpro.activity.SetInfoActivity;
 import xfkj.fitpro.activity.UinfoActivity;
 import xfkj.fitpro.activity.UpdateOtaActivity;
 import xfkj.fitpro.activity.test.BluetoothCommandActivity;
+import xfkj.fitpro.activity.watchTheme1.ClockDialListActivity;
 import xfkj.fitpro.adapter.SettingAdapter;
 import xfkj.fitpro.application.MyApplication;
 import xfkj.fitpro.base.BaseFragment;
+import xfkj.fitpro.db.CacheHelper;
+import xfkj.fitpro.event.ClockDialInfoEvent;
+import xfkj.fitpro.utils.DialogHelper;
 import xfkj.fitpro.utils.LoadingDailog;
 import xfkj.fitpro.view.SettingMenuItem;
-
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static com.legend.bluetooth.fitprolib.utils.BleUtils.refreshBleAppFromSystem;
-import static com.legend.bluetooth.fitprolib.utils.BleUtils.releaseAllScanClient;
-import static com.legend.bluetooth.fitprolib.utils.BleUtils.setLeServiceEnable;
-import static xfkj.fitpro.application.MyApplication.getRequset;
-import static xfkj.fitpro.application.MyApplication.setLanguage;
 
 public class MineFragment extends BaseFragment {
     private static final int CHANGE = 200;
@@ -184,7 +192,7 @@ public class MineFragment extends BaseFragment {
         (view.findViewById(R.id.img_test)).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                if(BuildConfig.DEBUG){
+                if (BuildConfig.DEBUG) {
                     ReceiveData.getInstance().testParse2(ConvertUtils.hexString2Bytes("cd0011150103000c273000020528000205640001"));
                 }
                 return true;
@@ -251,7 +259,7 @@ public class MineFragment extends BaseFragment {
             mData.add(new SettingMenuItem(R.string.upgrade_txt,getString(R.string.upgrade_txt), "", R.drawable.icon_set_more, R.drawable.device_update, 1, false, UpdateOtaActivity.class));
         }*/
 
-        mData.add(new SettingMenuItem(R.string.upgrade_txt,getString(R.string.upgrade_txt), "", R.drawable.icon_set_more, R.drawable.device_update, 1, false, UpdateOtaActivity.class));
+        mData.add(new SettingMenuItem(R.string.upgrade_txt, getString(R.string.upgrade_txt), "", R.drawable.icon_set_more, R.drawable.device_update, 1, false, UpdateOtaActivity.class));
         mData.add(new SettingMenuItem(R.string.find_device_txt, getString(R.string.find_device_txt), "", R.drawable.icon_set_more, R.mipmap.su_search_equipment_icon, 1, true, null));
         mData.add(new SettingMenuItem(R.string.user_profile_txt, getString(R.string.user_profile_txt), "", R.drawable.icon_set_more, R.mipmap.su_personal_information_icon, 1, true, UinfoActivity.class));
         mData.add(new SettingMenuItem(R.string.target_txt, getString(R.string.trget_txt), (SaveKeyValues.getIntValues("step", 5000) + " " + getString(R.string.step)), R.drawable.icon_set_more, R.mipmap.su_goal_setting_icon, 1, true, SetInfoActivity.class));
@@ -280,6 +288,7 @@ public class MineFragment extends BaseFragment {
         mData.add(new SettingMenuItem(R.string.del_device_txt, getString(R.string.del_device_txt), "", R.drawable.icon_set_more, R.mipmap.su_unlock_icon, 2, false, null));
         mData.add(new SettingMenuItem(R.string.get_more_funcion, getString(R.string.get_more_funcion), "", R.drawable.icon_set_more, R.mipmap.su_other_icon, 1, true, PlusCmdActivity.class));
         mData.add(new SettingMenuItem(R.string.weather_debug, getString(R.string.weather_debug), "", R.drawable.icon_set_more, R.mipmap.su_other_icon, 1, true, BluetoothCommandActivity.class));
+        mData.add(new SettingMenuItem(R.string.watch_theme, getString(R.string.watch_theme), "", R.drawable.icon_set_more, R.mipmap.su_reset_icon, 2, true, null));
 
 
         adapter.notifyDataSetChanged();
@@ -389,8 +398,20 @@ public class MineFragment extends BaseFragment {
                     }
                 });
                 dialog.show();
-            }else if (item.Id == R.string.get_more_funcion) {
+            } else if (item.Id == R.string.get_more_funcion) {
 
+            } else if (item.Id == R.string.watch_theme) {
+                ClockDialInfoBody info = CacheHelper.getClockDialInfo();
+                if (info != null) {
+                    ActivityUtils.startActivity(ClockDialListActivity.class);
+                }else {
+                    if (!SDKCmdMannager.getClockDialInfo()) {
+                        ToastUtils.showShort(R.string.unconnected);
+                    } else {
+                        startTimeOut(R.string.watch_theme, 5 * 1000);
+                        DialogHelper.showDialog(getActivity(), getString(R.string.query_clock_dial_info), false);
+                    }
+                }
             }
             return;
         }
@@ -450,5 +471,26 @@ public class MineFragment extends BaseFragment {
         super.onPause();
         if (leReceiver != null)
             leReceiver.unregisterLeReceiver();
+    }
+
+    @Override
+    public void onMessageEvent(Object event) {
+        super.onMessageEvent(event);
+        if (event instanceof ClockDialInfoEvent) {
+            DialogHelper.hideDialog();
+            if (getDelayWhats().contains(R.string.watch_theme)) {
+                ActivityUtils.startActivity(ClockDialListActivity.class);
+            }
+            stopTimeOut(R.string.watch_theme);
+        }
+    }
+
+    @Override
+    protected void localHandleMessage(Message msg) {
+        super.localHandleMessage(msg);
+        if(msg.what == R.string.watch_theme){
+            ToastUtils.showShort(R.string.query_device_info_over);
+            DialogHelper.hideDialog();
+        }
     }
 }

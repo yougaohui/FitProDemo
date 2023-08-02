@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--身体指数Array-->
+    <string-array name="BodyIndexMarkArray">
+        <item>3.5</item>
+        <item>9</item>
+        <item>13</item>
+    </string-array>
+    <!--男性体脂率Array-->
+    <string-array name="BodyManFatIndexMarkArray">
+        <item>8</item>
+        <item>13</item>
+        <item>18</item>
+        <item>23</item>
+    </string-array>
+    <!--女性体脂率Array-->
+    <string-array name="BodyWoMenFatIndexMarkArray">
+        <item>18</item>
+        <item>23</item>
+        <item>28</item>
+        <item>33</item>
+    </string-array>
+
+    <string-array name="share_quotations">
+        <item>我和脂肪作斗争，差点没牺牲。								</item>
+        <item>走过一些弯路，也好过原地踏步。                            </item>
+        <item>开心告诉别人，难过找我倾诉。                              </item>
+        <item>报复平庸最好的方式，就是保持一颗跳动的心。                </item>
+        <item>岁月如动车，光阴似高铁，再不开心，我们就老了。            </item>
+        <item>关于明天的事情，后天我们就知道了。                        </item>
+        <item>不要怕，我们遇到的多数人，不过是在假装自己很厉害而已。    </item>
+        <item>无论今天有多糟糕，醉了，醒了，就是明天。                  </item>
+        <item>超越自我，超越对手，点燃似火的热情！                      </item>
+        <item>健康来自运动，生命来自己运动，一切想要的东西都要运动。    </item>
+        <item>如果你想强壮，跑步吧! 如果你想健美，跑步吧!               </item>
+        <item>放弃可以找到一万个理由，坚持只需一个信念。                </item>
+        <item>要么挥汗如雨，要么滚回家。                                </item>
+        <item>想要放弃了的时候，想想当初为啥开始？                      </item>
+        <item>你只有非常努力，才能看起来毫不费力。                      </item>
+        <item>好身材只留给有毅力的人！                                  </item>
+        <item>他们嘲笑打击你，是因为你越来越优秀了!                     </item>
+        <item>不断奔跑，才能更靠近梦想。                                </item>
+        <item>倒下，也要倒在自己的地盘上。                              </item>
+        <item>当你坚持不了的时候，想想你的妻子或女朋友失望的眼神！      </item>
+        <item>很多人一生都在追求结果，却忽略了这个精彩的过程。          </item>
+    </string-array>
+
+    <string-array name="clock_dial_titles">
+        <item>@string/mo_ren</item>
+        <item>@string/tui_jian</item>
+    </string-array>
+
+
+    <string-array name="spo_circle_color_array">
+        <item>FFFFFFFF</item>
+        <item>FFFDE0E0</item>
+        <item>FFFDDFDF</item>
+        <item>FFFDD9D9</item>
+        <item>FFFF8E8E</item>
+    </string-array>
+
+
+    <string-array name="heart_circle_color_array">
+        <item>FFFB1F1F</item>
+        <item>FFFDDCDC</item>
+        <item>FFFDE1E0</item>
+        <item>FFFDE0E1</item>
+        <item>FFFDE0E1</item>
+    </string-array>
+
+
+</resources>

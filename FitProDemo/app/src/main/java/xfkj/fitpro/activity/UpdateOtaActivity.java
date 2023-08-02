@@ -44,6 +44,7 @@ import static com.legend.bluetooth.fitprolib.bluetooth.OtaManager.otas_tx_cmd_uu
 import static com.legend.bluetooth.fitprolib.bluetooth.OtaManager.otas_tx_dat_uuid;
 import static com.legend.bluetooth.fitprolib.bluetooth.OtaManager.otas_tx_ips_cmd_uuid;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothDevice;
@@ -81,7 +82,7 @@ import com.blankj.utilcode.util.ViewUtils;
 import com.blankj.utilcode.util.ZipUtils;
 import com.example.otalib.boads.Utils;
 import com.example.otalib.boads.WorkOnBoads;
-import com.legend.bluetooth.fitprolib.application.FitProSDK;
+import com.legend.bluetooth.fitprolib.api.DownloadMannager;
 import com.legend.bluetooth.fitprolib.bluetooth.BleManager;
 import com.legend.bluetooth.fitprolib.bluetooth.BluetoothLeService;
 import com.legend.bluetooth.fitprolib.bluetooth.ByteUtil;
@@ -104,10 +105,9 @@ import okhttp3.Callback;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import xfkj.fitpro.R;
-import xfkj.fitpro.api.HttpHelper;
+import xfkj.fitpro.api.NetAPITools;
 import xfkj.fitpro.base.BaseActivity;
 import xfkj.fitpro.model.OTAUpgradeInfo;
-import xfkj.fitpro.utils.DownloadMannager;
 import xfkj.fitpro.utils.OTADialogHelper;
 import xfkj.fitpro.utils.PathUtils;
 
@@ -191,7 +191,7 @@ public class UpdateOtaActivity extends BaseActivity {
      */
     private void checkUpgrade() {
         OTADialogHelper.showDialog(this,getString(R.string.check_upgrade));
-        HttpHelper.getInstance().getOTAUpgradeInfo(new Callback() {
+        NetAPITools.getInstance().getOTAUpgradeInfo(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 hideDialog("checkUpgrade onFailure");
@@ -228,12 +228,12 @@ public class UpdateOtaActivity extends BaseActivity {
     protected void setViewsListener() {
         mDownloadMannager.setDownLoadListener(new DownloadMannager.DownLoadListener() {
             @Override
-            public void onStartDownload() {
+            public void onStartDownload(String tag) {
                 OTADialogHelper.showLoadDialog(context);
             }
 
             @Override
-            public void onSuccess(String filePath) {
+            public void onSuccess(String filePath, String tag) {
                 hideDialog("setViewsListener onSuccess");
                 try {
                     ZipUtils.unzipFile(filePath, PathUtils.getOTADir());
@@ -262,7 +262,7 @@ public class UpdateOtaActivity extends BaseActivity {
             }
 
             @Override
-            public void onFailed(String info) {
+            public void onFailed(String info, String tag) {
                 hideDialog("setViewsListener onFailed");
                 ToastUtils.showShort(info);
                 finish();
@@ -361,6 +361,7 @@ public class UpdateOtaActivity extends BaseActivity {
     };
 
     private final BroadcastReceiver mGattUpdateReceiver = new BroadcastReceiver() {
+        @SuppressLint("MissingPermission")
         @SuppressWarnings("deprecation")
         @Override
         public void onReceive(Context context, Intent intent) {

@@ -25,6 +25,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
+import butterknife.ButterKnife;
+
 /**
  * 新的Activity基类
  * Created by gaohui.you on 2019/6/5 0005
@@ -65,15 +67,20 @@ public abstract class NewBaseActivity<T extends ViewBinding> extends AppCompatAc
         super.onCreate(savedInstanceState);
         mContext = this;
         Type type = this.getClass().getGenericSuperclass();
-        try {
-            Class<T> clazz = (Class<T>) ((ParameterizedType) type).getActualTypeArguments()[0];
-            //反射
-            Method method = clazz.getMethod("inflate", LayoutInflater.class);
-            binding = (T) method.invoke(null, getLayoutInflater());
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (type instanceof ParameterizedType) {
+            try {
+                Class<T> clazz = (Class<T>) ((ParameterizedType) type).getActualTypeArguments()[0];
+                //反射
+                Method method = clazz.getMethod("inflate", LayoutInflater.class);
+                binding = (T) method.invoke(null, getLayoutInflater());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            setContentView(binding.getRoot());
+        } else {
+            setContentView(getLayoutId());
+            ButterKnife.bind(this);
         }
-        setContentView(binding.getRoot());
 
         setTitle("");
         initData(savedInstanceState);

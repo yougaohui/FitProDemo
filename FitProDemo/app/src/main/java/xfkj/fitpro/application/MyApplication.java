@@ -11,7 +11,9 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
@@ -20,8 +22,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 
 import com.blankj.utilcode.constant.PermissionConstants;
@@ -70,9 +74,12 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
+import xfkj.fitpro.R;
+import xfkj.fitpro.db.CacheHelper;
 import xfkj.fitpro.db.SqliteDBAcces;
+import xfkj.fitpro.event.ClockDialInfoEvent;
 import xfkj.fitpro.service.NotifyService;
-import xfkj.fitpro.utils.PermissionUtil;
+import xfkj.fitpro.utils.EventBusUtils;
 
 public class MyApplication extends Application {
 
@@ -116,8 +123,8 @@ public class MyApplication extends Application {
                 //下面的数据部分产品可能没有相关协议，以实际产品为准
                 case ProfilePlus.MsgWhat.what1://表盘信息返回
                     ClockDialInfoBody body = (ClockDialInfoBody) map.get(SDKTools.EXTRA_DATA);
-                    Log.e(TAG, "clock info:" + body.toString());
-                    ToastUtils.showShort(body.toString());
+                    CacheHelper.setWatchInfo(body);
+                    EventBusUtils.post(new ClockDialInfoEvent(body, ""));
                     break;
                 case ProfilePlus.MsgWhat.what2://设备信息返回
                     DeviceHardInfoModel deviceInfo = (DeviceHardInfoModel) map.get(SDKTools.EXTRA_DATA);
@@ -174,6 +181,8 @@ public class MyApplication extends Application {
         ReceiveData.setDataChangeListener(bytes -> {
             FileIOUtils.writeFileFromString(path, TimeUtils.getNowString() + ":" + ConvertUtils.bytes2HexString(bytes) + "\n", true);
         });
+
+        initActivityLifeCallback();
     }
 
     @Override
@@ -372,5 +381,78 @@ public class MyApplication extends Application {
             DBAccess.Execute("DELETE FROM Sleep");
             DBAccess.Execute("DELETE FROM Step");
         }
+    }
+
+    /**
+     * 得到主线程Handler
+     *
+     * @return
+     */
+    public static Handler getMainThreadHandler() {
+        return MyApplication.getHandler();
+    }
+    private static Handler handler;
+    public static Handler getHandler() {
+        if (null == handler)
+            handler = new Handler(Looper.getMainLooper());
+        return handler;
+    }
+
+    private void initActivityLifeCallback() {
+        registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
+            @Override
+            public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+            }
+
+            @Override
+            public void onActivityStarted(Activity activity) {
+                if (!activity.getIntent().getBooleanExtra("isInitToolbar", false)) {
+                    //由于加强框架的兼容性,故将 setContentView 放到 onActivityCreated 之后,onActivityStarted 之前执行
+                    //而 findViewById 必须在 Activity setContentView() 后才有效,所以将以下代码从之前的 onActivityCreated 中移动到 onActivityStarted 中执行
+                    activity.getIntent().putExtra("isInitToolbar", true);
+                    //这里全局给Activity设置toolbar和title,你想象力有多丰富,这里就有多强大,以前放到BaseActivity的操作都可以放到这里
+                    if (activity.findViewById(R.id.toolbar) != null) {
+                        if (activity instanceof AppCompatActivity) {
+                            ((AppCompatActivity) activity).setSupportActionBar(activity.findViewById(R.id.toolbar));
+                            ((AppCompatActivity) activity).getSupportActionBar().setDisplayShowTitleEnabled(false);
+                        } else {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                activity.setActionBar(activity.findViewById(R.id.toolbar));
+                                activity.getActionBar().setDisplayShowTitleEnabled(false);
+                            }
+                        }
+                    }
+                    if (activity.findViewById(R.id.toolbar_title) != null) {
+                        ((TextView) activity.findViewById(R.id.toolbar_title)).setText(activity.getTitle());
+                    }
+                    if (activity.findViewById(R.id.toolbar_back) != null) {
+                        activity.findViewById(R.id.toolbar_back).setOnClickListener(v -> {
+                            activity.onBackPressed();
+                        });
+                    }
+                }
+            }
+
+            @Override
+            public void onActivityResumed(Activity activity) {
+            }
+
+            @Override
+            public void onActivityPaused(Activity activity) {
+            }
+
+            @Override
+            public void onActivityStopped(Activity activity) {
+            }
+
+            @Override
+            public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+            }
+
+            @Override
+            public void onActivityDestroyed(Activity activity) {
+                activity.getIntent().removeExtra("isInitToolbar");
+            }
+        });
     }
 }

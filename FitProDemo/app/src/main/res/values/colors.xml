@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="theme_color_light">#acffe5</color>
     <color name="theme_color">#62CC74</color>
-    <color name="colorPrimary">#62CC74</color>
-    <color name="colorPrimaryDark">#62CC74</color>
+    <color name="theme_color_dartk">#62CC74</color>
+    <color name="theme_color_dartk2">#62CC74</color>
+    <color name="colorPrimary">@color/theme_color</color>
+    <color name="colorPrimaryDark">@color/theme_color_dartk</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="white">#FFFFFF</color>
+    <color name="white">#FFFFFFFF</color>
     <color name="black">#333333</color>
     <color name="text1">#62CC74</color>
     <color name="gray">#999999</color>
@@ -13,13 +16,8 @@
     <color name="line_color">#E5E5E5</color>
     <color name="line_gray">#e1e1e1</color>
 
-    <color name="red">#FF0000</color>
-    <color name="back_red">#FF0000</color>
-    <color name="green_two">#59BB59</color>
-    <color name="theme_blue_two">#625EA3</color>
     <color name="btn_gray">#A8A69C</color>
-    <!--<color name="bottom_background">#F2F2F2</color>-->
-    <color name="bottom_background">#F8F8F8</color>
+    <color name="bottom_background">#F2F2F2</color>
     <color name="gender_picture_color">#33475F</color>
     <color name="main_background_gray">#ACB3C5</color>
 
@@ -30,11 +28,326 @@
 
     <color name="search_line_gray2">#cdcdcd</color>
 
-    <color name="sleep_background">#2f5cc3</color>
-    <color name="deep_sleep_background">#ff7997e8</color>
-    <color name="somnolence_sleep_background">#ffb9b6f0</color>
-    <color name="sober_sleep_background">#e4d8fc</color>
+    <color name="deep_sleep_background">#1ba2aa</color>
+    <color name="somnolence_sleep_background">#64cec8</color>
+    <color name="sober_sleep_background">#b9ffe8</color>
     <color name="more_bh_color">#d55234</color>
+
+    <!--主色调-->
+    <color name="basecolor">#49B557</color>
+    <!--字体、背景-->
+    <color name="red">#FF0000</color>
+    <color name="transparency">#00000000</color>
+    <color name="text_color_white">#FFFFFF</color>
+    <color name="text_color_1">#333333</color>
+    <color name="text_color_2">#666666</color>
+    <color name="text_color_3">#999999</color>
+    <color name="text_color_green">#6BC4A2</color>
+    <color name="divider_color">#ffe8e8e8</color>
+    <color name="transparent">#00000000</color>
+    <color name="rsbColorSeekBarDefault">#c3c3c3</color>
+    <color name="rsbColorThumbDefault">#FFFFFF</color>
+    <color name="rsbColorThumbBorder">#FFD7D7D7</color>
+    <color name="textColorBlack">#414665</color>
+    <color name="textColorGray">#ffa4a6b5</color>
+    <!--通用背景色-->
+    <color name="common_bg">@color/white</color>
+    <!--通用触摸背景色-->
+    <color name="common_touch_bg">#E3E3E3</color>
+
+    <color name="red_normal">#FF0000</color>
+    <color name="red_pressed">#FF6666</color>
+    <color name="bg_color">#F5F5F5</color>
+
+    <color name="login_edt_bg">#8014bb98</color>
+    <color name="habbit_item_unselect_color">#23d8b2</color>
+    <color name="habbit_item_select_color">#2bbcec</color>
+    <color name="color_slide_lock_bg" >#ff66efd2</color>
+    <color name="color_linear_chart_line">#ff52d6ba</color>
+    <color name="color_linear_chart_dot">#ff23c4a2</color>
+    <color name="color_sportview_bg">#21e0b8</color>
+
+    <color name="color_linear_chart_line_red">#ff4f55</color>
+    <color name="color_linear_chart_dot_red">#ff4f55</color>
+
+    <color name="temp_status_color1">#ff23c4a2</color>
+    <color name="temp_status_color2">#F67277</color>
+    <color name="temp_status_color3">#F8131B</color>
+    <color name="temp_status_color4">#A10106</color>
+    <color name="circle_view_border_color">#00ffc9</color>
+    <color name="hfrg_text1_color">#a4a6b5</color>
+    <color name="sign_bg_color">#17d54d</color>
+    <color name="bottom_nav_bg_color" >@color/white</color>
+    <color name="home_fg_bg_color">#fff5f5f5</color>
+    <color name="tab_text_checked">@color/textColorBlack</color>
+    <color name="tab_text_unchecked">@color/textColorGray</color>
+    <color name="text_color_100">#ff14bb98</color>
+    <color name="circle_img_border_color_100">#89ddcb</color>
+    <color name="share_textcolor_100" >@color/textColorBlack</color>
+    <color name="share_textcolor_101" >@color/text_color_100</color>
+    <color name="share_defeat_color">#a9ff02</color>
+    <color name="measure_txt_color">@color/textColorBlack</color>
+    <color name="sleep_more_txt1_color">@color/black</color>
+    <color name="sleep_more_txt2_color">@color/textColorBlack</color>
+    <color name="habbit_details_bg1">#fff5f5f5</color>
+    <color name="habbit_details_color1">@color/textColorBlack</color>
+    <color name="habbit_details_color2">#a4a6b5</color>
+    <color name="habbit_details_sign_btn_bg_unselseted">#ecf0f3</color>
+    <color name="habbit_details_sign_btn_bg_selseted">#A2A3A3</color>
+
+    <color name="calendar_selected_color">#17d54d</color>
+    <color name="calendar_pre_month_color">#d5d5d5</color>
+    <color name="calendar_normal_color">@color/black</color>
+    <color name="habbit_sign_color">@color/theme_color</color>
+    <color name="rank_txt_color1">@color/black</color>
+    <color name="rank_txt_color2">@color/textColorBlack</color>
+    <color name="rank_txt_color3">#909090</color>
+    <color name="rank_txt_color4">@color/theme_color</color>
+    <color name="rank_txt_color5">@color/title_bar_center_txt_color</color>
+    <color name="rank_header_bg_color">@color/white</color>
+    <color name="health_resport_circle_progress_ring_color">#ffd4f4fc</color>
+    <color name="health_resport_circle_progress_ring_progress_color">@color/theme_color</color>
+    <color name="health_resport_txt1_color">@color/theme_color</color>
+    <color name="health_resport_txt2_color">@color/black</color>
+    <color name="health_resport_txt3_color">#a4a6b5</color>
+    <color name="health_resport_txt4_color">#ff909090</color>
+    <color name="health_resport_txt5_color">@color/textColorBlack</color>
+    <color name="health_resport_txt6_color">@color/health_resport_txt2_color</color>
+    <color name="health_resport_seekbar_background_color1">#9dc4fb</color>
+    <color name="health_resport_seekbar_background_color2">#6eff7f</color>
+    <color name="health_resport_progress_color1">@color/theme_color</color>
+    <color name="health_resport_progress_color2">@color/theme_color</color>
+    <color name="health_resport_progress_default_color">@color/rsbColorSeekBarDefault</color>
+    <color name="health_resport_ll_bg">@color/white</color>
+
+    <color name="frg_device_sub_common_color1">@color/white</color>
+    <color name="frg_device_sub_common_tv1_color">@color/gray</color>
+    <color name="frg_device_sub_page_item_color">#333333</color>
+
+    <color name="sport_header_bg_color">@color/white</color>
+    <color name="sport_txt_color1">@color/black</color>
+    <color name="sport_txt_color2">@color/textColorBlack</color>
+    <color name="sport_txt_color3">@color/gray_text</color>
+    
+    <color name="sport_history_tv_color1">@color/textColorBlack</color>
+    <color name="sport_history_details_bg_color1">@color/white</color>
+    <color name="sport_history_details_tv_color1">@color/theme_color</color>
+
+    <color name="personinfo_page1_txt_color1">@color/black</color>
+    <color name="personinfo_page1_txt_color2">#ff909090</color>
+
+    <color name="personinfo_page2_txt_color1">#ff303030</color>
+    <color name="personinfo_page2_txt_color2">@color/theme_color</color>
+    <color name="personinfo_page2_txt_color3">#ff909090</color>
+    <color name="personinfo_page2_txt_color4">@color/theme_color</color>
+    <color name="personinfo_page2_tapeview_bg_color">#e6f7f9</color>
+    <color name="personinfo_page2_tapeview_calibration_color">#aaacb9</color>
+    <color name="personinfo_page2_tapeview_txt_color">#aaacb9</color>
+    <color name="personinfo_page2_tapeview_triangle_color">@color/theme_color</color>
+    <color name="personinfo_page2_wheel_center_color">@color/gray_text</color>
+    <color name="personinfo_page2_nickname_bg_color">@color/transparent</color>
+
+    <color name="login_page_tv_color1">@color/textColorBlack</color>
+    <color name="login_page_tv_color2">@color/theme_color</color>
+    <color name="login_page_btn_pressed_color">@color/theme_color_light</color>
+    <color name="login_page_btn_unpressed_color">@color/theme_color</color>
+    <color name="register_page_tv_color1">@color/textColorBlack</color>
+
+    <color name="modify_pwd_page_bg_color">@color/white</color>
+    <color name="modify_pwd_page_tv_color1">@color/textColorBlack</color>
+
+    <color name="feedback_bg_color">@color/white</color>
+    <color name="feedback_txt_color1">@color/textColorBlack</color>
+    <color name="item_history_line_color">@color/textColorBlack</color>
+    <color name="alarm_week_status_color">@color/theme_color</color>
+    <color name="alarm_empty_txt_color">@color/textColorBlack</color>
+    <color name="habbit_create_txt_color">@color/textColorBlack</color>
+    <color name="regiter_input_color">#a4a6b5</color>
+
+    <color name="steps_rank_txt_color">@color/white</color>
+    <color name="measure_date_txt_color">@color/textColorBlack</color>
+    <color name="sleep_calendar_date_txt_color">@color/textColorBlack</color>
+    <color name="item_history_date_txt_color">@color/textColorBlack</color>
+
+    <color name="ic_launcher_background">@color/transparent</color>
+    <color name="add_contract_edt_color">@color/habbit_create_txt_color</color>
+    <color name="more_steps_txt_color">@color/theme_color</color>
+    <color name="more_steps_txt2_color">@color/white</color>
+    <color name="more_steps_txt3_color">@color/textColorBlack</color>
+    <color name="more_steps_chart_axias_line_color">@color/gray</color>
+    <color name="more_steps_chart_axias_txt1_color">@color/textColorBlack</color>
+    <color name="more_steps_chart_dataset_color">@color/theme_color</color>
+    <color name="more_steps_week_press_color">@color/white</color>
+    <color name="more_steps_rb2_color">@color/theme_color</color>
+    <color name="more_steps_rb3_color">@color/black</color>
+    <color name="more_steps_rb4_color">@color/theme_color</color>
+    <color name="more_steps_bottom_checked_color">@color/theme_color</color>
+    <color name="clock_settings_pressed_color">@color/theme_color_light</color>
+    <color name="clock_settings_unpressed_color">@color/theme_color</color>
+    <color name="clock_settings_txt1_color">@color/white</color>
+    <color name="clock_settings_txt2_color">@color/textColorBlack</color>
+
+    <color name="contract_item_bg_color">@color/white</color>
+    <color name="contract_item_txt_color">@color/textColorGray</color>
+    <color name="share_steps_bg_color">@color/theme_color</color>
+
+    <color name="habbit_add_item_bg_color">@color/white</color>
+    <color name="habbit_add_item_txt1_color">@color/textColorBlack</color>
+    <color name="habbit_add_tab_indicatorcolor_color">@color/theme_color</color>
+    <color name="habbit_add_tab_bg_color">@color/white</color>
+    <color name="habbit_add_tab_select_txt_color">@color/theme_color</color>
+    <color name="habbit_add_tab_unselect_txt_color">@color/textColorGray</color>
+
+    <color name="clock_dial_tab_bg_color">#e8eeff</color>
+    <color name="clock_tab_indicat_color">@color/colorPrimary</color>
+    <color name="clock_tab_selected_color">@color/theme_color</color>
+    <color name="clock_dial_bg_color">@color/bg_color</color>
+    <color name="app_color_f6">#f6f6f6</color>
+    <color name="fg_home_tv1_color">@color/textColorBlack</color>
+    <color name="fg_home_tv2_color" >#000000</color>
+    <color name="sportview_ring">@color/white</color>
+    <color name="fg_dv_bind_bg">@color/theme_color_light</color>
+    <color name="home_sport_tab_bg_color">@android:color/transparent</color>
+    <color name="home_sport_tab_indi_color">@color/textColorBlack</color>
+    <color name="home_sport_tab_txt_color">#a4a6b5</color>
+    <color name="home_sport_tab_txt_select_color">@color/textColorBlack</color>
+    <color name="sport_color_bg">@color/white</color>
+    <color name="spv_progress_colr">#c3ffed</color>
+    <color name="spv_max_progress_colr">#e5fb2d</color>
+    <color name="bt_connect_guide_known_color1">#fffc8b3d</color>
+    <color name="bt_connect_guide_known_color2">#ffff7f02</color>
+    <color name="shape_perm_color">@color/white</color>
+
+    <color name="ecgOutColor">#434141</color>
+    <color name="ecgInnerColor">#434141</color>
+    <color name="ecgBackgroundColor">@color/white</color>
+    <color name="ecgDrawColor">@color/red</color>
+    <color name="ecg_txt_tips_color">@color/black</color>
+    <color name="ecg_dot_color">#14bb98</color>
+    <color name="ecg_history_tv1_color">#414665</color>
+    <color name="ecg_history_tv2_color">#ffffffff</color>
+    <color name="ecg_history_report_bg_color">#14bb98</color>
+    <color name="privacy_txt_color">@color/white</color>
+    <color name="bar_color">@color/theme_color</color>
+    <color name="bar_color_home_1">@color/bar_color</color>
+    <color name="bar_color_home_2">@color/bar_color</color>
+    <color name="bar_color_home_3">@color/bar_color</color>
+    <color name="bar_color_home_4">@color/bar_color</color>
+    <color name="title_bar_ok_color">@color/white</color>
+    <color name="title_bar_center_txt_color">@color/white</color>
+    <color name="titlebar_bg_color_start">@color/theme_color</color>
+    <color name="titlebar_bg_color_end">@color/theme_color</color>
+    <color name="rank_title_bar_color" >@color/titlebar_bg_color_start</color>
+    <color name="rank_bar_color">@color/white</color>
+    <color name="step_share_title_bg_color">@color/titlebar_bg_color_start</color>
+    <color name="step_share_title_tv_color">@color/title_bar_center_txt_color</color>
+    <color name="bar_color_share_step">@color/bar_color</color>
+    <color name="color_measure_title">@color/gray_text</color>
+    <color name="longsit_title_bg_color">@color/titlebar_bg_color_start</color>
+    <color name="longsit_title_color">@color/title_bar_center_txt_color</color>
+    <color name="bar_color_longsit">@color/bar_color</color>
+    <color name="scan_page_tv_color1">@color/white</color>
+    <color name="sport_continue_color">@color/theme_color</color>
+    <color name="sport_pause_color">#d25252</color>
+    <color name="bar_color_history_sport">@color/bar_color</color>
+    <color name="his_sport_chart_bg">@color/theme_color</color>
+    <color name="scan_page_pass_color">@color/white</color>
+    <color name="sos_normal_color">@color/contract_item_txt_color</color>
+    <color name="sos_selected_color">@color/red</color>
+    <!--钱包-->
+    <color name="pay_wallet_text1_color">@color/textColorBlack</color>
+    <color name="pay_wallet_text2_color">@color/textColorBlack</color>
+    <color name="pay_wallet_bind_normal_color">@color/theme_color</color>
+    <color name="pay_wallet_bind_press_color">@color/theme_color_dartk</color>
+    <color name="keep_live_title_color" >@color/theme_color_dartk2</color>
+
+    <color name="watch_theme2_item_title_color">@color/textColorBlack</color>
+    <color name="watch_theme2_border_color">@color/black</color>
+    <color name="watch_theme2_details_bg_color">@color/white</color>
+    <color name="watch_theme2_details_title_color">@color/textColorBlack</color>
+    <color name="watch_theme2_details_rad_text_color">@color/textColorBlack</color>
+    <color name="watch_theme2_rad_normal_color">#3d3d4b</color>
+    <color name="watch_theme2_rad_checked_color">#fd882e</color>
+    <color name="watch_theme2_pb_normal_color">#FFDBDBDB</color>
+    <color name="watch_theme2_pb_progress_color">@color/theme_color</color>
+    <color name="watch_theme2_title_color">#000000</color>
+    <color name="watch_theme_ok_color">@color/black</color>
+    <color name="bind_text_color">@color/theme_color_dartk2</color>
+    <color name="scan_tips_color">@color/theme_color_dartk2</color>
+
+    <color name="health_report_solid_color">@color/white</color>
+    <color name="health_report_stroke_color">@color/theme_color</color>
+    <color name="health_resport_txt7_color">@color/health_resport_txt4_color</color>
+    <color name="measure_top_container_color">@color/white</color>
+    <color name="measure_heart_label_color">#a4a6b5</color>
+    <color name="sleep_more_txt3_color">@color/sleep_more_txt1_color</color>
+    <color name="sleep_more_txt4_color">@color/sleep_more_txt1_color</color>
+    <color name="sleep_more_txt5_color">@color/sleep_more_txt1_color</color>
+    <color name="clendar_bg_color">@color/bg_color</color>
+    <color name="more_steps_week_normal_color">@color/theme_color</color>
+    <color name="alarm_item_bg_color">@color/white</color>
+    <color name="alarm_item_text1_color">@color/black</color>
+    <color name="alarm_item_text2_color">@color/white</color>
+    <color name="scan_device_title_color">@color/default_black_color_1</color>
+    <color name="scan_device_label_color">@color/gray</color>
+    <color name="scan_device_rssi_color">@color/default_black_color_1</color>
+    <color name="lottie_color">@color/white</color>
+    <color name="sport_preview_textcolor">@color/textColorBlack</color>
+    <color name="sport_preview_textcolor_big">@color/textColorBlack</color>
+    <color name="frg_mine_tv1_color">@color/textColorBlack</color>
+    <color name="forget_pwd_mail_tips">#a4a6b5</color>
+    <color name="habbit_item_continue_color">@color/white</color>
+    <color name="habbit_item_name_color">@color/white</color>
+    <color name="habbit_details_calendar_tv_color">@color/black</color>
+    <color name="calendar_week_txt_color">#ffb0b0b0</color>
+    <color name="habbit_details_calendar_selected_color">#17d54d</color>
+    <color name="habbit_details_calendar_pre_month_color">#d5d5d5</color>
+    <color name="habbit_details_calendar_normal_color">@color/black</color>
+    <color name="habbit_detials_sign_color">@color/habbit_sign_color</color>
+    <color name="calendar_habbit_details_week_txt_color">@color/calendar_week_txt_color</color>
+    <color name="health_habbit_detials_rank_label_color">@color/textColorGray</color>
+    <color name="habbit_details_rank_item_bg_color">@color/white</color>
+    <color name="ecg_progress_tv_color">@color/black</color>
+    <color name="scan_page_bg_color">@color/titlebar_bg_color_end</color>
+    <color name="about_title_color">@color/black</color>
+    <color name="login_cx_normal_color">@color/colorPrimary</color>
+    <color name="login_cx_active_color">@color/colorPrimary</color>
+    <color name="user_protocol_bg_color">@color/transparent</color>
+    <color name="contract_edit_cotent_color">@color/habbit_create_txt_color</color>
+    <color name="scan_page_content_color">@color/white</color>
+    <color name="frg_sport_circle_btn_color">@color/theme_color_light</color>
+    <color name="frg_sport_circle_btn_color_normal">@color/theme_color</color>
+    <color name="person_sub_button_color1">@color/theme_color</color>
+    <color name="person_sub_button_color2">@color/theme_color_dartk</color>
+    <color name="ecg_history_tv3_color">@color/white</color>
+    <color name="home_frg_mine_color1">@color/white</color>
+    <color name="measure_txt_color2">@color/measure_txt_color</color>
+    <color name="frg_device_bind_color1">#8555a1</color>
+    <color name="frg_device_bind_color2">#8555a1</color>
+    <color name="home_step_progress_normal_color">#f97958</color>
+    <color name="frg_device_battery_color">@color/frg_device_bind_color1</color>
+    <color name="other_login_tv_color">@color/white</color>
+    <color name="heart_rate_circle_pb_start_color">#E4BFBF</color>
+    <color name="heart_rate_circle_pb_end_color">#ff0000</color>
+    <color name="heart_rate_btn_test_press_color">@color/textColorBlack</color>
+    <color name="heart_rate_btn_test_normal_color">@color/textColorGray</color>
+    <color name="measure_bottom_container_color">@color/white</color>
+    <color name="person_commit_btn_txt_color">#fffefefe</color>
+    <color name="status_bar_color">@color/colorPrimary</color>
+    <color name="register_page_tv_color2">@color/habbit_create_txt_color</color>
+    <color name="habbit_left_delete_color">@color/black</color>
+    <color name="habbit_details_cardview_bg_color">@color/white</color>
+    <color name="hand_light_time_color">@color/black</color>
+    <color name="contract_input_text_color">@color/register_page_tv_color2</color>
+    <color name="start_page_full_color">@color/colorPrimary</color>
+    <color name="start_page_bg_color">@color/theme_color</color>
+    <color name="button_small2_color1">@color/theme_color</color>
+    <color name="button_small2_color2">@color/theme_color_dartk</color>
+
+    <color name="back_red">#FF0000</color>
+    <color name="green_two">#59BB59</color>
+    <color name="theme_blue_two">#625EA3</color>
+    <color name="sleep_background">#2f5cc3</color>
     <color name="measure_test_btn_bg">#5E8BFF</color>
     <color name="measure_title_bg">#587AFC</color>
 </resources>

@@ -51,4 +51,19 @@
     <dimen name="sp_28">28sp</dimen>
     <dimen name="sp_40">40sp</dimen>
     <dimen name="x25">25dp</dimen>
+
+
+    <!--边距-->
+    <dimen name="cardPicRadius">4dp</dimen>
+    <dimen name="cardElevation">0.5dp</dimen>
+    <dimen name="item_edge">10dp</dimen>
+    <dimen name="lineSpacingExtra">3dp</dimen>
+    <dimen name="line">1dp</dimen>
+    <dimen name="spacing_3dp">3dp</dimen>
+
+    <dimen name="contract_divider_height">0dp</dimen>
+    <dimen name="watch_theme2_pb_radius">22dp</dimen>
+    <dimen name="heart_rate_eleva">3dp</dimen>
+    <dimen name="measure_bottom_eleva">3dp</dimen>
+    <dimen name="habbit_details_cardview_eleva">3dp</dimen>
 </resources>
