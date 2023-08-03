@@ -17,6 +17,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.legend.bluetooth.fitprolib.api.DownloadMannager;
 import com.legend.bluetooth.fitprolib.api.HttpHelper;
 import com.legend.bluetooth.fitprolib.bluetooth.SDKCmdMannager;
+import com.legend.bluetooth.fitprolib.bmp.BitmapConverter;
 import com.legend.bluetooth.fitprolib.model.ClockDialInfoBody;
 import com.legend.bluetooth.fitprolib.model.WatchThemeDetailsResponse;
 import com.legend.bluetooth.fitprolib.utils.NumberUtils;
@@ -32,7 +33,6 @@ import xfkj.fitpro.db.CacheHelper;
 import xfkj.fitpro.jni.BmpConvertTools;
 import xfkj.fitpro.utils.DialogHelper;
 import xfkj.fitpro.utils.PathUtils;
-import xfkj.fitpro.utils.bmp.BitmapConverter;
 import xfkj.fitpro.view.dialog.WatchThemeDialog;
 import xfkj.fitpro.view.dialog.WatchThemePosPickerDialog;
 
