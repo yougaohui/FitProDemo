@@ -316,4 +316,7 @@
     协议支持多天气和单个天气。
     FitProSpUtils.isSupport3DaysWeather()表示true支持多天气
     FitProSpUtils.isSupportWeather()表示true支持一天的天气
+
+## 11、消息通知
+    消息通知拦截在NotifyService.java有实现
     
