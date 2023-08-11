@@ -1,5 +1,9 @@
 package xfkj.fitpro.activity;
 
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetLongSitValue;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.setSendBeforeValue;
+
 import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
@@ -22,12 +26,8 @@ import java.util.Map;
 import xfkj.fitpro.Constants;
 import xfkj.fitpro.R;
 import xfkj.fitpro.base.BaseActivity;
-import xfkj.fitpro.view.LongSitPopupWin;
 import xfkj.fitpro.utils.LoadingDailog;
-
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetLongSitValue;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.setSendBeforeValue;
+import xfkj.fitpro.view.LongSitPopupWin;
 
 public class LongsitWarnActivity extends BaseActivity implements View.OnClickListener
 {
@@ -218,17 +218,17 @@ public class LongsitWarnActivity extends BaseActivity implements View.OnClickLis
             time = time - 3;
             getListItem(vid, time);
             map.put("sit_title", this.getString(R.string.long_sit_time_txt));
-            map.put("sit_vid", vid);
+            map.put("sit_vid", R.id.long_sit_time);
         } else if (vid == R.id.warn_star_time_linear) {
             Integer star_time = SaveKeyValues.getIntValues("longsit_" + R.id.warn_star_time, 8);
             getListItem(vid, star_time);
             map.put("sit_title", this.getString(R.string.warn_star_time_txt));
-            map.put("sit_vid", vid);
+            map.put("sit_vid", R.id.warn_star_time);
         } else if (vid == R.id.warn_end_time_linear) {
             Integer end_time = SaveKeyValues.getIntValues("longsit_" + R.id.warn_end_time, 22);
             getListItem(vid, end_time);
             map.put("sit_title", this.getString(R.string.warn_end_time_txt));
-            map.put("sit_vid", vid);
+            map.put("sit_vid", R.id.warn_end_time);
         }
         showPopFormBottom();
     }

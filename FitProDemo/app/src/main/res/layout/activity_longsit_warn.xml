@@ -161,7 +161,7 @@
                 android:textSize="@dimen/sp_18"/>
 
             <TextView
-                android:id="@+id/long_sit_time"
+                android:id="@id/long_sit_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -199,7 +199,7 @@
                 android:textSize="@dimen/sp_18"/>
 
             <TextView
-                android:id="@+id/warn_star_time"
+                android:id="@id/warn_star_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -237,7 +237,7 @@
                 android:textSize="@dimen/sp_18"/>
 
             <TextView
-                android:id="@+id/warn_end_time"
+                android:id="@id/warn_end_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
