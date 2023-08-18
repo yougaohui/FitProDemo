@@ -325,3 +325,14 @@
     lang对应国家的编码:
     中文：0x00 英文：0x01 繁体：0x02 阿拉伯语：0x03 捷克语：0x04 德语:0x05  西班牙语:0x06  法语:0x07  日语:0x08  马来西亚语:0x09  荷兰语:0xA  波兰语:0xB  葡萄牙语:0xC  俄语:0xD  斯洛伐克语:0xE  泰语:0xF  土耳其语:0x10 越南语:0x11 意大利语:0x12 菲律宾语:0x13 印尼语:0x14
     乌克兰语:0x15 印度语:0x16 芬兰语:0x17 克罗地亚语:0x18 挪威语:0x19  丹麦语:0x1A 瑞典语:0x1B  韩语:0x1C 匈牙利语:0x1D 希腊语:0x1E 波斯语:0x1F 罗马尼亚语:0x20
+
+## 13、表盘升级错误码
+    public static final int ERROR_WAIT_TIMEOUT = 1001;//等待设备返回数据超时
+    public static final int ERROR_RESEND_TIMEOUT = 1002;//重发等待设备返回数据超时
+    public static final int ERROR_CHECK = 1003;//校验错误，设备端返回的
+    public static final int ERROR_IMG_FILE_NO_EXIST = 1004;//图片固件文件不存在
+    public static final int ERROR_FONT_FILE_NO_EXIST = 1005;//字体固件文件不存在
+    public static final int ERROR_BLE_DISCONNECTED = 1006;//app和设备已断开
+    public static final int ERROR_UNKNOWN = 1007;//未知错误，设备端返回0过来导致的
+    public static final int ERROR_BATTERY_LOW = 1008;//电量低
+    public static final int ERROR_CHARGE_BATTERY = 1009;//正在充电
