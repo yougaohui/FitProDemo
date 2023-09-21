@@ -1,5 +1,9 @@
 package xfkj.fitpro.activity;
 
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.getContext;
+import static xfkj.fitpro.application.MyApplication.getRequset;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,7 +17,6 @@ import android.widget.Toast;
 
 import com.legend.bluetooth.fitprolib.utils.SDKTools;
 import com.legend.bluetooth.fitprolib.utils.SaveKeyValues;
-import com.legend.bluetooth.fitprolib.utils.qrcode.QRCodeUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,10 +30,7 @@ import xfkj.fitpro.Constants;
 import xfkj.fitpro.R;
 import xfkj.fitpro.base.BaseActivity;
 import xfkj.fitpro.utils.LoadingDailog;
-
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.getContext;
-import static xfkj.fitpro.application.MyApplication.getRequset;
+import xfkj.fitpro.utils.qrcode.QRCodeUtil;
 
 public class WxSportActivity extends BaseActivity {
 
@@ -85,7 +85,7 @@ public class WxSportActivity extends BaseActivity {
                 if(data != null){
                     String ticket = data.getString("ticket");
                     if(!ticket.equals("")){
-                        Bitmap logo = BitmapFactory.decodeResource(getContext().getResources(),R.drawable.xfkj);
+                        Bitmap logo = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.xfkj);
                         Bitmap qrcode = QRCodeUtil.createQRCodeBitmap(ticket, 400,logo,0.2f);
                         mImageView.setImageBitmap(qrcode);
                         saveImage(qrcode, SDKTools.RootPath+"/qrcode.JPEG");
