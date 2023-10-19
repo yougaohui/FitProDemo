@@ -34,6 +34,7 @@ import com.blankj.utilcode.util.ConvertUtils;
 import com.blankj.utilcode.util.CrashUtils;
 import com.blankj.utilcode.util.FileIOUtils;
 import com.blankj.utilcode.util.FileUtils;
+import com.blankj.utilcode.util.NotificationUtils;
 import com.blankj.utilcode.util.PathUtils;
 import com.blankj.utilcode.util.PermissionUtils;
 import com.blankj.utilcode.util.ProcessUtils;
@@ -42,6 +43,7 @@ import com.blankj.utilcode.util.TimeUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.blankj.utilcode.util.Utils;
 import com.blankj.utilcode.util.ViewUtils;
+import com.legend.bluetooth.fitprolib.application.Config;
 import com.legend.bluetooth.fitprolib.application.FitProSDK;
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
 import com.legend.bluetooth.fitprolib.bluetooth.ProfilePlus;
@@ -162,7 +164,9 @@ public class MyApplication extends Application {
         super.onCreate();
         context = this;
         Utils.init(this);
-        FitProSDK.getFitProSDK().init(this);
+        FitProSDK.getFitProSDK()
+                .setConfig(new Config().BuildImportance(NotificationUtils.IMPORTANCE_DEFAULT))//设置前台消息通知级别
+                .init(this);
         CrashUtils.init();
         notificationSettings();
         startNotifyService(this);
