@@ -342,7 +342,7 @@
     public static final int ERROR_CHARGE_BATTERY = 1009;//正在充电
 
 ## 14、前台服务通知
-     com.legend.bluetooth.fitprolib.utils.NotificationUtil.startServiceNotification(context,title,content);
-     context必须为service的上下文，title是通知标题，content是通知内容。开发人员可以通过这个方法修改通知里面的内容。
+     com.legend.bluetooth.fitprolib.utils.NotificationUtil.startServiceNotification(title,content);
+     title是通知标题，content是通知内容。开发人员可以通过这个方法修改通知里面的内容。
      
    
