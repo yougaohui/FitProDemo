@@ -28,7 +28,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 
-import com.blankj.utilcode.constant.PermissionConstants;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.ConvertUtils;
 import com.blankj.utilcode.util.CrashUtils;
@@ -36,13 +35,11 @@ import com.blankj.utilcode.util.FileIOUtils;
 import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.NotificationUtils;
 import com.blankj.utilcode.util.PathUtils;
-import com.blankj.utilcode.util.PermissionUtils;
 import com.blankj.utilcode.util.ProcessUtils;
 import com.blankj.utilcode.util.ServiceUtils;
 import com.blankj.utilcode.util.TimeUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.blankj.utilcode.util.Utils;
-import com.blankj.utilcode.util.ViewUtils;
 import com.legend.bluetooth.fitprolib.application.Config;
 import com.legend.bluetooth.fitprolib.application.FitProSDK;
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
@@ -58,6 +55,7 @@ import com.legend.bluetooth.fitprolib.model.ProductInfoModel;
 import com.legend.bluetooth.fitprolib.model.SleepDetailsModel;
 import com.legend.bluetooth.fitprolib.model.SportDetailsModel;
 import com.legend.bluetooth.fitprolib.receiver.LeReceiver;
+import com.legend.bluetooth.fitprolib.utils.NotificationUtil;
 import com.legend.bluetooth.fitprolib.utils.SDKTools;
 import com.legend.bluetooth.fitprolib.utils.SaveKeyValues;
 
@@ -165,7 +163,10 @@ public class MyApplication extends Application {
         context = this;
         Utils.init(this);
         FitProSDK.getFitProSDK()
-                .setConfig(new Config().BuildImportance(NotificationUtils.IMPORTANCE_DEFAULT))//设置前台消息通知级别
+                .setConfig(new Config()
+                .setNotificationImportance(NotificationUtils.IMPORTANCE_DEFAULT)
+                .setNotificationTitle("你自己的标题")
+                .setNotificationContent("您自己的通知内容"))//设置前台消息通知级别
                 .init(this);
         CrashUtils.init();
         notificationSettings();
