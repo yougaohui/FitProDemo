@@ -9,8 +9,12 @@
     public class MyApplication extends Application {
       @Override
       public void onCreate() {
-         super.onCreate();
-         FitProSDK.getFitProSDK().init(this);
+        FitProSDK.getFitProSDK()
+                .setConfig(new Config()
+                .setNotificationImportance(NotificationUtils.IMPORTANCE_DEFAULT)
+                .setNotificationTitle("你自己的标题")
+                .setNotificationContent("您自己的通知内容"))//设置前台消息通知级别
+                .init(this);
        }
     }
 
