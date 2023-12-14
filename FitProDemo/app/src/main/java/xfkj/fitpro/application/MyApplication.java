@@ -162,11 +162,9 @@ public class MyApplication extends Application {
         super.onCreate();
         context = this;
         Utils.init(this);
-        FitProSDK.getFitProSDK()
-                .setConfig(new Config()
-                .setNotificationImportance(NotificationUtils.IMPORTANCE_DEFAULT)//设置前台消息通知级别
-                .setNotificationTitle("你自己的标题")//消息通知标题
-                .setNotificationContent("您自己的通知内容"))//消息通知内容
+        FitProSDK.getFitProSDK().setConfig(new Config().setNotificationImportance(NotificationUtils.IMPORTANCE_DEFAULT)//设置前台消息通知级别
+                        .setNotificationTitle("你自己的标题")//消息通知标题
+                        .setNotificationContent("您自己的通知内容"))//消息通知内容
                 .init(this);
         CrashUtils.init();
         notificationSettings();
@@ -335,7 +333,7 @@ public class MyApplication extends Application {
             String channelId = "fitpro";
             NotificationManager manager = (NotificationManager) getContext().getSystemService(NOTIFICATION_SERVICE);
             NotificationChannel channel = manager.getNotificationChannel(channelId);
-            if (channel.getImportance() == NotificationManager.IMPORTANCE_NONE) {
+            if (null != channel && channel.getImportance() == NotificationManager.IMPORTANCE_NONE) {
                 Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS);
                 intent.putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName());
                 intent.putExtra(Settings.EXTRA_CHANNEL_ID, channel.getId());
@@ -396,10 +394,11 @@ public class MyApplication extends Application {
     public static Handler getMainThreadHandler() {
         return MyApplication.getHandler();
     }
+
     private static Handler handler;
+
     public static Handler getHandler() {
-        if (null == handler)
-            handler = new Handler(Looper.getMainLooper());
+        if (null == handler) handler = new Handler(Looper.getMainLooper());
         return handler;
     }
 

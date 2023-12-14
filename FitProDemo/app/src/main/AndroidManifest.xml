@@ -24,7 +24,6 @@
         android:name="android.permission.BLUETOOTH_SCAN"
         android:usesPermissionFlags="neverForLocation" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -41,9 +40,7 @@
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <!--android13-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- android13 -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
@@ -55,6 +52,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.test.OtherBluetoothDebugActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.watchTheme1.ClockDialDetailsActivity"
             android:exported="false" />
@@ -166,8 +166,8 @@
 
         <service
             android:name=".service.NotifyService"
-            android:label="@string/app_name"
             android:exported="false"
+            android:label="@string/app_name"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action
