@@ -57,6 +57,7 @@ import xfkj.fitpro.activity.SetInfoActivity;
 import xfkj.fitpro.activity.UinfoActivity;
 import xfkj.fitpro.activity.UpdateOtaActivity;
 import xfkj.fitpro.activity.test.BluetoothCommandActivity;
+import xfkj.fitpro.activity.test.OtherBluetoothDebugActivity;
 import xfkj.fitpro.activity.watchTheme1.ClockDialListActivity;
 import xfkj.fitpro.adapter.SettingAdapter;
 import xfkj.fitpro.application.MyApplication;
@@ -289,10 +290,8 @@ public class MineFragment extends BaseFragment {
         mData.add(new SettingMenuItem(R.string.get_more_funcion, getString(R.string.get_more_funcion), "", R.drawable.icon_set_more, R.mipmap.su_other_icon, 1, true, PlusCmdActivity.class));
         mData.add(new SettingMenuItem(R.string.weather_debug, getString(R.string.weather_debug), "", R.drawable.icon_set_more, R.mipmap.su_other_icon, 1, true, BluetoothCommandActivity.class));
         mData.add(new SettingMenuItem(R.string.watch_theme, getString(R.string.watch_theme), "", R.drawable.icon_set_more, R.mipmap.su_reset_icon, 2, true, null));
-
-
+        mData.add(new SettingMenuItem(R.string.ble_other_func_debug, getString(R.string.ble_other_func_debug), "", R.drawable.icon_set_more, R.mipmap.su_other_icon, 1, true, OtherBluetoothDebugActivity.class));
         adapter.notifyDataSetChanged();
-
     }
 
     /**

@@ -293,4 +293,5 @@
     <string name="warn">警告</string>
     <string name="update_ota_force_tips">正在升级...请不要退出App</string>
     <string name="watch_theme">表盘</string>
+    <string name="ble_other_func_debug">指令调试</string>
 </resources>

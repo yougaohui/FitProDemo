@@ -53,5 +53,12 @@
             android:layout_height="wrap_content"
             android:onClick="onClick6"
             android:text="单个测试血氧" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick7"
+            android:text="睡眠数据查看" />
     </LinearLayout>
 </ScrollView>
