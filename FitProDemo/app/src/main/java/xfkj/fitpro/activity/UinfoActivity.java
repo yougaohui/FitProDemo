@@ -1,12 +1,15 @@
 package xfkj.fitpro.activity;
 
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.View;
 
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
 import com.legend.bluetooth.fitprolib.bluetooth.SDKCmdMannager;
@@ -21,10 +24,8 @@ import xfkj.fitpro.Constants;
 import xfkj.fitpro.R;
 import xfkj.fitpro.adapter.SettingAdapter;
 import xfkj.fitpro.base.BaseActivity;
-import xfkj.fitpro.view.SettingMenuItem;
 import xfkj.fitpro.utils.LoadingDailog;
-
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import xfkj.fitpro.view.SettingMenuItem;
 
 public class UinfoActivity extends BaseActivity {
 	

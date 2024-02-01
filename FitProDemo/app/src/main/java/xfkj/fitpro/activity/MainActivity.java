@@ -1,5 +1,7 @@
 package xfkj.fitpro.activity;
 
+import static xfkj.fitpro.service.NotifyService.showNotifyPermissionDialog;
+
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.View;
@@ -11,8 +13,6 @@ import com.legend.bluetooth.fitprolib.utils.SaveKeyValues;
 
 import xfkj.fitpro.R;
 import xfkj.fitpro.base.BaseActivity;
-
-import static xfkj.fitpro.service.NotifyService.showNotifyPermissionDialog;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener
 {

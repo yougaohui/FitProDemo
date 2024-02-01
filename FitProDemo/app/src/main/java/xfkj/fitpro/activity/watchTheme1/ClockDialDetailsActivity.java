@@ -8,17 +8,13 @@ import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,48 +32,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 import xfkj.fitpro.R;
 import xfkj.fitpro.adapter.ClockDialDetailsAdapter;
 import xfkj.fitpro.utils.DialogHelper;
 import xfkj.fitpro.utils.PictureSelectorUtils;
 import xfkj.fitpro.utils.glide.GlideUitls;
-import xfkj.fitpro.view.RxRunTextView;
 import xfkj.fitpro.view.SpaceItemDecoration;
 
 public class ClockDialDetailsActivity extends WatchThemeDetailsBaseActivity {
-    @BindView(R.id.img_back)
-    ImageView mImgBack;
-    @BindView(R.id.toolbar_back)
-    RelativeLayout mToolbarBack;
-    @BindView(R.id.toolbar_title)
-    RxRunTextView mToolbarTitle;
-    @BindView(R.id.img_left)
-    ImageView mImgLeft;
-    @BindView(R.id.img_right)
-    ImageView mImgRight;
-    @BindView(R.id.btn_right)
-    Button mBtnRight;
-    @BindView(R.id.img_btn_right)
-    ImageButton mImgBtnRight;
-    @BindView(R.id.tv_finish)
-    TextView mTvFinish;
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
-    @BindView(R.id.img_cur_clock_dial_1)
     ImageView mImgCurClockDial1;
-    @BindView(R.id.img_cur_clock_dial_2)
     ImageView mImgCurClockDial2;
-    @BindView(R.id.btn_switch_bg)
     AppCompatButton mBtnSwitchBg;
-    @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
-    @BindView(R.id.btn_upgrade)
-    Button mBtnUpgrade;
-    @BindView(R.id.ll_custom_pic)
-    LinearLayout mLlCustomPic;
-    @BindView(R.id.frm_preview)
     View mFrmPreview;
 
     ClockDialDetailsAdapter mAdapter;
@@ -105,7 +71,11 @@ public class ClockDialDetailsActivity extends WatchThemeDetailsBaseActivity {
     @Override
     public void initData(Bundle savedInstanceState) {
         super.initData(savedInstanceState);
-        Log.e(TAG, "data:" + mCurData.toString());
+        mImgCurClockDial1 = findViewById(R.id.img_cur_clock_dial_1);
+        mImgCurClockDial2 = findViewById(R.id.img_cur_clock_dial_2);
+        mBtnSwitchBg = findViewById(R.id.btn_switch_bg);
+        mRecyclerView = findViewById(R.id.recyclerView);
+        mFrmPreview = findViewById(R.id.frm_preview);
         initAdapter();
         showOrHideCustomPic();
     }
@@ -188,8 +158,7 @@ public class ClockDialDetailsActivity extends WatchThemeDetailsBaseActivity {
         convertDirection();
     }
 
-    @OnClick(R.id.btn_upgrade)
-    public void onMBtnUpgradeClicked() {
+    public void onMBtnUpgradeClicked(View view) {
         if (!SDKCmdMannager.isConnected()) {
             mAdapter.notifyDataSetChanged();
             ToastUtils.showShort(R.string.unconnected);
@@ -198,8 +167,7 @@ public class ClockDialDetailsActivity extends WatchThemeDetailsBaseActivity {
         handleClickInstallWatchTheme();
     }
 
-    @OnClick(R.id.btn_switch_bg)
-    public void onMBtnSwitchBgClicked() {
+    public void onMBtnSwitchBgClicked(View view) {
         PictureSelectorUtils.startBiaoPanPictureSelector(ClockDialDetailsActivity.this, mClockInfo.getWidth(), mClockInfo.getHeight());
     }
 

@@ -1,15 +1,26 @@
 package xfkj.fitpro.activity;
 
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetCallRemindValue;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetHandSideValue;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetInfoByKey;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetWatchRemindValue;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.setSendBeforeValue;
+import static xfkj.fitpro.application.MyApplication.notificationSettings;
+import static xfkj.fitpro.service.NotifyService.gotoNotificationAccessSetting;
+import static xfkj.fitpro.service.NotifyService.isNotificationListenersEnabled;
+
 import android.os.Handler;
 import android.os.Message;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
 import com.legend.bluetooth.fitprolib.bluetooth.SDKCmdMannager;
@@ -26,16 +37,6 @@ import xfkj.fitpro.adapter.MessageSettingAdapter;
 import xfkj.fitpro.base.BaseActivity;
 import xfkj.fitpro.utils.LoadingDailog;
 import xfkj.fitpro.view.SettingMenuItem;
-
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetCallRemindValue;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetHandSideValue;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetInfoByKey;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetWatchRemindValue;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.setSendBeforeValue;
-import static xfkj.fitpro.application.MyApplication.notificationSettings;
-import static xfkj.fitpro.service.NotifyService.gotoNotificationAccessSetting;
-import static xfkj.fitpro.service.NotifyService.isNotificationListenersEnabled;
 
 /**
  * 消息设置

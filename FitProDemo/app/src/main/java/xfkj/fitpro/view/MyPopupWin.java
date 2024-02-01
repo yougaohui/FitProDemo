@@ -1,5 +1,7 @@
 package xfkj.fitpro.view;
 
+import static com.legend.bluetooth.fitprolib.utils.DateUtils.getDate;
+
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
@@ -17,8 +19,6 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import xfkj.fitpro.R;
-
-import static com.legend.bluetooth.fitprolib.utils.DateUtils.getDate;
 
 public class MyPopupWin extends PopupWindow
 {

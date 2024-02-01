@@ -1,27 +1,24 @@
 package xfkj.fitpro.activity;
 
+import static xfkj.fitpro.application.MyApplication.setWindowStatusBarColor;
+
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
-import androidx.annotation.RequiresApi;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
 
 import com.legend.bluetooth.fitprolib.utils.SDKTools;
 import com.legend.bluetooth.fitprolib.utils.SaveKeyValues;
 
-import java.io.File;
-
-import xfkj.fitpro.BuildConfig;
 import xfkj.fitpro.R;
 import xfkj.fitpro.application.MyApplication;
 import xfkj.fitpro.base.BaseActivity;
 import xfkj.fitpro.db.SqliteDBAcces;
-
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static xfkj.fitpro.application.MyApplication.setWindowStatusBarColor;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class WelcomeActivity extends BaseActivity {

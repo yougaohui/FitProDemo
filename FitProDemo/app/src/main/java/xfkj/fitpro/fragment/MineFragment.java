@@ -291,7 +291,11 @@ public class MineFragment extends BaseFragment {
         mData.add(new SettingMenuItem(R.string.weather_debug, getString(R.string.weather_debug), "", R.drawable.icon_set_more, R.mipmap.su_other_icon, 1, true, BluetoothCommandActivity.class));
         mData.add(new SettingMenuItem(R.string.watch_theme, getString(R.string.watch_theme), "", R.drawable.icon_set_more, R.mipmap.su_reset_icon, 2, true, null));
         mData.add(new SettingMenuItem(R.string.ble_other_func_debug, getString(R.string.ble_other_func_debug), "", R.drawable.icon_set_more, R.mipmap.su_other_icon, 1, true, OtherBluetoothDebugActivity.class));
+
+
+
         adapter.notifyDataSetChanged();
+
     }
 
     /**

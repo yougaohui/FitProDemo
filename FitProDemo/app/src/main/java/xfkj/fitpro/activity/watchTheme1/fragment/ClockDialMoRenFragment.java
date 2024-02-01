@@ -1,6 +1,7 @@
 package xfkj.fitpro.activity.watchTheme1.fragment;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -11,7 +12,6 @@ import com.legend.bluetooth.fitprolib.model.WatchThemeResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
 import xfkj.fitpro.R;
 import xfkj.fitpro.activity.watchTheme1.BaseClockDialActivity;
 import xfkj.fitpro.adapter.ClockDialListAdapter;
@@ -23,7 +23,6 @@ import xfkj.fitpro.view.SpaceItemDecoration;
  */
 public class ClockDialMoRenFragment extends NewBaseFragment {
 
-    @BindView(R.id.RecyclerView)
     RecyclerView mRecyclerView;
 
     ClockDialListAdapter mAdapter;
@@ -33,6 +32,12 @@ public class ClockDialMoRenFragment extends NewBaseFragment {
         return new ClockDialMoRenFragment();
     }
 
+
+    @Override
+    protected void createView(View view) {
+        super.createView(view);
+        mRecyclerView=  view.findViewById(R.id.RecyclerView);
+    }
 
     @Override
     public int getLayoutId() {

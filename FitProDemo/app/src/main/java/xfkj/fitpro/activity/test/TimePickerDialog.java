@@ -9,26 +9,24 @@ import android.widget.TimePicker;
 
 import com.blankj.utilcode.util.ScreenUtils;
 
-import butterknife.BindView;
 import xfkj.fitpro.R;
 import xfkj.fitpro.view.dialog.BaseDialogFragment;
 
 public class TimePickerDialog extends BaseDialogFragment {
 
-    @BindView(R.id.timePicker)
     TimePicker timePicker;
-    @BindView(R.id.btn_cancel)
     Button btnCancel;
-    @BindView(R.id.btn_ok)
     Button btnOk;
 
     int hourOfDay, min;
 
     @Override
     public void create(Bundle savedInstanceState, View view) {
+        timePicker = view.findViewById(R.id.timePicker);
+        btnCancel = view.findViewById(R.id.btn_cancel);
+        btnOk = view.findViewById(R.id.btn_ok);
         hourOfDay = timePicker.getCurrentHour();
         min = timePicker.getCurrentMinute();
-
         btnCancel.setOnClickListener(v -> {
             dismiss();
         });

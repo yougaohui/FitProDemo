@@ -1,5 +1,8 @@
 package xfkj.fitpro.activity;
 
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static xfkj.fitpro.application.MyApplication.removeActivity_;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,7 +17,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
-import androidx.annotation.RequiresApi;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -25,6 +27,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
 
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
 import com.legend.bluetooth.fitprolib.bluetooth.SDKCmdMannager;
@@ -43,9 +47,6 @@ import java.util.Map;
 
 import xfkj.fitpro.R;
 import xfkj.fitpro.base.BaseActivity;
-
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static xfkj.fitpro.application.MyApplication.removeActivity_;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class CameraActivity extends BaseActivity implements SurfaceHolder.Callback, View.OnClickListener, Camera.PictureCallback {

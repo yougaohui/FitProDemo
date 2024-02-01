@@ -1,6 +1,8 @@
 package xfkj.fitpro.view;
 
-;import java.io.Serializable;
+import java.io.Serializable;
+
+;
 
 /**
  * Created by PQQ on 2016-9-29.

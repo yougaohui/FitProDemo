@@ -40,9 +40,7 @@ public class PermissionUtil {
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_CONTACTS,
-                Manifest.permission.READ_CALL_LOG,
-                Manifest.permission.READ_SMS,
-                Manifest.permission.RECEIVE_SMS};
+                Manifest.permission.READ_CALL_LOG};
         reqPermission.put("WelcomeActivity", WelcomeActivity);
 
         String[] MiBandReaderActivity = {Manifest.permission.ACCESS_COARSE_LOCATION

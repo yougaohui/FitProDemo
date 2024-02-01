@@ -25,7 +25,6 @@ import com.legend.bluetooth.fitprolib.utils.WatchThemeTools;
 import java.util.List;
 import java.util.Locale;
 
-import butterknife.BindView;
 import xfkj.fitpro.R;
 import xfkj.fitpro.activity.watchTheme1.WatchThemeHelper;
 import xfkj.fitpro.db.CacheHelper;
@@ -35,15 +34,10 @@ public class WatchThemeDialog extends BaseDialogFragment {
 
     private final String TAG = "WatchThemeDialog";
 
-    @BindView(R.id.img_preview1)
     ImageView mImgPreview1;
-    @BindView(R.id.img_preview2)
     ImageView mImgPreview2;
-    @BindView(R.id.progressBar)
     ProgressBar mProgressBar;
-    @BindView(R.id.tv_title)
     TextView mTvTitle;
-    @BindView(R.id.frm_preview)
     View mFrmPreview;
 
     private final WatchThemeDetailsResponse mWatchThemeData;
@@ -80,6 +74,12 @@ public class WatchThemeDialog extends BaseDialogFragment {
 
     @Override
     public void create(Bundle savedInstanceState, View view) {
+        mImgPreview1 =  view.findViewById(R.id.img_preview1);
+        mImgPreview2 =  view.findViewById(R.id.img_preview2);
+        mProgressBar =  view.findViewById(R.id.progressBar);
+        mTvTitle =  view.findViewById(R.id.tv_title);
+        mFrmPreview =  view.findViewById(R.id.frm_preview);
+
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mFrmPreview.getLayoutParams();
         params.height = (int) WatchThemeHelper.getConvertHeight(params.width);
         mFrmPreview.setLayoutParams(params);

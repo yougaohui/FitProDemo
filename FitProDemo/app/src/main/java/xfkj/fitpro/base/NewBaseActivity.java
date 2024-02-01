@@ -25,7 +25,6 @@ import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-import butterknife.ButterKnife;
 
 /**
  * 新的Activity基类
@@ -79,7 +78,6 @@ public abstract class NewBaseActivity<T extends ViewBinding> extends AppCompatAc
             setContentView(binding.getRoot());
         } else {
             setContentView(getLayoutId());
-            ButterKnife.bind(this);
         }
 
         setTitle("");

@@ -1,5 +1,7 @@
 package xfkj.fitpro.activity;
 
+import static xfkj.fitpro.application.MyApplication.returnshi;
+
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -41,8 +43,6 @@ import xfkj.fitpro.R;
 import xfkj.fitpro.application.MyApplication;
 import xfkj.fitpro.base.BaseActivity;
 import xfkj.fitpro.db.SqliteDBAcces;
-
-import static xfkj.fitpro.application.MyApplication.returnshi;
 
 public class StepNumberMoreActivity extends BaseActivity {
 

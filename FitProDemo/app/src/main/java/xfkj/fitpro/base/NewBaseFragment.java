@@ -14,8 +14,6 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * 新的Fragment基类
@@ -24,7 +22,6 @@ import butterknife.Unbinder;
  */
 public abstract class NewBaseFragment extends Fragment  {
     protected String TAG = this.getClass().getSimpleName();
-    private Unbinder bind;
     protected Context mContext;
     private boolean isCreate = false;
     private List<Integer> mDelayWhats = new ArrayList<>();
@@ -51,12 +48,16 @@ public abstract class NewBaseFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View inflate = inflater.inflate(getLayoutId(), container, false);
-        bind = ButterKnife.bind(this, inflate);
+        createView(inflate);
         mContext = getActivity();
         initData(savedInstanceState);
         initListener();
         isCreate = true;
         return inflate;
+    }
+
+    protected void createView(View view) {
+        
     }
 
     public abstract int getLayoutId();
@@ -121,9 +122,6 @@ public abstract class NewBaseFragment extends Fragment  {
 
     @Override
     public void onDestroy() {
-        if (bind != null) {
-            bind.unbind();
-        }
         super.onDestroy();
     }
 

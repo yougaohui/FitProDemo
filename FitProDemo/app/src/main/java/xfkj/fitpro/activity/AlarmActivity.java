@@ -1,11 +1,15 @@
 package xfkj.fitpro.activity;
 
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetAlarmValue;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.setSendBeforeValue;
+import static com.legend.bluetooth.fitprolib.utils.DateUtils.getDate;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
-import androidx.annotation.RequiresApi;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +21,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
 
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
 import com.legend.bluetooth.fitprolib.bluetooth.SDKCmdMannager;
@@ -37,13 +43,8 @@ import java.util.Map;
 import xfkj.fitpro.Constants;
 import xfkj.fitpro.R;
 import xfkj.fitpro.base.BaseActivity;
-import xfkj.fitpro.view.MyPopupWin;
 import xfkj.fitpro.utils.LoadingDailog;
-
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetAlarmValue;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.setSendBeforeValue;
-import static com.legend.bluetooth.fitprolib.utils.DateUtils.getDate;
+import xfkj.fitpro.view.MyPopupWin;
 
 public class AlarmActivity extends BaseActivity
 {

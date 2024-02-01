@@ -1,5 +1,8 @@
 package xfkj.fitpro.activity;
 
+import static com.legend.bluetooth.fitprolib.utils.DateUtils.getCalendars;
+import static com.legend.bluetooth.fitprolib.utils.DateUtils.getDate;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.view.LayoutInflater;
@@ -20,9 +23,6 @@ import xfkj.fitpro.R;
 import xfkj.fitpro.application.MyApplication;
 import xfkj.fitpro.base.BaseActivity;
 import xfkj.fitpro.db.SqliteDBAcces;
-
-import static com.legend.bluetooth.fitprolib.utils.DateUtils.getCalendars;
-import static com.legend.bluetooth.fitprolib.utils.DateUtils.getDate;
 
 public class SleepItemActivity extends BaseActivity {
 

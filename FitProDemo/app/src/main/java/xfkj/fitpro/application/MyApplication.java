@@ -55,7 +55,6 @@ import com.legend.bluetooth.fitprolib.model.ProductInfoModel;
 import com.legend.bluetooth.fitprolib.model.SleepDetailsModel;
 import com.legend.bluetooth.fitprolib.model.SportDetailsModel;
 import com.legend.bluetooth.fitprolib.receiver.LeReceiver;
-import com.legend.bluetooth.fitprolib.utils.NotificationUtil;
 import com.legend.bluetooth.fitprolib.utils.SDKTools;
 import com.legend.bluetooth.fitprolib.utils.SaveKeyValues;
 
@@ -162,9 +161,11 @@ public class MyApplication extends Application {
         super.onCreate();
         context = this;
         Utils.init(this);
-        FitProSDK.getFitProSDK().setConfig(new Config().setNotificationImportance(NotificationUtils.IMPORTANCE_DEFAULT)//设置前台消息通知级别
-                        .setNotificationTitle("你自己的标题")//消息通知标题
-                        .setNotificationContent("您自己的通知内容"))//消息通知内容
+        FitProSDK.getFitProSDK()
+                .setConfig(new Config()
+                .setNotificationImportance(NotificationUtils.IMPORTANCE_DEFAULT)
+                .setNotificationTitle("你自己的标题")
+                .setNotificationContent("您自己的通知内容"))//设置前台消息通知级别
                 .init(this);
         CrashUtils.init();
         notificationSettings();
@@ -333,7 +334,7 @@ public class MyApplication extends Application {
             String channelId = "fitpro";
             NotificationManager manager = (NotificationManager) getContext().getSystemService(NOTIFICATION_SERVICE);
             NotificationChannel channel = manager.getNotificationChannel(channelId);
-            if (null != channel && channel.getImportance() == NotificationManager.IMPORTANCE_NONE) {
+            if (channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE) {
                 Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS);
                 intent.putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName());
                 intent.putExtra(Settings.EXTRA_CHANNEL_ID, channel.getId());
@@ -394,11 +395,10 @@ public class MyApplication extends Application {
     public static Handler getMainThreadHandler() {
         return MyApplication.getHandler();
     }
-
     private static Handler handler;
-
     public static Handler getHandler() {
-        if (null == handler) handler = new Handler(Looper.getMainLooper());
+        if (null == handler)
+            handler = new Handler(Looper.getMainLooper());
         return handler;
     }
 

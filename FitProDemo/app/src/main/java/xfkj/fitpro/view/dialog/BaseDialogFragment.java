@@ -17,17 +17,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import xfkj.fitpro.R;
 
 /**
  * 使用 BaseDialogFragment 自定义自己需要的对话框
  */
 public abstract class BaseDialogFragment extends DialogFragment {
-
-    // ButterKnife Unbinder
-    private Unbinder unbinder = null;
 
     // 参数配置
     private Builder builder;
@@ -74,13 +69,8 @@ public abstract class BaseDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(getLayoutId(), container, false);
-
-        // 绑定 ButterKnife
-        unbinder = ButterKnife.bind(this, view);
-
         // View 的初始化可以放到这里执行
         this.create(savedInstanceState, view);
-
         return view;
     }
 
@@ -96,13 +86,6 @@ public abstract class BaseDialogFragment extends DialogFragment {
 
     @Override
     public void onDestroyView() {
-        if (unbinder != null && unbinder != Unbinder.EMPTY) {
-            try {
-                unbinder.unbind();
-            } catch (IllegalStateException e) {
-                e.printStackTrace();
-            }
-        }
         super.onDestroyView();
     }
 

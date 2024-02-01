@@ -1,5 +1,7 @@
 package xfkj.fitpro.fragment;
 
+import static com.legend.bluetooth.fitprolib.bluetooth.ByteUtil.hexStringToBytes;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,14 +9,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
 import com.legend.bluetooth.fitprolib.bluetooth.SDKCmdMannager;
@@ -32,8 +35,6 @@ import xfkj.fitpro.activity.UpdateOtaActivity;
 import xfkj.fitpro.adapter.SettingAdapter;
 import xfkj.fitpro.base.BaseFragment;
 import xfkj.fitpro.view.SettingMenuItem;
-
-import static com.legend.bluetooth.fitprolib.bluetooth.ByteUtil.hexStringToBytes;
 
 
 public class BluetoothFragment extends BaseFragment

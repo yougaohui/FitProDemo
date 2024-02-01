@@ -5,12 +5,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
-
 import com.legend.bluetooth.fitprolib.model.WatchThemeDetailsResponse;
 
 import java.util.List;
 
-import butterknife.BindView;
 import xfkj.fitpro.R;
 import xfkj.fitpro.adapter.adapter.BaseHolder;
 import xfkj.fitpro.adapter.adapter.DefaultAdapter;
@@ -25,7 +23,7 @@ public class ClockDialDetailsAdapter extends DefaultAdapter<WatchThemeDetailsRes
 
     String mBgUrl;
 
-   public HolderView mHolderView;
+    public HolderView mHolderView;
 
     public ClockDialDetailsAdapter(List<WatchThemeDetailsResponse.MaterialListBean> infos) {
         super(infos);
@@ -51,30 +49,27 @@ public class ClockDialDetailsAdapter extends DefaultAdapter<WatchThemeDetailsRes
     }
 
     public class HolderView extends BaseHolder<WatchThemeDetailsResponse.MaterialListBean> {
-
         private final View mItemView;
-
-        @BindView(R.id.img_bg)
         ImageView mImgBg;
-        @BindView(R.id.img_front)
         ImageView mImgFront;
-
         Context mContext;
 
         public HolderView(View itemView) {
             super(itemView);
             this.mItemView = itemView;
             this.mContext = itemView.getContext();
+            this.mImgBg = itemView.findViewById(R.id.img_bg);
+            this.mImgFront = itemView.findViewById(R.id.img_front);
         }
 
         @Override
         public void setData(WatchThemeDetailsResponse.MaterialListBean data, int position) {
-            GlideUitls.loadImgFromSever(mBgUrl,mImgBg);
+            GlideUitls.loadImgFromSever(mBgUrl, mImgBg);
             GlideUitls.loadImgFromSever(data.getUrl(), mImgFront);
             Log.e(TAG, "mImgBg w:" + mImgBg.getWidth() + ";h:" + mImgBg.getHeight());
         }
 
-        public int[] getWH(){
+        public int[] getWH() {
             int[] wh = new int[2];
             wh[0] = mItemView.getWidth();
             wh[1] = mItemView.getHeight();

@@ -10,12 +10,11 @@ import android.widget.RadioGroup;
 import com.blankj.utilcode.util.ConvertUtils;
 import com.blankj.utilcode.util.ScreenUtils;
 
-import butterknife.OnClick;
 import xfkj.fitpro.R;
 import xfkj.fitpro.db.CacheHelper;
 import xfkj.fitpro.utils.UIHelper;
 
-public class WatchThemePosPickerDialog extends BaseDialogFragment {
+public class WatchThemePosPickerDialog extends BaseDialogFragment implements View.OnClickListener {
 
     private RadioGroup mRadGroup;
     private int mSelectedId = 1;
@@ -23,6 +22,8 @@ public class WatchThemePosPickerDialog extends BaseDialogFragment {
     @Override
     public void create(Bundle savedInstanceState, View view) {
         mRadGroup = view.findViewById(R.id.rad_group);
+        view.findViewById(R.id.btn_cancel).setOnClickListener(this);
+        view.findViewById(R.id.btn_ok).setOnClickListener(this);
         for (int i = 0; i < CacheHelper.getClockDialInfo().getPictureNums(); i++) {
             RadioButton radButton = new RadioButton(view.getContext());
             styleRadButton(view, radButton, i + 1);
@@ -68,7 +69,6 @@ public class WatchThemePosPickerDialog extends BaseDialogFragment {
         return new Builder().canceledOnTouchOutside(true).gravity(Gravity.BOTTOM).width(ScreenUtils.getAppScreenWidth() - 40);
     }
 
-    @OnClick({R.id.btn_cancel, R.id.btn_ok})
     public void onClickCancelOk(View view) {
         switch (view.getId()) {
             case R.id.btn_cancel:
@@ -86,6 +86,11 @@ public class WatchThemePosPickerDialog extends BaseDialogFragment {
     }
 
     WatchThemeSelectListener watchThemeSelectListener;
+
+    @Override
+    public void onClick(View v) {
+        onClickCancelOk(v);
+    }
 
     public interface WatchThemeSelectListener {
         void onConfirm(int index);

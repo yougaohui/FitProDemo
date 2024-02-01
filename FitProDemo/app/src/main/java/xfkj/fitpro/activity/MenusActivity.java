@@ -1,5 +1,9 @@
 package xfkj.fitpro.activity;
 
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static xfkj.fitpro.application.MyApplication.removeALLActivity_;
+import static xfkj.fitpro.service.NotifyService.showNotifyPermissionDialog;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,16 +11,16 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
-import androidx.annotation.RequiresApi;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
 import com.legend.bluetooth.fitprolib.bluetooth.SDKCmdMannager;
@@ -34,10 +38,6 @@ import xfkj.fitpro.fragment.BluetoothFragment;
 import xfkj.fitpro.fragment.MineFragment;
 import xfkj.fitpro.fragment.SportFragment;
 import xfkj.fitpro.utils.LoadingDailog;
-
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static xfkj.fitpro.application.MyApplication.removeALLActivity_;
-import static xfkj.fitpro.service.NotifyService.showNotifyPermissionDialog;
 
 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
 public class MenusActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener

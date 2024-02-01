@@ -85,7 +85,7 @@ public class WxSportActivity extends BaseActivity {
                 if(data != null){
                     String ticket = data.getString("ticket");
                     if(!ticket.equals("")){
-                        Bitmap logo = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.xfkj);
+                        Bitmap logo = BitmapFactory.decodeResource(getContext().getResources(),R.drawable.xfkj);
                         Bitmap qrcode = QRCodeUtil.createQRCodeBitmap(ticket, 400,logo,0.2f);
                         mImageView.setImageBitmap(qrcode);
                         saveImage(qrcode, SDKTools.RootPath+"/qrcode.JPEG");

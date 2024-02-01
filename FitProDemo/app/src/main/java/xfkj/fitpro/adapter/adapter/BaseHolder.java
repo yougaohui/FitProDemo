@@ -1,13 +1,9 @@
 package xfkj.fitpro.adapter.adapter;
 
-import android.app.Activity;
-import android.app.Dialog;
 import android.view.View;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * Created by gaohui.you on 2019/6/10 0010
@@ -20,7 +16,6 @@ public abstract class BaseHolder<T> extends RecyclerView.ViewHolder implements V
     public BaseHolder(View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);//点击事件
-        bindTarget(this, itemView);//绑定
     }
 
 
@@ -54,17 +49,5 @@ public abstract class BaseHolder<T> extends RecyclerView.ViewHolder implements V
 
     public void setOnItemClickListener(OnViewClickListener listener) {
         this.mOnViewClickListener = listener;
-    }
-
-    public static Unbinder bindTarget(Object target, Object source) {
-        if (source instanceof Activity) {
-            return ButterKnife.bind(target, (Activity) source);
-        } else if (source instanceof View) {
-            return ButterKnife.bind(target, (View) source);
-        } else if (source instanceof Dialog) {
-            return ButterKnife.bind(target, (Dialog) source);
-        } else {
-            return Unbinder.EMPTY;
-        }
     }
 }

@@ -1,5 +1,9 @@
 package xfkj.fitpro.activity;
 
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static xfkj.fitpro.application.MyApplication.removeActivity_;
+import static xfkj.fitpro.application.MyApplication.returnshi;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -40,10 +44,6 @@ import xfkj.fitpro.application.MyApplication;
 import xfkj.fitpro.base.BaseActivity;
 import xfkj.fitpro.db.SqliteDBAcces;
 import xfkj.fitpro.view.MyGridView;
-
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static xfkj.fitpro.application.MyApplication.removeActivity_;
-import static xfkj.fitpro.application.MyApplication.returnshi;
 
 public class MoreHeartBloodActivity extends BaseActivity {
 

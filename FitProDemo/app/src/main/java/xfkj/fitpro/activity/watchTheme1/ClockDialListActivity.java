@@ -7,16 +7,11 @@ import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -38,7 +33,6 @@ import com.legend.bluetooth.fitprolib.utils.WatchThemeTools;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import xfkj.fitpro.Constants;
@@ -50,7 +44,6 @@ import xfkj.fitpro.base.NewBaseFragment;
 import xfkj.fitpro.db.CacheHelper;
 import xfkj.fitpro.utils.DialogHelper;
 import xfkj.fitpro.utils.PathUtils;
-import xfkj.fitpro.view.RxRunTextView;
 
 public class ClockDialListActivity extends BaseClockDialActivity {
 
@@ -60,27 +53,7 @@ public class ClockDialListActivity extends BaseClockDialActivity {
     final int MSG_FAILED = 0x02;
     final int MSG_UPGRADDING = 0x03;
 
-    @BindView(R.id.img_back)
-    ImageView mImgBack;
-    @BindView(R.id.toolbar_back)
-    RelativeLayout mToolbarBack;
-    @BindView(R.id.toolbar_title)
-    RxRunTextView mToolbarTitle;
-    @BindView(R.id.img_left)
-    ImageView mImgLeft;
-    @BindView(R.id.img_right)
-    ImageView mImgRight;
-    @BindView(R.id.btn_right)
-    Button mBtnRight;
-    @BindView(R.id.img_btn_right)
-    ImageButton mImgBtnRight;
-    @BindView(R.id.tv_finish)
-    TextView mTvFinish;
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
-    @BindView(R.id.TabLayout)
     TabLayout mTabLayout;
-    @BindView(R.id.ViewPager)
     ViewPager mViewPager;
     private BaseFragmentAdapter mAdapterViewPager;
 
@@ -112,6 +85,8 @@ public class ClockDialListActivity extends BaseClockDialActivity {
 
     @Override
     public void initData(Bundle savedInstanceState) {
+        mTabLayout = findViewById(R.id.TabLayout);
+        mViewPager = findViewById(R.id.ViewPager);
         setTitle(R.string.clock_dial_settings);
         //设置替换表盘图片选择模式
         Constants.isDeviceChoicePic = getIntent().getBooleanExtra("isDeviceChoicePic", false);

@@ -3,12 +3,10 @@ package xfkj.fitpro.activity;
 
 import android.view.View;
 
-import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.legend.bluetooth.fitprolib.bluetooth.SDKCmdMannager;
 
 import xfkj.fitpro.R;
-import xfkj.fitpro.activity.test.SleepDebugActivity;
 import xfkj.fitpro.base.BaseActivity;
 
 public class PlusCmdActivity extends BaseActivity {
@@ -92,7 +90,4 @@ public class PlusCmdActivity extends BaseActivity {
         SDKCmdMannager.startMeasureSpo(true);//false表示停止测量
     }
 
-    public void onClick7(View view) {
-        ActivityUtils.startActivity(SleepDebugActivity.class);
-    }
 }

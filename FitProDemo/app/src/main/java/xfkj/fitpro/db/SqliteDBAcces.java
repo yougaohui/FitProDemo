@@ -1,11 +1,11 @@
 package xfkj.fitpro.db;
 
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
-
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
 
 /**
  * 数据库操作类

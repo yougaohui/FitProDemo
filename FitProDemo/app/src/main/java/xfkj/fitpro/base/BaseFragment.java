@@ -1,17 +1,17 @@
 package xfkj.fitpro.base;
 
+import static xfkj.fitpro.application.MyApplication.clearChatMsg;
+
 import android.content.Context;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.os.Message;
 import android.view.LayoutInflater;
 
+import androidx.fragment.app.Fragment;
+
 import com.legend.bluetooth.fitprolib.bluetooth.BleManager;
 import com.legend.bluetooth.fitprolib.utils.SDKTools;
-
-import static xfkj.fitpro.application.MyApplication.clearChatMsg;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;

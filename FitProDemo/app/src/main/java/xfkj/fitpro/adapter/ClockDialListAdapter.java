@@ -7,10 +7,8 @@ import android.widget.ImageView;
 import com.blankj.utilcode.util.StringUtils;
 import com.legend.bluetooth.fitprolib.model.WatchThemeResponse;
 
-
 import java.util.List;
 
-import butterknife.BindView;
 import xfkj.fitpro.R;
 import xfkj.fitpro.adapter.adapter.BaseHolder;
 import xfkj.fitpro.adapter.adapter.DefaultAdapter;
@@ -39,13 +37,13 @@ public class ClockDialListAdapter extends DefaultAdapter<WatchThemeResponse> {
 
     public class HolderView extends BaseHolder<WatchThemeResponse> {
 
-        @BindView(R.id.img1)
         ImageView mImg1;
         Context mContext;
 
         public HolderView(View itemView) {
             super(itemView);
             this.mContext = itemView.getContext();
+            mImg1 =  itemView.findViewById(R.id.img1);
         }
 
         @Override
