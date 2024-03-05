@@ -165,7 +165,10 @@ public class MyApplication extends Application {
                 .setConfig(new Config()
                 .setNotificationImportance(NotificationUtils.IMPORTANCE_DEFAULT)
                 .setNotificationTitle("你自己的标题")
-                .setNotificationContent("您自己的通知内容"))//设置前台消息通知级别
+                .setNotificationContent("您自己的通知内容")
+                 .setLogListener((tag, content) -> {
+                            Log.i(tag, content);//SDK log information
+                        }))//设置前台消息通知级别
                 .init(this);
         CrashUtils.init();
         notificationSettings();
