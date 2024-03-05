@@ -9,11 +9,14 @@
     public class MyApplication extends Application {
       @Override
       public void onCreate() {
-       FitProSDK.getFitProSDK()
+            FitProSDK.getFitProSDK()
                 .setConfig(new Config()
                 .setNotificationImportance(NotificationUtils.IMPORTANCE_DEFAULT)//设置前台消息通知级别
-                .setNotificationTitle("你自己的标题")//消息通知标题
-                .setNotificationContent("您自己的通知内容"))//消息通知内容
+                .setNotificationTitle("你自己的标题")
+                .setNotificationContent("您自己的通知内容")
+                .setLogListener((tag, content) -> {//监听SDK返回的log信息，tag是用于定位日志页面的标记，content是log信息
+                  Log.i(tag, content);//SDK log information
+                }))
                 .init(this);
        }
     }
@@ -205,7 +208,7 @@
     public static boolean isdialog = false;
 
     /**
-     * 蓝牙连接状态 -2设备不支持蓝牙, -1蓝牙未打开, 0未连接, 1 已连接
+     * 蓝牙连接状态 -2设备不支持蓝牙, -1蓝牙未打开, 0未连接, 1 已连接，3 连接失败
      */
     public static int BleState = 0;
 
