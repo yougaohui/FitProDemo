@@ -58,7 +58,6 @@ dependencies {
     }
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation fileTree(dir: 'libs', include: ['*.aar'])
-//    implementation project(path: ':fitprolib')
 
     implementation rootProject.ext.dependencies["design"]
     implementation rootProject.ext.dependencies["appcompat"]
