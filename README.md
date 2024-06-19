@@ -347,5 +347,8 @@
 ## 14、前台服务通知
      com.legend.bluetooth.fitprolib.utils.NotificationUtil.startServiceNotification(title,content);
      title是通知标题，content是通知内容。开发人员可以通过这个方法修改通知里面的内容。
-     
-   
+
+## 15、本地ProfilePlus解释
+    ProfilePlus.what1 //表盘信息获取
+    ProfilePlus.what2 //设备信息返回
+    ProfilePlus.what3 //产品信息返回
