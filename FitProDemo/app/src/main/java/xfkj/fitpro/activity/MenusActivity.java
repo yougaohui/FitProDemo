@@ -1,9 +1,6 @@
 package xfkj.fitpro.activity;
 
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static xfkj.fitpro.application.MyApplication.removeALLActivity_;
-import static xfkj.fitpro.service.NotifyService.showNotifyPermissionDialog;
-
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,6 +8,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
+
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -18,10 +19,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
+import com.blankj.utilcode.util.PermissionUtils;
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
 import com.legend.bluetooth.fitprolib.bluetooth.SDKCmdMannager;
 import com.legend.bluetooth.fitprolib.model.SleepDetailsModel;
@@ -38,6 +36,10 @@ import xfkj.fitpro.fragment.BluetoothFragment;
 import xfkj.fitpro.fragment.MineFragment;
 import xfkj.fitpro.fragment.SportFragment;
 import xfkj.fitpro.utils.LoadingDailog;
+
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static xfkj.fitpro.application.MyApplication.removeALLActivity_;
+import static xfkj.fitpro.service.NotifyService.showNotifyPermissionDialog;
 
 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
 public class MenusActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener
@@ -70,31 +72,31 @@ public class MenusActivity extends BaseActivity implements RadioGroup.OnCheckedC
                 case Profile.MsgWhat.what2:
                     if (map.get("state").equals("0"))
                     {//断开连接
-                   //     batteryProgress.setProgress(0,getString(R.string.un_connect_txt));//
-                    state_btn.setChecked(false);
+                        //     batteryProgress.setProgress(0,getString(R.string.un_connect_txt));//
+                        state_btn.setChecked(false);
                     } else if (map.get("state").equals("1"))
                     {//连接成功
-                  //      battery = SaveKeyValues.getIntValues("battery", 0);
-                  //      battery = battery<=0?1:battery;
-                 //       batteryProgress.setProgress(battery,getString(R.string.connectd_txt));
+                        //      battery = SaveKeyValues.getIntValues("battery", 0);
+                        //      battery = battery<=0?1:battery;
+                        //       batteryProgress.setProgress(battery,getString(R.string.connectd_txt));
                         state_btn.setChecked(true);
                     } else if (map.get("state").equals(-1))
                     {//连接失败
-                  //      batteryProgress.setProgress(0,getString(R.string.un_connect_txt));//
+                        //      batteryProgress.setProgress(0,getString(R.string.un_connect_txt));//
                         state_btn.setChecked(false);
                     } else if (map.get("state").equals("3"))
                     {//连接失败
-                    //    batteryProgress.setProgress(0,getString(R.string.connecting_txt));
+                        //    batteryProgress.setProgress(0,getString(R.string.connecting_txt));
                         state_btn.setChecked(false);
                     }else{
-                     //   batteryProgress.setProgress(0,getString(R.string.un_connect_txt));//
+                        //   batteryProgress.setProgress(0,getString(R.string.un_connect_txt));//
                         state_btn.setChecked(false);
                     }
                     break;
                 case Profile.MsgWhat.what4:
-                 //   battery = (Integer) Integer.valueOf(map.get("battery").toString());
-                //    battery = battery<=0?1:battery;
-                 //   batteryProgress.setProgress(battery,getString(R.string.connectd_txt));//
+                    //   battery = (Integer) Integer.valueOf(map.get("battery").toString());
+                    //    battery = battery<=0?1:battery;
+                    //   batteryProgress.setProgress(battery,getString(R.string.connectd_txt));//
                     state_btn.setChecked(true);
                     break;
                 case Profile.MsgWhat.what80:
@@ -210,6 +212,7 @@ public class MenusActivity extends BaseActivity implements RadioGroup.OnCheckedC
         initButton(mine_btn);
 
         battery = SaveKeyValues.getIntValues("battery", 0);
+        PermissionUtils.permission(Manifest.permission.POST_NOTIFICATIONS).request();
 
     }
     public void initButton(RadioButton btn)
@@ -232,8 +235,8 @@ public class MenusActivity extends BaseActivity implements RadioGroup.OnCheckedC
 
     public void gotoBluetooth()
     {
-		setTitle(getString(R.string.bluetooth_title));
-		findViewById(R.id.right_btn).setVisibility(View.GONE);
+        setTitle(getString(R.string.bluetooth_title));
+        findViewById(R.id.right_btn).setVisibility(View.GONE);
         radioGroup.clearCheck();
         switchFragment(bluetoothFragment).commit();
         enterBluetooth = 0;
@@ -243,16 +246,16 @@ public class MenusActivity extends BaseActivity implements RadioGroup.OnCheckedC
     protected void onPause()
     {
         super.onPause();
-		if(leReceiver != null)
-        leReceiver.unregisterLeReceiver();
+        if(leReceiver != null)
+            leReceiver.unregisterLeReceiver();
     }
 
     @Override
     protected void onResume()
     {
         simulateProgress();
-		if(leReceiver != null)
-        leReceiver.registerLeReceiver();
+        if(leReceiver != null)
+            leReceiver.registerLeReceiver();
         showNotifyPermissionDialog(MenusActivity.this);
         super.onResume();
     }
@@ -305,8 +308,8 @@ public class MenusActivity extends BaseActivity implements RadioGroup.OnCheckedC
             } else
             {
 
-            //    Intent intent = new Intent(this, AppStatusService.class);
-             //   stopService(intent);
+                //    Intent intent = new Intent(this, AppStatusService.class);
+                //   stopService(intent);
                 removeALLActivity_();
             }
             return true;

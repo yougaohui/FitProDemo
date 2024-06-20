@@ -1,9 +1,12 @@
 # FitProDemo
 # fitproSDK
+# V1.2.4更新说明:  
+  a.兼容Android14
+
 
 ## 1、集成
 ### （1）将fitprolib-release.aar、otalib.aar放入lib目录下,并在应用build.gradle下引入.
-### （2）build.gradle下引入 implementation 'com.blankj:utilcodex:1.31.0' 
+### （2）build.gradle下引入 implementation 'com.blankj:utilcodex:1.31.1' 
 
 ## 2、在Application初始化
     public class MyApplication extends Application {
@@ -312,7 +315,8 @@
     SDKTools.mService.commandPoolWrite(new byte[]{0,0,1}, "测试用例");
 
 ## 9、数据接收
-    需要注册LeReceiver广播才能接收到设备的相关数据，具体示例代码请参考Demo中的MyApplication.java,里面有各种数据的接收示例
+    需要注册LeReceiver广播才能接收到设备的相关数据，具体示例代码请参考Demo中的MyApplication.java,里面有各种数据的接收示例.
+    说明这个类是Android自身的广播,请按照普通广播的方式进行注册和取消注册
 
 ## 10、天气
     DEMO里Utils->weather->WeatherProxy是天气的业务代理实现。天气需要客户请求自己的天气接口，
