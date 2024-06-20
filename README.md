@@ -1,4 +1,3 @@
-# FitProDemo
 # fitproSDK
 # V1.2.4更新说明:  
   a.兼容Android14
