@@ -26,6 +26,7 @@ ext {
             version_appcompat       : "1.4.0",
             version_recyclerview    : "1.2.1",
             version_design          : "1.3.0",
+            work_version            : "2.7.1"
     ]
 
     //图片选择库版本信息
