@@ -93,6 +93,7 @@ dependencies {
     //事件分发框架
     implementation rootProject.ext.dependencies["eventbus"]
     implementation rootProject.ext.dependencies["recyclerview"]
-    implementation rootProject.ext.dependencies["work-runtime"]
+//    implementation rootProject.ext.dependencies["work-runtime"]
+    implementation 'androidx.work:work-runtime:2.7.1'
 }
 
