@@ -152,7 +152,7 @@ ext {
             "umeng-analytics"          : "com.umeng.analytics:analytics:6.0.1",
             "preference"               : "androidx.preference:preference:1.1.0",
             "constraintlayout"         : 'androidx.constraintlayout:constraintlayout:2.1.2',
-            "rajawali3d"               :"org.rajawali3d:rajawali:1.1.970"
+            "rajawali3d"               :"org.rajawali3d:rajawali:1.1.970",
 
             //WorkMannager
             "work-runtime"             : "androidx.work:work-runtime:${version["work_version"]}",
