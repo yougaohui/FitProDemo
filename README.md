@@ -368,6 +368,6 @@
 ### (2) 设置个人信息
         FitProSpUtils.setGender(gender);//设置性别，gender 1表示男性，0表示女性
         FitProSpUtils.setAge(age);//设置年龄，age > 0
-        FitProSpUtils.setHeight(height);//设置身高
-        FitProSpUtils.setWeight(weight);//设置体重
+        FitProSpUtils.setHeight(height);//设置身高 单位cm
+        FitProSpUtils.setWeight(weight);//设置体重 单位kg
         
