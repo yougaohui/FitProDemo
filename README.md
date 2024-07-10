@@ -358,3 +358,16 @@
     ProfilePlus.what1 //表盘信息获取
     ProfilePlus.what2 //设备信息返回
     ProfilePlus.what3 //产品信息返回
+
+## 16、个人信息
+### (1) 获取个人信息
+        Integer gender = FitProSpUtils.getGender();//获取性别，1表示男，0表示女，默认1
+        Integer age = FitProSpUtils.getAge();//获取年龄，默认25岁
+        Integer height = FitProSpUtils.getHeight();//获取身高，默认170cm
+        Integer weight = FitProSpUtils.getWeight();//获取体重,默认65kg
+### (2) 设置个人信息
+        FitProSpUtils.setGender(gender);//设置性别，gender 1表示男性，0表示女性
+        FitProSpUtils.setAge(age);//设置年龄，age > 0
+        FitProSpUtils.setHeight(height);//设置身高
+        FitProSpUtils.setWeight(weight);//设置体重
+        
