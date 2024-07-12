@@ -365,9 +365,11 @@
         Integer age = FitProSpUtils.getAge();//获取年龄，默认25岁
         Integer height = FitProSpUtils.getHeight();//获取身高，默认170cm
         Integer weight = FitProSpUtils.getWeight();//获取体重,默认65kg
+        Integer weight = FitProSpUtils.getTargetSteps();//获取目标木薯,默认5000
 ### (2) 设置个人信息
         FitProSpUtils.setGender(gender);//设置性别，gender 1表示男性，0表示女性
         FitProSpUtils.setAge(age);//设置年龄，age > 0
         FitProSpUtils.setHeight(height);//设置身高 单位cm
         FitProSpUtils.setWeight(weight);//设置体重 单位kg
+        FitProSpUtils.setTargetSteps(targetSteps);//设置目标步数，单位步，不设置默认5000
         
