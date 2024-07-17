@@ -372,4 +372,19 @@
         FitProSpUtils.setHeight(height);//设置身高 单位cm
         FitProSpUtils.setWeight(weight);//设置体重 单位kg
         FitProSpUtils.setTargetSteps(targetSteps);//设置目标步数，单位步，不设置默认5000
-        
+
+
+## 17、SaveKeyValues 
+       说明:这个类是缓存临时数据使用的，是基于SharedPreferences的封装
+### 使用
+        putStringValues（String key,String values）//存入String类型的值
+        getStringValues(String key,String defValue）//取出String类型的值
+        putIntValues(String key,int values) //存入int类型的值
+        getIntValues(String key,int defValue)//取出int类型的值
+        putLongValues(String key,long values)//存入long类型的值
+        getLongValues(String key,long defValue)//取出long类型的值
+        putFloatValues(String key,long values)//存入long类型的值
+        getFloatValues(String key,long defValue)//取出long类型的值
+        deleteAllValues()//删所有数据
+        removeKeyForValues(String key)//删除指定key
+    
