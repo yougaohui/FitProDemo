@@ -387,4 +387,452 @@
         getFloatValues(String key,long defValue)//取出long类型的值
         deleteAllValues()//删所有数据
         removeKeyForValues(String key)//删除指定key
-    
+
+## 18、FitProSpUtils
+        
+         /**
+         * 获取性别
+         *
+         * @return 1表示男性，0表示女性
+         */
+        public static int getGender();
+
+        /**
+         * 设置性别
+         *
+         * @param gender 1表示男性，0表示女性
+         */
+        public static void setGender(int gender);
+
+        /**
+         * 设置年龄
+         *
+         * @param age
+         */
+        public static void setAge(int age);
+
+        /**
+         * 获取年龄
+         *
+         * @return
+         */
+        public static int getAge();
+
+        /**
+         * 设置身高
+         *
+         * @param height 单位cm
+         */
+        public static void setHeight(int height);
+
+        /**
+         * 获取身高 单位cm
+         */
+        public static int getHeight();
+
+        /**
+         * 设置体重 单位 kg
+         */
+        public static void setWeight(int weight);
+
+        /**
+         * 获取体重
+         *
+         * @return 单位 kg
+         */
+        public static int getWeight();
+
+        /**
+         * 获取目标步数
+         */
+        public static int getTargetSteps();
+
+        /**
+         * 设置目标步数
+         *
+         * @param targetSteps
+         */
+        public static void setTargetSteps(int targetSteps);
+
+
+        /**
+         * 设置目标睡眠
+         *
+         * @param targetSleep 单位小时
+         */
+        public static void setTargetSleep(int targetSleep);
+
+        /**
+         * 获取目标睡眠
+         *
+         * @return 睡眠时长，单位小时
+         */
+        public static int getTargetSleep(); 
+
+        /**
+         * 设置距离单位 (1->KM, 2->MILES)
+         */
+        public static void setDistanceUnit(int distanceUnit);
+
+        /**
+         * 获取距离单位
+         *
+         * @return 距离单位(1 - > KM, 2 - > MILES)
+         */
+        public static int getDistanceUnit();
+
+        /**
+         * @return 体重单位(1 - > KG. 2 - > 磅)
+         */
+        public static int getWeightUnit();
+
+        /**
+         * 设置体重单位
+         *
+         * @param weightUnit 体重单位(1->KG. 2->磅)
+         */
+        public static void setWeightUnit(int weightUnit);
+
+        /**
+         * @return 身高单位(1 - > CM, 2 - > 英寸)
+         */
+        public static int getHeightUnit();
+
+        /**
+         * 设置身高单位
+         *
+         * @param heightUnit 身高单位(1->CM,2->英寸)
+         */
+        public static void setHeightUnit(int heightUnit);
+
+
+        /**
+         * 设置温度单位
+         *
+         * @param tempUnit 温度单位(0->℃,1->℉)
+         */
+        public static void setTemptUnit(int tempUnit);
+
+        /**
+         * 获取温度单位
+         */
+        public static int getTemptUnit();
+
+ 
+        /**
+         * 获取mac地址
+         *
+         * @return
+         */
+        public static String getBluetoothAddress();
+
+        /**
+         * 设置蓝牙mac地址
+         *
+         * @param bluetoothAddress
+         */
+        public static void setBluetoothAddress(String bluetoothAddress);
+
+        /**
+         * 保存实时步数 
+		 * @param dist 距离
+		 * @param realSteps 实时步数
+		 * @param cal 卡路里  大卡
+         */
+        public static void saveRealStepsInfo(int dist, int realSteps, int cal);
+
+        /**
+         * 获取实时步数
+         *
+         * @return 实时步数
+         */
+        public static int getRealSteps();
+
+        /**
+         * 获取卡路里
+         *
+         * @return
+         */
+        public static int getRealCal();
+
+        /**
+         * 获取实时距离
+         *
+         * @return 单位 m
+         */
+        public static String getRealDistance();
+     
+
+        /**
+         * 是否支持心率
+         *
+         * @return true 支持心率 
+         */
+        public static boolean isSurpportHeart();
+
+        /**
+         * 是否支持血压
+         * 利用的是运动位来判断是否支持睡眠，这个标记位没用到
+         *
+         * @return true 表示支持
+         */
+        public static boolean isSurpportSleep();
+
+        /**
+         * 是否支持距离公英制转换
+         *
+         * @return true 表示支持
+         */
+        public static boolean isSurpportDistance() ;
+
+        /**
+         * 是否支持微信运动
+         *
+         * @return true 表示支持
+         */
+        public static boolean isSurpportWXSport();
+
+        /**
+         * 支持语音通话
+         *
+         * @return true 表示支持
+         */
+        public static boolean isSurpportVoice();
+
+        /**
+         * 更新语音提示状态，true表示显示过
+         */
+        public static void updateVoiceTipsStatus();
+
+        /**
+         * 是否显示过语音提示
+         *
+         * @return
+         */
+        public static boolean isShownVoiceTips() ;
+
+        /**
+         * 默认支持来电提醒功能
+         *
+         * @return
+         */
+        public static boolean isDefalutOpenCall();
+
+        /**
+         * 支持同步通讯录
+         *
+         * @return
+         */
+        public static boolean isSupportSycContract();
+
+
+        /**
+         * 是否支持表盘设置
+         *
+         * @return
+         */
+        public static boolean isSupportClockDialSettings() ;
+
+        /**
+         * 是否支持温度显示
+         *
+         * @return
+         */
+        public static boolean isSupportTemp() ;
+
+        /**
+         * 是否支持天气
+         *
+         * @return
+         */
+        public static boolean isSupportWeather() ;
+
+        /**
+         * 支持多天气
+         *
+         * @return
+         */
+        public static boolean isSupport3DaysWeather();
+
+        /**
+         * 是否支持更多消息通知
+         *
+         * @return
+         */
+        public static boolean isSupportMoreNotifi();
+
+        /**
+         * 是否支持更多消息通知
+         *
+         * @return
+         */
+        public static boolean isShowAdv();
+
+
+        /**
+         * 是否支持远程拍照
+         *
+         * @return
+         */
+        public static boolean isSupportRemoteCamera() ;
+
+
+        /**
+         * 是否支持找手环
+         *
+         * @return
+         */
+        public static boolean isSupportFindDevice() ;
+
+
+        /**
+         * 是否支持心电
+         *
+         * @return
+         */
+        public static boolean isSupportHREL() ;
+
+        /**
+         * 是否显示久坐时长
+         *
+         * @return
+         */
+        public static boolean isShowLongSitTime() ;
+
+
+        /**
+         * 是否显示勿扰模式
+         *
+         * @return
+         */
+        public static boolean isShowDisturnMode();
+
+        /**
+         * 是否显示二维码支付
+         *
+         * @return
+         */
+        public static boolean isShowPay() ;
+
+        /**
+         * 是否支持来电语音播报功能
+         * @return false不支持，只发送名字或者电话号码。
+         * @return true 支持，需要发送名字和号码过去，名字在前，通过"/"进行分割
+         */
+        public static boolean isSurpportVoicePlay() ;
+        /**
+         * 是否支持hid
+         * @return
+         */
+        public static boolean isSurpportHid() ;
+
+
+        /**
+         * 公司有比较多的方案商，
+         * 为了适配不同的方案商并兼容以前的方案商区别处理
+         */
+        public static boolean isManufacturer01();
+
+        public static boolean isManufacturer01(String macAddress);
+
+
+        /**
+         * 保存经典蓝牙地址
+         */
+        public static void saveClassicMac(String addresss) ;
+
+
+        /**
+         * 经典蓝牙名称编码
+         *
+         * @param code
+         */
+        public static void saveClassicBleNameCode(int code) ;
+
+        /**
+         * 获取 经典蓝牙名称编码
+         * @return  0x00:"LH728-Audio";0x01:"WellAudio";0x02:"LH722-Audio";0x03:AQFiT"
+         */
+        public static int getClassicBleNameCode();
+
+        /**
+         * @param type 默认是0,1表示泰凌微平台,2表示LR平台,3表示BK平台,4表示OM平台
+         * @return
+         */
+        public static void setPlarmType(int type;
+
+        /**
+         * 获取平台信息
+         * @return   默认是0,1表示泰凌微平台,2表示LR平台,3表示BK平台,4表示OM平台
+         */
+        public static int getPlarmType() ;
+
+        /**
+         * 获取不会被解绑后清除的蓝牙mac地址
+         *
+         * @return
+         */
+        public static String getLongCacheBleMac();
+
+        /**
+         * 缓存因为解绑后的蓝牙地址
+         *
+         * @param address
+         */
+        public static void setLongCacheBleMac(String address) ;
+
+        /**
+         * 缓存蓝牙名称
+         */
+        public static void cacheBluetoothName(String key, String bluetoothName) ;
+
+        /**
+         * 获取缓存蓝牙
+         *
+         * @param key
+         * @return
+         */
+        public static String getCacheBluetoothName(String key);
+
+        /**
+         * 保存目标运动时间
+         * @param targetTime
+         */
+        public static void saveTargetSportTime(short targetTime) ;
+		
+        /**
+         * 保存经典蓝牙名称
+         * @param name
+         */
+        public static void saveClassicBluetoothName(String name) ;
+
+
+        /**
+         * 获取目标运动时间
+         * @return
+         */
+        public static int getTargetSportTime();
+
+        /**
+         * 是否支持震动模式
+         * @return true表示支持
+         */
+        public static boolean isSupportShakeMode() ;
+
+        /**
+         * 是否支持联系人SOS
+         * @return true表示支持
+         */
+        public static boolean isSupportSOSContract() ;
+
+        /**
+         * 是否支持抬手亮屏
+         * @return  true表示支持
+         */
+        public static boolean isSupportHandLight() ;
+
+        /**
+         * 获取经典蓝牙名
+         * @return
+         */
+        public static String getClassicBluetoothName() ;
