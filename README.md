@@ -836,3 +836,5 @@
          * @return
          */
         public static String getClassicBluetoothName() ;
+## 18、混淆
+    -keep class com.legend.bluetooth.fitprolib.model.** { *;}
