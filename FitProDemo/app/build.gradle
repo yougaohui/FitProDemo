@@ -70,12 +70,9 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
     implementation 'com.weigan:loopView:0.1.2'
     implementation 'com.zcw:togglebutton-library:1.0.0'
-    implementation 'com.contrarywind:Android-PickerView:4.1.4'
     implementation 'com.airbnb.android:lottie:2.8.0'
     //工具类框架
     implementation 'com.blankj:utilcodex:1.31.0'
-    //异常恢复框架
-    implementation 'com.zxy.android:recovery:1.0.0'
     //网络请求框架
     implementation 'me.jessyan:retrofit-url-manager:1.4.0'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
@@ -93,7 +90,6 @@ dependencies {
     //事件分发框架
     implementation rootProject.ext.dependencies["eventbus"]
     implementation rootProject.ext.dependencies["recyclerview"]
-//    implementation rootProject.ext.dependencies["work-runtime"]
-    implementation 'androidx.work:work-runtime:2.7.1'
+    implementation rootProject.ext.dependencies["runtime-ktx"]
 }
 
