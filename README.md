@@ -183,7 +183,7 @@
     public static boolean getSleepSwitchInfo();
 
     /**
-     * app请求获取天总步数实时数据
+     * app请求获取天总数据,包括睡眠数据、历史步数、历史心率等
      */
     public static boolean getTotalSportData();
 
