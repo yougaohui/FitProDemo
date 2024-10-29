@@ -299,6 +299,17 @@
     public static final int what72 = 72; //打开拍照
     public static final int what80 = 80; //查找手机
     public static final int what90 = 90; //睡眠数据返回
+    public static final int what19 = 19;//添加联系人
+    public static final int what23 = 23;//删除联系人
+    public static final int what24 = 24;//设置紧急联系人
+    public static final int what25 = 25;//同步温度单位        
+    public static final int what26 = 26; // 心电开始
+    public static final int what27 = 27; // 心电结束
+    public static final int what28 = 28; // 支付码返回状态        
+    public static final int what91 = 91; // 设置目标运动时间
+    public static final int what92 = 92; // 设置目标站立目标
+    public static final int what93 = 93; // aplipay设备透传数据
+    public static final int what94 = 94; // 设备主动请求APP断开连接并保持不回连1到2分钟
 
 ## 7、关于蓝牙扫描注意事项
 ### SDK提供有扫描接口以及蓝牙相关工具类，扫描示例代码MiBandReaderActivity.java
