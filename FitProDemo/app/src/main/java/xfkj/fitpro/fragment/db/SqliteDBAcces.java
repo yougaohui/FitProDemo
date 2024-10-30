@@ -1,4 +1,4 @@
-package xfkj.fitpro.db;
+package xfkj.fitpro.fragment.db;
 
 import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
 

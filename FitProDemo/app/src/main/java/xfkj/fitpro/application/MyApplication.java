@@ -46,6 +46,7 @@ import com.legend.bluetooth.fitprolib.bluetooth.Profile;
 import com.legend.bluetooth.fitprolib.bluetooth.ProfilePlus;
 import com.legend.bluetooth.fitprolib.bluetooth.ReceiveData;
 import com.legend.bluetooth.fitprolib.model.ClockDialInfoBody;
+import com.legend.bluetooth.fitprolib.model.ContractNumEvent;
 import com.legend.bluetooth.fitprolib.model.DeviceHardInfoModel;
 import com.legend.bluetooth.fitprolib.model.MeasureBloodModel;
 import com.legend.bluetooth.fitprolib.model.MeasureDetailsModel;
@@ -101,9 +102,11 @@ public class MyApplication extends Application {
             switch (msg.what) {
                 case Profile.MsgWhat.what90://睡眠数据返回
                     SleepDetailsModel sleepItem = (SleepDetailsModel) map.get(SDKTools.EXTRA_DATA);
-                    Log.e(TAG, "sleepItem:" + sleepItem.toString());
-                    Sql = "insert into Sleep (RevDate,Offset,SleepTypes,Data,LongDate) values ('" + sleepItem.getRevDate() + "'," + sleepItem.getOffset() + "," + sleepItem.getSleepType() + "," + sleepItem.getOffset() + "," + sleepItem.getTime() + ")";
-                    DBAcces.Execute(Sql);
+                    if (sleepItem != null) {
+                        Log.e(TAG, "sleepItem:" + sleepItem);
+                        Sql = "insert into Sleep (RevDate,Offset,SleepTypes,Data,LongDate) values ('" + sleepItem.getRevDate() + "'," + sleepItem.getOffset() + "," + sleepItem.getSleepType() + "," + sleepItem.getOffset() + "," + sleepItem.getTime() + ")";
+                        DBAcces.Execute(Sql);
+                    }
                     break;
                 case Profile.MsgWhat.what51://运动数据返回
                     SportDetailsModel sportDetailsModel = (SportDetailsModel) map.get(SDKTools.EXTRA_DATA);
@@ -135,6 +138,10 @@ public class MyApplication extends Application {
                     Log.e(TAG, "deviceInfo:" + productInfo.toString());
                     ToastUtils.showShort(productInfo.toString());
                     break;
+                case ProfilePlus.MsgWhat.what4://联系人信息
+                    ContractNumEvent contractNumEvent = (ContractNumEvent) map.get(SDKTools.EXTRA_DATA);
+                    EventBusUtils.post(contractNumEvent);
+                    break;
                 case Profile.MsgWhat.what69://单个心率返回
                     MeasureHeartModel measureHeartModel = (MeasureHeartModel) map.get(SDKTools.EXTRA_DATA);
                     Log.e(TAG, "measureHeartModel:" + measureHeartModel.toString());
@@ -161,14 +168,13 @@ public class MyApplication extends Application {
         super.onCreate();
         context = this;
         Utils.init(this);
-        FitProSDK.getFitProSDK()
-                .setConfig(new Config()
-                .setNotificationImportance(NotificationUtils.IMPORTANCE_DEFAULT)
-                .setNotificationTitle("你自己的标题")
-                .setNotificationContent("您自己的通知内容")
-                 .setLogListener((tag, content) -> {
+        FitProSDK.getFitProSDK().setConfig(new Config()
+                        .setNotificationImportance(NotificationUtils.IMPORTANCE_DEFAULT)//设置前台消息通知级别
+                        .setNotificationTitle("你自己的标题")
+                        .setNotificationContent("您自己的通知内容")
+                        .setLogListener((tag, content) -> {
                             Log.i(tag, content);//SDK log information
-                        }))//设置前台消息通知级别
+                        }))
                 .init(this);
         CrashUtils.init();
         notificationSettings();

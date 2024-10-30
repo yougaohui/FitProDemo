@@ -1,6 +1,6 @@
 # fitproSDK
-# V1.2.4更新说明:  
-  a.兼容Android14
+# V1.2.5更新说明:  
+  a.新增常用联系人
 
 
 ## 1、集成
@@ -192,6 +192,88 @@
      */
     public static boolean getPersonalInfo();
 
+     /**
+     * 设置温度单位
+     * @param unite 0为摄氏，1为华氏
+     */
+    public static void setTmpUnite(byte unite)
+
+    /**
+     * 设置系统时间
+     */
+    public static boolean synchronTime()
+
+    /**
+     * 获取表盘升级信息
+     *
+     * @return
+     */
+    public static boolean getClockDialInfo() 
+
+    /**
+     * 停止铃声
+     */
+    public static void pauseRingtone()
+
+    /**
+     * 获取硬件信息
+     */
+    public static boolean getHardInfo()
+
+    /**
+     * 获取产品信息
+     */
+    public static boolean getProductInfo()
+
+    /**
+     * 开始测量血压 单独测试血压，部分设备不支持，以实际设备为准
+     * @param measure true表示开始测量，false表示停止测量
+     * @return
+     */
+    public static boolean startMeasureBlood(boolean measure)
+
+
+    /**
+     * 开始测量心率 单独测试心率，部分设备不支持，以实际设备为准
+     * @param measure true表示开始测量，false表示停止测量
+     * @return
+     */
+    public static boolean startMeasureHeart(boolean measure)
+
+    /**
+     * 开始测量血氧 单独测试血氧，部分设备不支持，以实际设备为准
+     * @param measure true表示开始测量，false表示停止测量
+     * @return
+     */
+    public static boolean startMeasureSpo(boolean measure)
+
+    /**
+     * 添加联系人 部分设备不支持，以实际设备为准
+     * @param name 联系人姓名
+     * @param phone 联系人号码
+     * @return
+     */
+    public static boolean addContact(String name, String phone)
+
+    /**
+     * 删除联系人 部分设备不支持，以实际设备为准
+     * @param phoneNumber 手机号码
+     * @return
+     */
+    public static boolean deleteContact(String phoneNumber)
+    /**
+     * 设置SOS 部分设备不支持，以实际设备为准
+     * @param phoneNumber 手机号码
+     * @return
+     */
+    public static boolean setSOS(String phoneNumber)
+
+    /**
+     * 获取常用联系人状态,主要用于获取设备端联系人个数和最大支持多少联系人 部分设备不支持，以实际设备为准
+     * @return
+     */
+    public static boolean syncContractStatus()
+
 
 ## 4、SDK工具类SDKTools
 
@@ -369,7 +451,7 @@
     ProfilePlus.what1 //表盘信息获取
     ProfilePlus.what2 //设备信息返回
     ProfilePlus.what3 //产品信息返回
-
+    ProfilePlus.what4 //通讯录信息返回
 ## 16、个人信息
 ### (1) 获取个人信息
         Integer gender = FitProSpUtils.getGender();//获取性别，1表示男，0表示女，默认1

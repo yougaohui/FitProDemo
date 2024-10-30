@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:background="@color/contract_edit_bg_color"
+    android:padding="20dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="@string/add_contract"
+        android:textColor="@color/contract_edit_text_color"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/contract_edit_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="20"
+            android:text="@string/name" />
+
+
+        <EditText
+            android:id="@+id/edt_name"
+            android:layout_marginLeft="30dp"
+            android:inputType="text"
+            android:hint="请输入昵称"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/contract_edit_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:maxLength="20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/num" />
+
+        <EditText
+            android:id="@+id/edt_phone"
+            android:layout_marginLeft="30dp"
+            android:layout_width="match_parent"
+            android:inputType="phone"
+            android:hint="@string/please_input_coreect_num"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+
+        <ImageButton
+            android:layout_marginLeft="@dimen/dp_10"
+            android:id="@+id/import_contract"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@mipmap/equipment_fc_ab_icon" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp_45"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="145dp"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_health_report_remt"
+            android:layout_marginRight="15dp"
+            android:text="@string/cancel" />
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="145dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/white"
+            android:background="@drawable/selector_login_btn"
+            android:text="@string/ok" />
+    </LinearLayout>
+
+</LinearLayout>

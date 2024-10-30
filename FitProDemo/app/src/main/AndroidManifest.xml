@@ -53,6 +53,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.contract.SynContractsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.test.SleepDebugActivity"
             android:exported="false" />
         <activity

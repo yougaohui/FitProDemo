@@ -21,9 +21,14 @@ import androidx.viewbinding.ViewBinding;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.LogUtils;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+
+import xfkj.fitpro.utils.EventBusUtils;
 
 
 /**
@@ -119,6 +124,13 @@ public abstract class NewBaseActivity<T extends ViewBinding> extends AppCompatAc
 
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        if (isRegisterEventBus()) {
+            EventBusUtils.register(this);
+        }
+    }
+    @Override
     protected void onStop() {
         super.onStop();
         hideProgress();
@@ -128,6 +140,9 @@ public abstract class NewBaseActivity<T extends ViewBinding> extends AppCompatAc
             //全局变量 记录当前已经进入后台
             isActive = false;
             LogUtils.i(TAG, "进入后台");
+        }
+        if (isRegisterEventBus()) {
+            EventBusUtils.unregister(this);
         }
     }
 
@@ -177,4 +192,16 @@ public abstract class NewBaseActivity<T extends ViewBinding> extends AppCompatAc
     protected boolean isImmersionBarEnabled() {
         return isImmersionBar && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
     }
+
+    protected boolean isRegisterEventBus() {
+        return true;
+    }
+
+    /**
+     * 事件广播入口
+     *
+     * @param event
+     */
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(Object event) {/* Do something */}
 }

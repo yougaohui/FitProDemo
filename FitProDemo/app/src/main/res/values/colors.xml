@@ -350,4 +350,9 @@
     <color name="sleep_background">#2f5cc3</color>
     <color name="measure_test_btn_bg">#5E8BFF</color>
     <color name="measure_title_bg">#587AFC</color>
+    <color name="delete_press_color">@color/red_pressed</color>
+    <color name="delete_press_normal">@color/red_normal</color>
+
+    <color name="contract_edit_bg_color">#474849</color>
+    <color name="contract_edit_text_color">@color/white</color>
 </resources>

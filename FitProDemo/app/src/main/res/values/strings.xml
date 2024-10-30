@@ -294,4 +294,18 @@
     <string name="update_ota_force_tips">正在升级...请不要退出App</string>
     <string name="watch_theme">表盘</string>
     <string name="ble_other_func_debug">指令调试</string>
+
+
+
+    <string name="sync_contracts_txt">常用联系人(部分设备不支持)</string>
+    <string name="already_exsit_contract">联系人已存在</string>
+    <string name="add_contract">添加联系人</string>
+    <string name="name">姓名</string>
+    <string name="num">号码</string>
+    <string name="please_input_name">请输入姓名</string>
+    <string name="please_input_coreect_num">请输入正确的电话号码</string>
+    <string name="permission_refuse_tips">请通过相应的权限，不然手环很多功能无法运行!</string>
+    <string name="contract_outlimited">已超出联系人个数上限</string>
+    <string name="input_content_name_out_limit">昵称过长，请重新输入!</string>
+    <string name="input_content_phone_out_limit">号码过长，请重新输入!</string>
 </resources>
