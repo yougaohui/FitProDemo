@@ -937,5 +937,84 @@
         b、睡眠状态:1表示深睡状态，2表示浅睡状态，3表示清醒状态
         c、计算方式:后面的状态时间 - 前面的状态时间 = 前面状态的睡眠时长
         比如:item1 为清醒，时间是22:00 item2 为浅睡，时间是22:15，那么22:00到22:15这个区间为清醒状态。
-## 19、混淆
+
+## 19、升级用户自定义表盘
+    （1）、需要构造库里面的WatchThemeDetailsResponse
+    （2）、必须传入的参数说明:
+        a、setFonBinPath("本地字体文件路径");自定义表盘必须得传入，可选。
+        b、setPicBinpath("本地表盘文件路径");表盘文件，必传。
+        c、setThumbBinPath("本地缩略图文件路径");缩略图文件路径，支持缩略图的表盘才需要(WatchThemeTools.isSupportThumb()，可以判断是否需要缩略图)，可选。
+        d、setFontPosition("表盘字体位置");字体位置，默认0代表没有方向，有1、2、3、4四个方向，分别代表左上，右上，右下，左下，具体实现参照demo，必传。
+        e、setCutomTheme("是否是自定义表盘");是否是自定义表盘，必传。
+        f、setReplacePicPos("替换表盘位置");替换的表盘位置，clockInfo.getVersionCode()表盘协议是2的支持，可选。
+    （3）、调用方法
+        a、WatchThemeTools.getInstance().startFile("表盘信息","必要参数体");
+        b、表盘信息:ClockDialInfoBody
+        /**
+         * 主板型号
+         */
+         String mainModel;
+    
+        /**
+         * 整机型号
+         */
+         String mchModel;
+    
+        /**
+         * 高低配  0：高配   1：低配
+         */
+         int grade;
+    
+        /**
+         * 屏幕类型  0：方屏  1：圆屏
+         */
+         int screenType;
+    
+        /**
+         * 屏幕宽度
+         */
+         int width;
+    
+        /**
+         * 屏幕高度
+         */
+         int height;
+    
+        /**
+         * 配置信息
+         */
+         int config;
+    
+        /**
+         * 算法，0表示默认算法，1表示BK算法,2表示易兆微算法，3表示易兆微8bit图
+         */
+         int algorithm;
+    
+        /**
+         * 协议版本号。默认0，用于区分不同的表盘协议
+         */
+         int versionCode;
+    
+        /**
+         * 客户信息
+         */
+         String customer;
+    
+        /**
+         * 设备端表盘张数，用于弹出选择替换表盘位置框
+         */
+         int pictureNums;
+    
+        /**
+         * 缩略图百分比
+         */
+         int thumbPercent;
+    
+        /**
+         * 缩略图圆角
+         */
+         int thumbRoundAngle;
+        c 、必要参数体 WatchThemeDetailsResponse
+
+## 20、混淆
     -keep class com.legend.bluetooth.fitprolib.model.** { *;}
