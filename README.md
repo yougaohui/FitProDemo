@@ -948,8 +948,8 @@
         e、setCutomTheme("是否是自定义表盘");是否是自定义表盘，必传。
         f、setReplacePicPos("替换表盘位置");替换的表盘位置，clockInfo.getVersionCode()表盘协议是2的支持，可选。
 ###    （3）、调用方法
-        a、WatchThemeTools.getInstance().startFile("表盘信息","必要参数体");
-        b、表盘信息:ClockDialInfoBody
+####        a、WatchThemeTools.getInstance().startFile("表盘信息","必要参数体");
+####        b、表盘信息:ClockDialInfoBody
         /**
          * 主板型号
          */
@@ -1014,7 +1014,7 @@
          * 缩略图圆角
          */
          int thumbRoundAngle;
-###     c 、必要参数体 WatchThemeDetailsResponse
+####      c 、必要参数体 WatchThemeDetailsResponse
 
 ## 20、混淆
     -keep class com.legend.bluetooth.fitprolib.model.** { *;}
