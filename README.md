@@ -944,7 +944,7 @@
         a、setFonBinPath("本地字体文件路径");自定义表盘必须得传入，可选。
         b、setPicBinpath("本地表盘文件路径");表盘文件，必传。
         c、setThumbBinPath("本地缩略图文件路径");缩略图文件路径，支持缩略图的表盘才需要(WatchThemeTools.isSupportThumb()，可以判断是否需要缩略图)，可选。
-        d、setFontPosition("表盘字体位置");字体位置，默认0代表没有方向，有1、2、3、4四个方向，分别代表左上，右上，右下，左下，具体实现参照demo，必传。
+        d、setFontPosition("表盘字体位置");字体位置，默认0代表没有方向，有1、2、3、4四个方向，分别代表左上，右上，右下，左下，具体实现参照demo，可选。
         e、setCutomTheme("是否是自定义表盘");是否是自定义表盘，必传。
         f、setReplacePicPos("替换表盘位置");替换的表盘位置，clockInfo.getVersionCode()表盘协议是2的支持，可选。
 ###    （3）、调用方法
