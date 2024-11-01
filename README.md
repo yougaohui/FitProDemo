@@ -424,11 +424,11 @@
     FitProSpUtils.isSupportWeather()表示true支持一天的天气
 
 ## 11、消息通知
-###    1、消息通知拦截在demo里面的NotifyService.java有实现
-###    2、发送消息通知方法
-####   NotifiMsgHelper.sendNotifyPush(packageName, msgs, 0)
-#####  packageName指的是app包名，msgs是消息内容，第三个参数默认0（注意:发送消息通知前必须先开启对应app的消息通知开关）
-#####  消息通知开关在Demo中的MessageSettingActivity.java有实现
+###    （1）、消息通知拦截在demo里面的NotifyService.java有实现
+###    （2）、发送消息通知方法
+####   a.NotifiMsgHelper.sendNotifyPush(packageName, msgs, 0)
+       packageName指的是app包名，msgs是消息内容，第三个参数默认0（注意:发送消息通知前必须先开启对应app的消息通知开关）
+####   b.消息通知开关在Demo中的MessageSettingActivity.java有实现
     
 ## 12、语言设置
     默认SDK刚连上会同步手机本地语言到设备端。如果开发者需要根据自己的情况同步语言到设备端，请调用SDKCmdMannager.setLanguage(lang).
