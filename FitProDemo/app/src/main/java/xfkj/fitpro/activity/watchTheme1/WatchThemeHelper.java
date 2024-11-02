@@ -108,7 +108,7 @@ public class WatchThemeHelper {
     public static String convertWatchThemeBin(Bitmap bitmap) {
         ClockDialInfoBody clockInfo = CacheHelper.getClockDialInfo();
         String path;
-        byte algorithm = clockInfo.getAlgorithm();
+        int algorithm = clockInfo.getAlgorithm();
         if (algorithm == 1) {
             path = BmpConvertTools.convertBKBin(bitmap);
         } else if (algorithm == 2) {
@@ -128,8 +128,8 @@ public class WatchThemeHelper {
                 ToastUtils.showShort(R.string.thumb_not_normal);
                 return;
             }
-            short scaleWith = info.getThumbWidth();
-            short scaleHeight = info.getThumbHeight();
+            int scaleWith = info.getThumbWidth();
+            int scaleHeight = info.getThumbHeight();
             Bitmap thumBitmap = ImageUtils.scale(srcBitmap, scaleWith, scaleHeight);
             int angle = info.getThumbRoundAngle();
             if (angle > 0 && angle < 90) {
