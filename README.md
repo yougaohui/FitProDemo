@@ -1,8 +1,11 @@
 # fitproSDK
-# V1.2.6更新说明:  
+#   更新说明:  
+##  V1.2.6
     a.修复部分手机第三方音乐无法暂停播放的问题
     b.修复表盘信息返回偶尔闪退的问题
-
+## V1.2.7
+    a.新增what81、what82、what83、what84、what85
+    b.新增Config是否允许回连
 
 ## 1、集成
 ### （1）将fitprolib-release.aar、otalib.aar放入lib目录下,并在应用build.gradle下引入.
@@ -179,7 +182,7 @@
     public static boolean switchSleep();
 
     /**
-     * 获取睡眠开关信息
+     * 获取睡眠开关信息         
      */
     public static boolean getSleepSwitchInfo();
 
@@ -249,9 +252,9 @@
     public static boolean startMeasureSpo(boolean measure)
 
     /**
-     * 添加联系人 部分设备不支持，以实际设备为准
-     * @param name 联系人姓名
-     * @param phone 联系人号码
+     * 添加联系人 部分设备不支持，以实际设备为准,默认最多支持8个联系人，具体根据设备返回最大支持联系人数量
+     * @param name 联系人姓名 总字节不超过20
+     * @param phone 联系人号码 总字节不超过20
      * @return
      */
     public static boolean addContact(String name, String phone)
@@ -381,6 +384,12 @@
     public static final int what71 = 71; //退出拍照
     public static final int what72 = 72; //打开拍照
     public static final int what80 = 80; //查找手机
+    public static final int what81 = 81; //结束找手机  1.2.7及以上版本支持
+    public static final int what82 = 82; //挂电话 1.2.7及以上版本支持
+    public static final int what83 = 83; //接电话 1.2.7及以上版本支持
+    public static final int what84 = 84; //上一首 1.2.7及以上版本支持
+    public static final int what85 = 85; //暂停/播放音乐 1.2.7及以上版本支持
+    public static final int what86 = 86; //下一首
     public static final int what90 = 90; //睡眠数据返回
     public static final int what19 = 19;//添加联系人
     public static final int what23 = 23;//删除联系人
