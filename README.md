@@ -1030,5 +1030,10 @@
          int thumbRoundAngle;
 ####      c 、必要参数体 WatchThemeDetailsResponse
 
-## 20、混淆
+## 20、常用联系人功能注意事项
+    a、常用联系人功能是app单项传输，app确认收到设备返回的ack后就把数据缓存到本地，设备不会回传联系人列表。
+    b、进入常用联系人要手动请求设备端联系人个数，设备会返回当前联系人个数和支持最大联系人，如果返回0，app就清空掉本地联系人。
+    c、SOS功能，默认第一个联系人为SOS,紧急联系人只能有一个，app单向传输，设置紧急联系人成功后就要缓存到本地，设备不会回传紧急联系人。
+
+## 21、混淆
     -keep class com.legend.bluetooth.fitprolib.model.** { *;}
