@@ -7,6 +7,10 @@
     V1.2.7
     a.新增what81、what82、what83、what84、what85
     b.新增Config是否允许回连
+    
+    V1.2.90
+    a.修复启动前台服务闪退的问题
+    b.修复获取蓝牙状态闪退的问题
 
 ## 1、集成
 ### （1）将fitprolib-release.aar、otalib.aar放入lib目录下,并在应用build.gradle下引入.
