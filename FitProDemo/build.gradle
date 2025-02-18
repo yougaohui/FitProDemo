@@ -31,21 +31,19 @@ task clean(type: Delete) {
 
 
 apply plugin: 'maven-publish'
-group = 'com.github.yougaohui'
-version = '1.2.99'
 publishing {
     publications {
         aar(MavenPublication) {
             groupId = 'com.github.yougaohui'
-            artifactId = 'FitProDemo'
-            version = '1.2.99'  // 更新版本号
-            artifact(file('libs/your.aar'))
+            artifactId = 'fitprodemo'
+            version = '1.2.94'  // 确保每次发布时版本号都是唯一的
+            artifact(file('libs/your.aar'))  // 确保路径正确
         }
     }
     repositories {
         maven {
             name = 'GitHubPackages'
-            url = uri('https://maven.pkg.github.com/yougaohui/FitProDemo')
+            url = uri('https://maven.pkg.github.com/yougaohui/fitprodemo')
             credentials {
                 username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
                 password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
@@ -53,6 +51,7 @@ publishing {
         }
     }
 }
+
 
 
 
