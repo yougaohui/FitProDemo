@@ -30,18 +30,16 @@ task clean(type: Delete) {
 }
 
 
-
 apply plugin: 'maven-publish'
 group = 'com.github.yougaohui'
-version = '1.2.4'
-
+version = '1.2.99'
 publishing {
     publications {
         aar(MavenPublication) {
             groupId = 'com.github.yougaohui'
             artifactId = 'FitProDemo'
-            version = '1.2.4'
-            artifact(file('libs/fitpro_V1.2.91_release_20250218.aar'))
+            version = '1.2.99'  // 更新版本号
+            artifact(file('libs/your.aar'))
         }
     }
     repositories {
@@ -55,5 +53,6 @@ publishing {
         }
     }
 }
+
 
 
