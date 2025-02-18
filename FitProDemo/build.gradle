@@ -32,17 +32,18 @@ task clean(type: Delete) {
 
 
 apply plugin: 'maven-publish'
+group = 'com.github.yougaohui'
+version = '1.2.4'
+
 publishing {
     publications {
         aar(MavenPublication) {
-            groupId = 'com.legend.sdk.fitpro'
-            artifactId = 'FitProSDK'
-            version = '1.2.91'
-            // 指定 .aar 文件的路径
-            artifact(file('../SDK/fitpro_V1.2.91_release_20250218.aar'))
+            groupId = 'com.github.yougaohui'
+            artifactId = 'FitProDemo'
+            version = '1.2.4'
+            artifact(file('libs/fitpro_V1.2.91_release_20250218.aar'))
         }
     }
-
     repositories {
         maven {
             name = 'GitHubPackages'
@@ -54,4 +55,5 @@ publishing {
         }
     }
 }
+
 
