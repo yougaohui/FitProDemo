@@ -68,13 +68,10 @@ dependencies {
     implementation rootProject.ext.dependencies["constraintlayout"]
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
-    implementation 'com.weigan:loopView:0.1.2'
-    implementation 'com.zcw:togglebutton-library:1.0.0'
     implementation 'com.airbnb.android:lottie:2.8.0'
     //工具类框架
     implementation 'com.blankj:utilcodex:1.31.0'
     //网络请求框架
-    implementation 'me.jessyan:retrofit-url-manager:1.4.0'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'

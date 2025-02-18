@@ -6,6 +6,8 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.3.0'
@@ -18,6 +20,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
         maven { url "https://jitpack.io" }
     }
 }
@@ -25,3 +28,30 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+
+apply plugin: 'maven-publish'
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId = 'com.legend.sdk.fitpro'
+            artifactId = 'FitProSDK'
+            version = '1.2.91'
+            // 指定 .aar 文件的路径
+            artifact(file('../SDK/fitpro_V1.2.91_release_20250218.aar'))
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'GitHubPackages'
+            url = uri('https://maven.pkg.github.com/yougaohui/FitProDemo')
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
+            }
+        }
+    }
+}
+
