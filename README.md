@@ -12,6 +12,9 @@
     a.修复启动前台服务闪退的问题
     b.修复获取蓝牙状态闪退的问题
 
+    V1.2.91
+    a.新增Skype、Kakaotalk、LinkedIn、Snapchat、tiktok、telegram等消息通知
+
 ## 1、集成
 ### （1）将fitprolib-release.aar、otalib.aar放入lib目录下,并在应用build.gradle下引入.
 ### （2）build.gradle下引入

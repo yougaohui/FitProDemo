@@ -36,6 +36,26 @@
             android:inputType="number" />
     </LinearLayout>
 
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rd_she"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="摄氏度" />
+
+        <RadioButton
+            android:layout_marginLeft="10dp"
+            android:id="@+id/rd_hua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="华氏度" />
+    </RadioGroup>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

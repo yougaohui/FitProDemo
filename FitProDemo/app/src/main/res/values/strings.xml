@@ -297,7 +297,7 @@
 
 
 
-    <string name="sync_contracts_txt">常用联系人(部分设备不支持)</string>
+    <string name="sync_contracts_txt">常用联系人</string>
     <string name="already_exsit_contract">联系人已存在</string>
     <string name="add_contract">添加联系人</string>
     <string name="name">姓名</string>
@@ -308,4 +308,14 @@
     <string name="contract_outlimited">已超出联系人个数上限</string>
     <string name="input_content_name_out_limit">昵称过长，请重新输入!</string>
     <string name="input_content_phone_out_limit">号码过长，请重新输入!</string>
+
+    <string name="kakao_talk_remind" translatable="false">Kakaotalk</string>
+    <string name="linkdedIn" translatable="false">LinkedIn</string>
+    <string name="snap_chat" translatable="false">Snapchat</string>
+    <string name="tiktok" translatable="false">tiktok</string>
+    <string name="msg_telegram" translatable="false">telegram</string>
+    <string name="msg_ok_ru" translatable="false">OK.RU</string>
+    <string name="msg_vk" translatable="false">VK</string>
+    <string name="msg_ten_chat" translatable="false">tenChat</string>
+    <string name="msg_viber_chat" translatable="false">Viber</string>
 </resources>

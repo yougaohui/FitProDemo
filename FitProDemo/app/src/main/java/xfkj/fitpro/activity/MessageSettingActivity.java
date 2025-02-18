@@ -1,14 +1,13 @@
 package xfkj.fitpro.activity;
 
 import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getBrightScreenValue;
 import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetCallRemindValue;
 import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetHandSideValue;
 import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetInfoByKey;
 import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetWatchRemindValue;
 import static com.legend.bluetooth.fitprolib.bluetooth.SendData.setSendBeforeValue;
 import static xfkj.fitpro.application.MyApplication.notificationSettings;
-import static xfkj.fitpro.service.NotifyService.gotoNotificationAccessSetting;
-import static xfkj.fitpro.service.NotifyService.isNotificationListenersEnabled;
 
 import android.os.Handler;
 import android.os.Message;
@@ -22,8 +21,9 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blankj.utilcode.util.StringUtils;
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
-import com.legend.bluetooth.fitprolib.bluetooth.SDKCmdMannager;
+import com.legend.bluetooth.fitprolib.constants.SPKey;
 import com.legend.bluetooth.fitprolib.receiver.LeReceiver;
 import com.legend.bluetooth.fitprolib.utils.SDKTools;
 import com.legend.bluetooth.fitprolib.utils.SaveKeyValues;
@@ -35,7 +35,9 @@ import xfkj.fitpro.Constants;
 import xfkj.fitpro.R;
 import xfkj.fitpro.adapter.MessageSettingAdapter;
 import xfkj.fitpro.base.BaseActivity;
+import xfkj.fitpro.utils.DialogHelper;
 import xfkj.fitpro.utils.LoadingDailog;
+import xfkj.fitpro.utils.UIHelper;
 import xfkj.fitpro.view.SettingMenuItem;
 
 /**
@@ -60,28 +62,23 @@ public class MessageSettingActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             final Map<String, Object> map = (Map<String, Object>) msg.getData().getSerializable("Datas");//接受msg传递过来的参数
             if (msg.what == Profile.MsgWhat.what37 || msg.what == Profile.MsgWhat.what40) {
-                SDKTools.mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (Constants.dialog != null)
-                            Constants.dialog.dismiss();
-                        Toast toast;
-                        if (map.get("is_ok") != null && map.get("is_ok").equals("0")) {
-                            toast = Toast.makeText(MessageSettingActivity.this, getString(R.string.set_err), Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
-                            DataToUI();
-                        } else {
-                            toast = Toast.makeText(MessageSettingActivity.this, getString(R.string.set), Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
-                        }
+                SDKTools.mHandler.postDelayed(() -> {
+                    DialogHelper.hideDialog();
+                    Toast toast;
+                    if (map.get("is_ok") != null && map.get("is_ok").equals("0")) {
+                        toast = Toast.makeText(MessageSettingActivity.this, getString(R.string.set_err), Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                        DataToUI();
+                    } else {
+                        toast = Toast.makeText(MessageSettingActivity.this, getString(R.string.set), Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
                     }
                 }, 1000);
             } else if (msg.what == Profile.MsgWhat.what14) {
                 DataToUI();
-                if (Constants.dialog != null)
-                    Constants.dialog.dismiss();
+                DialogHelper.hideDialog();
             } else if (msg.what == MSG_HIDE_LOADDING) {
                 mFrmLoadding.setVisibility(View.GONE);
             }
@@ -114,17 +111,25 @@ public class MessageSettingActivity extends BaseActivity {
         if (Id == R.string.push_setting_txt) {
             handbox.setVisibility(View.GONE);
             if (null == mData || mData.size() == 0) {
-                mData.add(new SettingMenuItem(R.string.calls_remind, getString(R.string.calls_remind), SaveKeyValues.getStringValues("CALLState", "0"), 1, R.drawable.device_switch_phone, true, 1, null));
-                mData.add(new SettingMenuItem(R.string.sms_remind, getString(R.string.sms_remind), SaveKeyValues.getStringValues("SMSState", "0"), 1, R.drawable.device_switch_sms, true, 1, null));
-                mData.add(new SettingMenuItem(R.string.wechat_remind, getString(R.string.wechat_remind), SaveKeyValues.getStringValues("WECHATState", "0"), 1, R.drawable.device_switch_wechat, true, 1, null));
-                mData.add(new SettingMenuItem(R.string.qq_remind, getString(R.string.qq_remind), SaveKeyValues.getStringValues("QQState", "0"), 1, R.drawable.device_switch_qq, true, 1, null));
-                mData.add(new SettingMenuItem(R.string.face_book_remind, getString(R.string.face_book_remind), SaveKeyValues.getStringValues("FaceBookState", "0"), 1, R.drawable.device_switch_face_book, true, 1, null));
-                mData.add(new SettingMenuItem(R.string.twitter_remind, getString(R.string.twitter_remind), SaveKeyValues.getStringValues("TwitterState", "0"), 1, R.drawable.device_switch_twitter, true, 1, null));
-                //    mData.add(new SettingMenuItem(R.string.skype_remind,getString(R.string.skype_remind), SaveKeyValues.getStringValues("SkypeState", "0"), 1, R.drawable.device_switch_skype, true, 1, null));
-                mData.add(new SettingMenuItem(R.string.line_remind, getString(R.string.line_remind), SaveKeyValues.getStringValues("LineState", "0"), 1, R.drawable.device_switch_line, true, 1, null));
-                mData.add(new SettingMenuItem(R.string.whatsapp_remind, getString(R.string.whatsapp_remind), SaveKeyValues.getStringValues("WhatsappState", "0"), 1, R.drawable.device_switch_whatsapp, true, 1, null));
-                mData.add(new SettingMenuItem(R.string.instagram_remind, getString(R.string.instagram_remind), SaveKeyValues.getStringValues("INSTAGRAMState", "0"), 1, R.drawable.device_switch_instagram, false, 1, null));
-                //    mData.add(new SettingMenuItem(R.string.kakao_talk_remind,getString(R.string.kakaotalk_remind), SaveKeyValues.getStringValues("KakaoTalkState", "0"), 1, R.drawable.device_switch_talk, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.calls_remind, getString(R.string.calls_remind), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_CALL, "0"), 1, R.drawable.device_switch_phone, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.sms_remind, getString(R.string.sms_remind), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_SMS, "0"), 1, R.drawable.device_switch_sms, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.wechat_remind, getString(R.string.wechat_remind), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_WECHAT, "0"), 1, R.drawable.device_switch_wechat, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.qq_remind, getString(R.string.qq_remind), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_QQ, "0"), 1, R.drawable.device_switch_qq, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.face_book_remind, getString(R.string.face_book_remind), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_FACEBOOK, "0"), 1, R.drawable.device_switch_face_book, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.twitter_remind, getString(R.string.twitter_remind), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_TWITTER, "0"), 1, R.drawable.device_switch_twitter, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.line_remind, getString(R.string.line_remind), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_LINE, "0"), 1, R.drawable.device_switch_line, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.whatsapp_remind, getString(R.string.whatsapp_remind), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_WHATSAPP, "0"), 1, R.drawable.device_switch_whatsapp, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.instagram_remind, getString(R.string.instagram_remind), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_INSTAGRAM, "0"), 1, R.drawable.device_switch_instagram, false, 1, null));
+                mData.add(new SettingMenuItem(R.string.skype_remind, getString(R.string.skype_remind), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_SKYPE, "0"), 1, R.drawable.device_switch_skype, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.kakao_talk_remind, getString(R.string.kakao_talk_remind), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_KAKAOTALK, "0"), 1, R.drawable.device_switch_talk, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.linkdedIn, getString(R.string.linkdedIn), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_LINKEDIN, "0"), 1, R.drawable.device_switch_linkedin, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.snap_chat, getString(R.string.snap_chat), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_SNAPCHAT, "0"), 1, R.drawable.ic_snap_chat, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.tiktok, getString(R.string.tiktok), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_TIKTOK, "0"), 1, R.drawable.icon_tk, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.msg_telegram, getString(R.string.msg_telegram), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_TELEGRAM, "0"), 1, R.drawable.icon_msg_telegram, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.msg_ok_ru, getString(R.string.msg_ok_ru), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_OK_RU, "0"), 1, R.drawable.icon_msg_ok_ru, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.msg_vk, getString(R.string.msg_vk), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_VK, "0"), 1, R.drawable.icon_msg_vk, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.msg_ten_chat, getString(R.string.msg_ten_chat), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_TEN_CHAT, "0"), 1, R.drawable.icon_msg_ten_chat, true, 1, null));
+                mData.add(new SettingMenuItem(R.string.msg_viber_chat, getString(R.string.msg_viber_chat), SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_VIBER, "0"), 1, R.drawable.icon_msg_viber, true, 1, null));
             } else {
                 refreshMsgNotifiUI();
                 return;
@@ -152,69 +157,140 @@ public class MessageSettingActivity extends BaseActivity {
      * 刷新消息通知UI,单独用次方法是防止多次调用适配器，出现重复开关的现象
      */
     private void refreshMsgNotifiUI() {
+        String state;
         for (int i = 0; i < mData.size(); i++) {
             SettingMenuItem data = mData.get(i);
             switch (i) {
                 case 0:
-                    String callState = SaveKeyValues.getStringValues("CALLState", "0");
+                    String callState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_CALL, "0");
                     if (!callState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
                         data.setNameInfo(callState);
                         adapter.notifyItemChanged(i);
                     }
                     break;
                 case 1:
-                    String SMSState = SaveKeyValues.getStringValues("SMSState", "0");
+                    String SMSState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_SMS, "0");
                     if (!SMSState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
                         data.setNameInfo(SMSState);
                         adapter.notifyItemChanged(i);
                     }
                     break;
                 case 2:
-                    String WECHATState = SaveKeyValues.getStringValues("WECHATState", "0");
+                    String WECHATState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_WECHAT, "0");
                     if (!WECHATState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
                         data.setNameInfo(WECHATState);
                         adapter.notifyItemChanged(i);
                     }
                     break;
                 case 3:
-                    String QQState = SaveKeyValues.getStringValues("QQState", "0");
+                    String QQState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_QQ, "0");
                     if (!QQState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
                         data.setNameInfo(QQState);
                         adapter.notifyItemChanged(i);
                     }
                     break;
                 case 4:
-                    String FaceBookState = SaveKeyValues.getStringValues("FaceBookState", "0");
+                    String FaceBookState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_FACEBOOK, "0");
                     if (!FaceBookState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
                         data.setNameInfo(FaceBookState);
                         adapter.notifyItemChanged(i);
                     }
                     break;
                 case 5:
-                    String TwitterState = SaveKeyValues.getStringValues("TwitterState", "0");
+                    String TwitterState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_TWITTER, "0");
                     if (!TwitterState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
                         data.setNameInfo(TwitterState);
                         adapter.notifyItemChanged(i);
                     }
                     break;
                 case 6:
-                    String LineState = SaveKeyValues.getStringValues("LineState", "0");
+                    String LineState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_LINE, "0");
                     if (!LineState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
                         data.setNameInfo(LineState);
                         adapter.notifyItemChanged(i);
                     }
                     break;
                 case 7:
-                    String WhatsappState = SaveKeyValues.getStringValues("WhatsappState", "0");
+                    String WhatsappState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_WHATSAPP, "0");
                     if (!WhatsappState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
                         data.setNameInfo(WhatsappState);
                         adapter.notifyItemChanged(i);
                     }
                     break;
                 case 8:
-                    String INSTAGRAMState = SaveKeyValues.getStringValues("INSTAGRAMState", "0");
+                    String INSTAGRAMState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_INSTAGRAM, "0");
                     if (!INSTAGRAMState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
                         data.setNameInfo(INSTAGRAMState);
+                        adapter.notifyItemChanged(i);
+                    }
+                    break;
+                case 9:
+                    String SkypeState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_SKYPE, "0");
+                    if (!SkypeState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
+                        data.setNameInfo(SkypeState);
+                        adapter.notifyItemChanged(i);
+                    }
+                    break;
+                case 10:
+                    String KakaoTalkState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_KAKAOTALK, "0");
+                    if (!KakaoTalkState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
+                        data.setNameInfo(KakaoTalkState);
+                        adapter.notifyItemChanged(i);
+                    }
+                    break;
+                case 11:
+                    String linkdedInState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_LINKEDIN, "0");
+                    if (!linkdedInState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
+                        data.setNameInfo(linkdedInState);
+                        adapter.notifyItemChanged(i);
+                    }
+                    break;
+                case 12:
+                    String SNAPCHATState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_SNAPCHAT, "0");
+                    if (!SNAPCHATState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
+                        data.setNameInfo(SNAPCHATState);
+                        adapter.notifyItemChanged(i);
+                    }
+                    break;
+                case 13:
+                    String tikTokState = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_TIKTOK, "0");
+                    if (!tikTokState.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
+                        data.setNameInfo(tikTokState);
+                        adapter.notifyItemChanged(i);
+                    }
+                    break;
+                case 14:
+                    state = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_TELEGRAM, "0");
+                    if (!state.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
+                        data.setNameInfo(state);
+                        adapter.notifyItemChanged(i);
+                    }
+                    break;
+                case 15:
+                    state = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_OK_RU, "0");
+                    if (!state.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
+                        data.setNameInfo(state);
+                        adapter.notifyItemChanged(i);
+                    }
+                    break;
+                case 16:
+                    state = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_VK, "0");
+                    if (!state.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
+                        data.setNameInfo(state);
+                        adapter.notifyItemChanged(i);
+                    }
+                    break;
+                case 17:
+                    state = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_TEN_CHAT, "0");
+                    if (!state.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
+                        data.setNameInfo(state);
+                        adapter.notifyItemChanged(i);
+                    }
+                    break;
+                case 18:
+                    state = SaveKeyValues.getStringValues(SPKey.MSG_NOTIFY_STATE_VIBER, "0");
+                    if (!state.equals(data.getNameInfo())) {//有变化的时候才进行更新UI
+                        data.setNameInfo(state);
                         adapter.notifyItemChanged(i);
                     }
                     break;
@@ -244,27 +320,31 @@ public class MessageSettingActivity extends BaseActivity {
                 if (view == null) {
                     String key = "";
                     if (item.Id == R.string.calls_remind) {
-                        key = "CALLState";
+                        key = SPKey.MSG_NOTIFY_STATE_CALL;
                     } else if (item.Id == R.string.sms_remind) {
-                        key = "SMSState";
+                        key = SPKey.MSG_NOTIFY_STATE_SMS;
                     } else if (item.Id == R.string.wechat_remind) {
-                        key = "WECHATState";
+                        key = SPKey.MSG_NOTIFY_STATE_WECHAT;
                     } else if (item.Id == R.string.qq_remind) {
-                        key = "QQState";
+                        key = SPKey.MSG_NOTIFY_STATE_QQ;
                     } else if (item.Id == R.string.face_book_remind) {
-                        key = "FaceBookState";
+                        key = SPKey.MSG_NOTIFY_STATE_FACEBOOK;
                     } else if (item.Id == R.string.twitter_remind) {
-                        key = "TwitterState";
+                        key = SPKey.MSG_NOTIFY_STATE_TWITTER;
                     } else if (item.Id == R.string.skype_remind) {
-                        key = "SkypeState";
+                        key = SPKey.MSG_NOTIFY_STATE_SKYPE;
                     } else if (item.Id == R.string.line_remind) {
-                        key = "LineState";
+                        key = SPKey.MSG_NOTIFY_STATE_LINE;
                     } else if (item.Id == R.string.whatsapp_remind) {
-                        key = "WhatsappState";
+                        key = SPKey.MSG_NOTIFY_STATE_WHATSAPP;
                     } else if (item.Id == R.string.instagram_remind) {
-                        key = "INSTAGRAMState";
+                        key = SPKey.MSG_NOTIFY_STATE_INSTAGRAM;
+                    } else if (item.Id == R.string.kakao_talk_remind) {
+                        key = SPKey.MSG_NOTIFY_STATE_KAKAOTALK;
+                    } else if (item.Id == R.string.linkdedIn) {
+                        key = SPKey.MSG_NOTIFY_STATE_LINKEDIN;
                     } else if (item.Id == R.string.vibrate_setting) {
-                        key = "SHOCKState";
+                        key = SPKey.MSG_NOTIFY_STATE_VIBER;
                     } else if (item.Id == R.string.lift_screen) {
                         key = "BRIGHTState";
                     } else if (item.Id == R.string.sleep_monitoring) {
@@ -273,11 +353,32 @@ public class MessageSettingActivity extends BaseActivity {
                         key = "HEARTState";
                     } else if (item.Id == R.string.lr_hand_wearing) {
                         key = "HANDState";
+                    } else if (item.Id == R.string.snap_chat) {
+                        key = SPKey.MSG_NOTIFY_STATE_SNAPCHAT;
+                    } else if (item.Id == R.string.tiktok) {
+                        key = SPKey.MSG_NOTIFY_STATE_TIKTOK;
+                    } else if (item.Id == R.string.msg_telegram) {
+                        key = SPKey.MSG_NOTIFY_STATE_TELEGRAM;
+                    } else if (item.Id == R.string.msg_ok_ru) {
+                        key = SPKey.MSG_NOTIFY_STATE_OK_RU;
+                    } else if (item.Id == R.string.msg_vk) {
+                        key = SPKey.MSG_NOTIFY_STATE_VK;
+                    } else if (item.Id == R.string.msg_ten_chat) {
+                        key = SPKey.MSG_NOTIFY_STATE_TEN_CHAT;
+                    }else if (item.Id == R.string.msg_viber_chat) {
+                        key = SPKey.MSG_NOTIFY_STATE_VIBER;
                     }
                     setSendBeforeValue(key, 1, SaveKeyValues.getStringValues(key, "1"));
                     SaveKeyValues.putStringValues(key, val + "");
                     Logdebug(TAG, "选中开关:" + item.Name + "--开关状态:" + SaveKeyValues.getStringValues(key, ""));
                     setMessageTofitpro((key == "HANDState") ? true : false);
+                    /**
+                     * APP端开启抬腕亮屏功能后，将振动关闭或打开，
+                     * 此时抬腕亮屏功能不能再实现，需要app重新设置一下
+                     */
+                    if (StringUtils.equals(key, "SHOCKState")) {
+                        resetBrightScreen();
+                    }
                 }
             }
         });
@@ -286,30 +387,20 @@ public class MessageSettingActivity extends BaseActivity {
         byte CommandKey = (byte) 0x06;
         DataToUI();
         if (Id == R.string.push_setting_txt) {
-            if (!isNotificationListenersEnabled(MessageSettingActivity.this)) {
-                mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        gotoNotificationAccessSetting(MessageSettingActivity.this);
-                    }
-                }, 2000);
-            }
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    notificationSettings();
-                }
-            }, 1000);
+            mHandler.postDelayed(() -> notificationSettings(), 1000);
             CommandKey = (byte) 0x04;
         }
         if (SDKTools.BleState == 1) {
-            SDKCmdMannager.getMessagesInfo(getSetInfoByKey(CommandKey));
-            LoadingDailog.Builder mBuilder = new LoadingDailog.Builder(MessageSettingActivity.this)
-                    .setMessage(getString(R.string.getdatas))
-                    .setCancelable(false);
-            //Constant.dialog = mBuilder.create(true, 2000);
+            SDKTools.mService.commandPoolWrite(getSetInfoByKey(CommandKey), "获取个人信息");
         }
         mHandler.sendEmptyMessageDelayed(MSG_HIDE_LOADDING, 2000);
+    }
+
+    private void resetBrightScreen() {
+        Integer is_siesta = SaveKeyValues.getIntValues("screen_status", 0);
+        if (is_siesta == 1) {
+            SDKTools.mService.commandPoolWrite(getBrightScreenValue(), "设置抬腕亮屏");
+        }
     }
 
     @Override
@@ -350,9 +441,7 @@ public class MessageSettingActivity extends BaseActivity {
             Toast.makeText(MessageSettingActivity.this, getString(R.string.unconnected), Toast.LENGTH_SHORT).show();
             return;
         }
-        LoadingDailog.Builder mBuilder = new LoadingDailog.Builder(MessageSettingActivity.this)
-                .setMessage(getString(R.string.setting))
-                .setCancelable(false);
+        LoadingDailog.Builder mBuilder = new LoadingDailog.Builder(MessageSettingActivity.this).setMessage(getString(R.string.setting)).setCancelable(false);
         Constants.dialog = mBuilder.create(true, 5000);
         byte[] uinfo;
         String desc;
@@ -360,7 +449,7 @@ public class MessageSettingActivity extends BaseActivity {
             uinfo = getSetHandSideValue();//获取设置左右手佩戴协议
             desc = "设置左右手佩戴";
         } else {
-            if (Title.equals(getString(R.string.push_setting_txt))) {
+            if (StringUtils.equals(Title, UIHelper.getString(R.string.push_setting_txt))) {
                 desc = "设置消息推送开关";
                 uinfo = getSetCallRemindValue();//获取设置消息推送开关（来电、短信、微信、QQ）协议
             } else {
@@ -374,8 +463,7 @@ public class MessageSettingActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if (leReceiver != null)
-            leReceiver.unregisterLeReceiver();
+        if (leReceiver != null) leReceiver.unregisterLeReceiver();
     }
 
     @Override
@@ -387,7 +475,10 @@ public class MessageSettingActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (leReceiver != null)
-            leReceiver.registerLeReceiver();
+        if (leReceiver != null) leReceiver.registerLeReceiver();
+    }
+
+    public int getId() {
+        return Id;
     }
 }
