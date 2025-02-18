@@ -35,23 +35,18 @@ publishing {
     publications {
         aar(MavenPublication) {
             groupId = 'com.github.yougaohui'
-            artifactId = 'fitprodemo'
-            version = '1.2.94'  // 确保每次发布时版本号都是唯一的
+            artifactId = 'fitprodemo'  // 确保使用小写字母
+            version = '1.2.94'  // 确保每次发布时版本号唯一
             artifact(file('libs/your.aar'))  // 确保路径正确
         }
     }
     repositories {
         maven {
-            name = 'GitHubPackages'
-            url = uri('https://maven.pkg.github.com/yougaohui/fitprodemo')
-            credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
-            }
+            name = 'JitPack'
+            url = uri('https://jitpack.io')
         }
     }
 }
-
 
 
 
