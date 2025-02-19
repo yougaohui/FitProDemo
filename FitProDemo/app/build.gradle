@@ -89,5 +89,6 @@ dependencies {
     implementation rootProject.ext.dependencies["recyclerview"]
     implementation rootProject.ext.dependencies["runtime-ktx"]
     implementation 'com.yanzhenjie:recyclerview-swipe:1.1.4'
+    implementation 'com.github.yougaohui:FitProDemo:1.2.91'
 }
 

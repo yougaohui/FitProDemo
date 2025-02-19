@@ -261,7 +261,7 @@ public class MineFragment extends BaseFragment {
             mData.add(new SettingMenuItem(R.string.upgrade_txt,getString(R.string.upgrade_txt), "", R.drawable.icon_set_more, R.drawable.device_update, 1, false, UpdateOtaActivity.class));
         }*/
 
-        mData.add(new SettingMenuItem(R.string.upgrade_txt, getString(R.string.upgrade_txt), "", R.drawable.icon_set_more, R.drawable.device_update, 1, false, UpdateOtaActivity.class));
+        //mData.add(new SettingMenuItem(R.string.upgrade_txt, getString(R.string.upgrade_txt), "", R.drawable.icon_set_more, R.drawable.device_update, 1, false, UpdateOtaActivity.class));
         mData.add(new SettingMenuItem(R.string.find_device_txt, getString(R.string.find_device_txt), "", R.drawable.icon_set_more, R.mipmap.su_search_equipment_icon, 1, true, null));
         mData.add(new SettingMenuItem(R.string.user_profile_txt, getString(R.string.user_profile_txt), "", R.drawable.icon_set_more, R.mipmap.su_personal_information_icon, 1, true, UinfoActivity.class));
         mData.add(new SettingMenuItem(R.string.target_txt, getString(R.string.trget_txt), (SaveKeyValues.getIntValues("step", 5000) + " " + getString(R.string.step)), R.drawable.icon_set_more, R.mipmap.su_goal_setting_icon, 1, true, SetInfoActivity.class));
