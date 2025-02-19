@@ -16,11 +16,18 @@
     a.新增Skype、Kakaotalk、LinkedIn、Snapchat、tiktok、telegram等消息通知
 
 ## 1、集成
-### （1）将fitprolib-release.aar、otalib.aar放入lib目录下,并在应用build.gradle下引入.
+### （1）在项目根目录的 build.gradle 文件中添加 JitPack 仓库地址：
+    allprojects {
+        repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        }
+    }
 ### （2）build.gradle下引入
+    implementation 'com.github.yougaohui:FitProDemo:1.2.91'
     implementation 'com.blankj:utilcodex:1.31.1' 
     implementation 'androidx.work:work-runtime:2.7.1'
-
 
 ## 2、在Application初始化
     public class MyApplication extends Application {
