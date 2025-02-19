@@ -24,7 +24,7 @@
         maven { url 'https://jitpack.io' }
         }
     }
-### （2）build.gradle下引入
+### （2）模块的 build.gradle 文件
     implementation 'com.github.yougaohui:FitProDemo:1.2.91'
     implementation 'com.blankj:utilcodex:1.31.1' 
     implementation 'androidx.work:work-runtime:2.7.1'
