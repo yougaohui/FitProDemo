@@ -25,7 +25,7 @@ public class WeatherForecastResponse {
     private String condCodeNight;
     private String condTextDay;
     private String condTextNight;
-    Date date = TimeUtils.getNowDate();
+    String date;
 
     public String getTmpMin() {
         return tmpMin;
@@ -88,11 +88,11 @@ public class WeatherForecastResponse {
                 '}';
     }
 
-    public Date getDate() {
+    public String getDate() {
         return this.date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }
