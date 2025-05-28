@@ -34,8 +34,8 @@ apply plugin: 'maven-publish'
 publishing {
     publications {
         aar(MavenPublication) {
-            groupId = 'com.github.yougaohui'
-            artifactId = 'fitprodemo'  // 确保使用小写字母
+            groupId = 'com.legend.smartwatch.sdk'
+            artifactId = 'fitpro'  // 确保使用小写字母
             version = '1.2.92'  // 确保每次发布时版本号唯一
             artifact(file('../SDK/fitpro_V1.2.92_release_20250528.aar'))  // 确保路径正确
             pom {
