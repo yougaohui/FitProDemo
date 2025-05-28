@@ -19,6 +19,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import xfkj.fitpro.activity.WelcomeActivity;
+
 public class PermissionUtil {
     private static final int mRequestCode = 10010;//权限请求码
     private static Activity context = null;
@@ -35,13 +37,48 @@ public class PermissionUtil {
     }
 
     public void init(@NonNull Activity context) {
-        String[] WelcomeActivity = {Manifest.permission.READ_PHONE_STATE,
+        // 根据Android版本动态配置权限
+
+        String[] storagePermissions;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            //Android 13+ 使用新的媒体权限
+            storagePermissions = new String[]{
+                    Manifest.permission.READ_MEDIA_IMAGES,
+                    Manifest.permission.READ_MEDIA_AUDIO,
+                    Manifest.permission.READ_MEDIA_VIDEO};
+        }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+            //Android 10-12 只需要读权限
+            storagePermissions = new String[]{
+                    Manifest.permission.READ_EXTERNAL_STORAGE,};
+        } else {
+            //Android 9及以下需要读写权限
+            storagePermissions = new String[]{
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            };
+        }
+        String[] WelcomeActivity = {
+                Manifest.permission.READ_PHONE_STATE,
                 Manifest.permission.PROCESS_OUTGOING_CALLS,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_CONTACTS,
-                Manifest.permission.READ_CALL_LOG};
-        reqPermission.put("WelcomeActivity", WelcomeActivity);
+                Manifest.permission.READ_CALL_LOG
+        };
+        //        String[] WelcomeActivity = {Manifest.permission.READ_PHONE_STATE,
+//                Manifest.permission.PROCESS_OUTGOING_CALLS,
+//                Manifest.permission.READ_EXTERNAL_STORAGE,
+//                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//                Manifest.permission.READ_CONTACTS,
+//                Manifest.permission.READ_CALL_LOG};
+
+        //合并存储权限+
+        String[] mergeWelcomePermissions = new String[WelcomeActivity.length + storagePermissions.length];
+        //合并权限 长度为WelcomeActivity.length
+        System.arraycopy(WelcomeActivity, 0, mergeWelcomePermissions, 0, WelcomeActivity.length);
+        //合并权限 长度为storagePermissions.length
+        System.arraycopy(storagePermissions, 0, mergeWelcomePermissions, WelcomeActivity.length, storagePermissions.length);
+        reqPermission.put("WelcomeActivity", mergeWelcomePermissions);
+//        reqPermission.put("WelcomeActivity", WelcomeActivity);
 
         String[] MiBandReaderActivity = {Manifest.permission.ACCESS_COARSE_LOCATION
                 , Manifest.permission.ACCESS_FINE_LOCATION};
@@ -71,12 +108,24 @@ public class PermissionUtil {
      */
     public static boolean checkPermissions(String... permissions) {
         //判断Android版本是否大于23
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            List<String> needRequestPermissonList = findDeniedPermissions(permissions);
-            if (null != needRequestPermissonList && needRequestPermissonList.size() > 0) {
-                ActivityCompat.requestPermissions(context, needRequestPermissonList.toArray(new String[needRequestPermissonList.size()]), mRequestCode);
-                return false;
-            }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            List<String> needRequestPermissonList = findDeniedPermissions(permissions);
+//            if (null != needRequestPermissonList && needRequestPermissonList.size() > 0) {
+//                ActivityCompat.requestPermissions(context, needRequestPermissonList.toArray(new String[needRequestPermissonList.size()]), mRequestCode);
+//                return false;
+//            }
+//        }
+
+        if (context == null) return false;
+        List<String> needRequestPermissonsList = findDeniedPermissions(permissions);
+        //没有权限需要申请
+        if (!needRequestPermissonsList.isEmpty()){
+            ActivityCompat.requestPermissions(
+                    context,
+                    needRequestPermissonsList.toArray(new String[0]),
+                    mRequestCode
+            );
+            return false;
         }
         return true;
     }
@@ -91,6 +140,9 @@ public class PermissionUtil {
     private static List<String> findDeniedPermissions(String[] permissions) {
         List<String> needRequestPermissonsList = new ArrayList<>();
         for (String perm : permissions) {
+            //过滤掉在特定版本不需要的权限
+            if (shouldSkipPermission(perm)) continue;
+
             if (ContextCompat.checkSelfPermission(context, perm) != PackageManager.PERMISSION_GRANTED) {
                 needRequestPermissonsList.add(perm);
             } else {
@@ -100,6 +152,18 @@ public class PermissionUtil {
             }
         }
         return needRequestPermissonsList;
+    }
+
+    /**
+     * 检查是否需要跳过某些权限请求
+     */
+    private static boolean shouldSkipPermission(String permission) {
+        // Android 13+ 跳过 WRITE_EXTERNAL_STORAGE
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+                permission.equals(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -152,6 +216,7 @@ public class PermissionUtil {
      * @since 2.5.0
      */
     private void startAppSettings() {
+
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         intent.setData(Uri.parse("package:" + context.getPackageName()));
         context.startActivityForResult(intent, mRequestCode);

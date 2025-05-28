@@ -1,10 +1,5 @@
 package xfkj.fitpro.fragment;
 
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static com.legend.bluetooth.fitprolib.utils.DateUtils.getCalendars;
-import static com.legend.bluetooth.fitprolib.utils.DateUtils.getDate;
-import static xfkj.fitpro.application.MyApplication.returnshi;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +9,9 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import androidx.annotation.Nullable;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-
-import androidx.annotation.Nullable;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
@@ -50,6 +45,11 @@ import xfkj.fitpro.activity.StepNumberMoreActivity;
 import xfkj.fitpro.application.MyApplication;
 import xfkj.fitpro.base.BaseFragment;
 import xfkj.fitpro.db.SqliteDBAcces;
+
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static com.legend.bluetooth.fitprolib.utils.DateUtils.getCalendars;
+import static com.legend.bluetooth.fitprolib.utils.DateUtils.getDate;
+import static xfkj.fitpro.application.MyApplication.returnshi;
 
 @SuppressLint("ValidFragment")
 public class SportFragment extends BaseFragment {

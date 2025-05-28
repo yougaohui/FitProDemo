@@ -2,6 +2,8 @@ package xfkj.fitpro.utils.weather;
 
 import com.legend.bluetooth.fitprolib.utils.NumberUtils;
 
+import xfkj.fitpro.R;
+
 /**
  * 单位转换
  * Created by gaohui.you on 2018/10/17 0017

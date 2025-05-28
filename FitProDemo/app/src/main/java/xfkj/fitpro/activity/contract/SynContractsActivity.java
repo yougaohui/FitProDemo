@@ -2,6 +2,7 @@ package xfkj.fitpro.activity.contract;
 
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;

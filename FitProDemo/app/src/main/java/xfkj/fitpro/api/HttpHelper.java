@@ -4,8 +4,6 @@ import android.net.Uri;
 import android.util.Log;
 
 import com.blankj.utilcode.util.StringUtils;
-import com.legend.bluetooth.fitprolib.utils.FitProSpUtils;
-import com.legend.bluetooth.fitprolib.utils.SaveKeyValues;
 
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;

@@ -10,7 +10,7 @@ buildscript {
         maven { url "https://jitpack.io" }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath 'com.android.tools.build:gradle:8.9.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -36,8 +36,31 @@ publishing {
         aar(MavenPublication) {
             groupId = 'com.github.yougaohui'
             artifactId = 'fitprodemo'  // 确保使用小写字母
-            version = '1.2.91'  // 确保每次发布时版本号唯一
-            artifact(file('../SDK/fitpro_V1.2.91_release_20250218.aar'))  // 确保路径正确
+            version = '1.2.92'  // 确保每次发布时版本号唯一
+            artifact(file('../SDK/fitpro_V1.2.92_release_20250528.aar'))  // 确保路径正确
+            pom {
+                withXml {
+                    def dependenciesNode = asNode().appendNode('dependencies')
+
+                    def libs = [['com.blankj', 'utilcodex', '1.31.1'],
+                                ['androidx.work', 'work-runtime', '2.7.1'],
+                                ['androidx.localbroadcastmanager', 'localbroadcastmanager', '1.0.0'],
+                                ['androidx.media', 'media', '1.6.0'],
+                                ['com.squareup.okhttp3', 'okhttp', '3.10.0'],
+                                ['com.squareup.retrofit2', 'retrofit', '2.4.0'],
+                                ['com.squareup.retrofit2', 'converter-gson', '2.4.0'],
+                                ['com.squareup.retrofit2', 'adapter-rxjava2', '2.4.0'],
+                                ['io.reactivex.rxjava2', 'rxandroid', '2.0.2']]
+
+                    libs.each { lib ->
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', lib[0])
+                        dependencyNode.appendNode('artifactId', lib[1])
+                        dependencyNode.appendNode('version', lib[2])
+                        dependencyNode.appendNode('scope', 'compile')
+                    }
+                }
+            }
         }
     }
     repositories {

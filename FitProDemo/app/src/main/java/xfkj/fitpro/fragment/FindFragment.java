@@ -1,9 +1,5 @@
 package xfkj.fitpro.fragment;
 
-import static com.legend.bluetooth.fitprolib.utils.DateUtils.getCalendars;
-import static com.legend.bluetooth.fitprolib.utils.DateUtils.getDate;
-import static xfkj.fitpro.application.MyApplication.returnshi;
-
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -33,6 +29,10 @@ import xfkj.fitpro.activity.MoreSleepActivity;
 import xfkj.fitpro.application.MyApplication;
 import xfkj.fitpro.base.BaseFragment;
 import xfkj.fitpro.db.SqliteDBAcces;
+
+import static com.legend.bluetooth.fitprolib.utils.DateUtils.getCalendars;
+import static com.legend.bluetooth.fitprolib.utils.DateUtils.getDate;
+import static xfkj.fitpro.application.MyApplication.returnshi;
 
 
 public class FindFragment extends BaseFragment

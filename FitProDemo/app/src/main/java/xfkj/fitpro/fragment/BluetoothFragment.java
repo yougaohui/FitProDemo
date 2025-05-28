@@ -31,7 +31,6 @@ import xfkj.fitpro.R;
 import xfkj.fitpro.activity.MainActivity;
 import xfkj.fitpro.activity.SleepItemActivity;
 import xfkj.fitpro.activity.StepItemActivity;
-import xfkj.fitpro.activity.UpdateOtaActivity;
 import xfkj.fitpro.adapter.SettingAdapter;
 import xfkj.fitpro.base.BaseFragment;
 import xfkj.fitpro.view.SettingMenuItem;
@@ -97,8 +96,6 @@ public class BluetoothFragment extends BaseFragment
         rlv = view.findViewById(R.id.rlv);
         mData.clear();
         mData.add(new SettingMenuItem(R.string.app_version,getString(R.string.app_version), SDKTools.getLocalVersionName(context), 0, R.drawable.app_version, true, 1, null));
-        mData.add(new SettingMenuItem(R.string.upgrade_txt,"固件升级工具", "", R.drawable.icon_set_more, R.drawable.device_update, 1, true, UpdateOtaActivity.class));
-        mData.add(new SettingMenuItem(R.string.upgrade_txt,"固件在线升级", "", R.drawable.icon_set_more, R.drawable.device_update, 1, false, UpdateOtaActivity.class));
         // mData.add(new SettingMenuItem(R.string.language,getString(R.string.language), "", R.drawable.icon_set_more, R.drawable.contract_qq, false, 1, AboutActivity.class));
         mData.add(new SettingMenuItem(0,"", 0, 0, 3, null));
         mData.add(new SettingMenuItem(R.string.back_to_welcome,getString(R.string.back_to_welcome), "", R.drawable.icon_set_more, R.drawable.more_back, false, 1, MainActivity.class));

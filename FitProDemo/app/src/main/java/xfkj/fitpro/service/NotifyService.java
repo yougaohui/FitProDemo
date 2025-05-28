@@ -1,12 +1,7 @@
 package xfkj.fitpro.service;
 
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.getContext;
-import static com.legend.bluetooth.fitprolib.utils.NotifiMsgHelper.CALL;
-import static com.legend.bluetooth.fitprolib.utils.NotifiMsgHelper.sendNotifyPush;
-import static xfkj.fitpro.application.MyApplication.removeALLActivity_;
-
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -16,6 +11,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,14 +23,24 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import androidx.core.app.NotificationManagerCompat;
-
 import com.blankj.utilcode.constant.PermissionConstants;
 import com.blankj.utilcode.util.PermissionUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.legend.bluetooth.fitprolib.bluetooth.BleManager;
 import com.legend.bluetooth.fitprolib.utils.FitProSpUtils;
 import com.legend.bluetooth.fitprolib.utils.SDKTools;
+
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.getContext;
+import static com.legend.bluetooth.fitprolib.utils.NotifiMsgHelper.CALL;
+import static com.legend.bluetooth.fitprolib.utils.NotifiMsgHelper.sendNotifyPush;
+import static xfkj.fitpro.application.MyApplication.removeALLActivity_;
+
+import androidx.core.app.NotificationManagerCompat;
 
 
 public class NotifyService extends NotificationListenerService {
@@ -305,11 +312,10 @@ public class NotifyService extends NotificationListenerService {
         builder.setTitle("通知读取权限");
         builder.setMessage("是否允许开启？");
         // 拒绝, 退出应用
-        builder.setNegativeButton("退出",
+        builder.setNegativeButton("取消",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        removeALLActivity_();
                     }
                 });
         builder.setPositiveButton("开启",

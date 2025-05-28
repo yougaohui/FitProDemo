@@ -1,7 +1,5 @@
 package xfkj.fitpro.utils;
 
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.returnBeforeValue;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Handler;
@@ -14,6 +12,8 @@ import android.widget.Toast;
 import com.legend.bluetooth.fitprolib.utils.SaveKeyValues;
 
 import xfkj.fitpro.R;
+
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.returnBeforeValue;
 
 public class LoadingDailog extends Dialog{
 

@@ -1,9 +1,5 @@
 package xfkj.fitpro.utils.weather;
 
-import com.blankj.utilcode.util.TimeUtils;
-
-import java.util.Date;
-
 /**
  * 天气预报响应
  * Created by gaohui.you on 2018/11/27 0027

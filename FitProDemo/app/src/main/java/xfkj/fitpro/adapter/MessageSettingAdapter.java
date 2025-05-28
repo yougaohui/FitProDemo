@@ -1,17 +1,14 @@
 package xfkj.fitpro.adapter;
 
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.getContext;
-
 import android.content.Context;
 import android.graphics.Color;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.legend.bluetooth.fitprolib.utils.SDKTools;
 import com.zcw.togglebutton.ToggleButton;
@@ -20,6 +17,8 @@ import java.util.ArrayList;
 
 import xfkj.fitpro.R;
 import xfkj.fitpro.view.SettingMenuItem;
+
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.getContext;
 
 /**
  * 设置菜单适配器

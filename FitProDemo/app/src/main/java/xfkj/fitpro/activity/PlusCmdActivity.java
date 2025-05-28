@@ -2,6 +2,7 @@ package xfkj.fitpro.activity;
 
 
 import android.view.View;
+import android.widget.Toast;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.legend.bluetooth.fitprolib.bluetooth.SDKCmdMannager;

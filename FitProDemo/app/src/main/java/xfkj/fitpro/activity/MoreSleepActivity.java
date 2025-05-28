@@ -1,14 +1,11 @@
 package xfkj.fitpro.activity;
 
-import static xfkj.fitpro.application.MyApplication.removeActivity_;
-import static xfkj.fitpro.application.MyApplication.returnshi;
-import static xfkj.fitpro.application.MyApplication.setWindowStatusBarColor;
-
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import androidx.annotation.RequiresApi;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.AbsoluteSizeSpan;
@@ -26,8 +23,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
-
 import com.legend.bluetooth.fitprolib.utils.SDKTools;
 
 import java.sql.Timestamp;
@@ -42,6 +37,10 @@ import xfkj.fitpro.R;
 import xfkj.fitpro.application.MyApplication;
 import xfkj.fitpro.base.BaseActivity;
 import xfkj.fitpro.db.SqliteDBAcces;
+
+import static xfkj.fitpro.application.MyApplication.removeActivity_;
+import static xfkj.fitpro.application.MyApplication.returnshi;
+import static xfkj.fitpro.application.MyApplication.setWindowStatusBarColor;
 
 public class MoreSleepActivity extends BaseActivity {
 

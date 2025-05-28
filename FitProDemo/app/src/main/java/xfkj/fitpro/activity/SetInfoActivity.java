@@ -1,9 +1,5 @@
 package xfkj.fitpro.activity;
 
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetStepValue;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetUinfoValue;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.setSendBeforeValue;
-
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
@@ -29,6 +25,10 @@ import xfkj.fitpro.Constants;
 import xfkj.fitpro.R;
 import xfkj.fitpro.base.BaseActivity;
 import xfkj.fitpro.utils.LoadingDailog;
+
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetStepValue;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetUinfoValue;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.setSendBeforeValue;
 
 public class SetInfoActivity extends BaseActivity implements View.OnClickListener
 {

@@ -127,6 +127,7 @@ public class MyApplication extends Application {
                     ClockDialInfoBody body = (ClockDialInfoBody) map.get(SDKTools.EXTRA_DATA);
                     CacheHelper.setWatchInfo(body);
                     EventBusUtils.post(new ClockDialInfoEvent(body, ""));
+                    Log.e(TAG, "Watch info:" + body);
                     break;
                 case ProfilePlus.MsgWhat.what2://设备信息返回
                     DeviceHardInfoModel deviceInfo = (DeviceHardInfoModel) map.get(SDKTools.EXTRA_DATA);
@@ -157,6 +158,11 @@ public class MyApplication extends Application {
                     Log.e(TAG, "measureSpoModel:" + measureSpoModel.toString());
                     ToastUtils.showShort(measureSpoModel.toString());
                     break;
+                case ProfilePlus.MsgWhat.what5://音频蓝牙mac地址返回
+                    String mac = (String) map.get(SDKTools.EXTRA_DATA);
+                    Log.e(TAG, "音频蓝牙mac地址返回:" + mac);
+                    ToastUtils.showShort(mac);
+                    break;
                 default:
                     break;
             }
@@ -172,6 +178,8 @@ public class MyApplication extends Application {
                         .setNotificationImportance(NotificationUtils.IMPORTANCE_DEFAULT)//设置前台消息通知级别
                         .setNotificationTitle("你自己的标题")
                         .setNotificationContent("您自己的通知内容")
+                        .setReconnect(true)//设置回连，默认true允许设备回连
+                        .setPairAudioBluetooth(true)//是否允许配对音频蓝牙，默认允许
                         .setLogListener((tag, content) -> {
                             Log.i(tag, content);//SDK log information
                         }))

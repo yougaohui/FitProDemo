@@ -1,7 +1,5 @@
 package xfkj.fitpro.activity;
 
-import static com.legend.bluetooth.fitprolib.utils.DeleteFileUtil.deleteDirectory;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
@@ -25,6 +23,8 @@ import java.util.List;
 import xfkj.fitpro.R;
 import xfkj.fitpro.base.BaseActivity;
 import xfkj.fitpro.view.MyListView;
+
+import static com.legend.bluetooth.fitprolib.utils.DeleteFileUtil.deleteDirectory;
 
 public class LogsActivity extends BaseActivity {
 

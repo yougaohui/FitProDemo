@@ -1,8 +1,5 @@
 package xfkj.fitpro.activity;
 
-import static com.legend.bluetooth.fitprolib.utils.DateUtils.getDate;
-import static xfkj.fitpro.application.MyApplication.setWindowStatusBarColor;
-
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
@@ -12,6 +9,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import androidx.annotation.RequiresApi;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
@@ -23,8 +21,6 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.RequiresApi;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
@@ -43,6 +39,9 @@ import xfkj.fitpro.application.MyApplication;
 import xfkj.fitpro.base.BaseActivity;
 import xfkj.fitpro.db.SqliteDBAcces;
 import xfkj.fitpro.view.MyHeartView;
+
+import static com.legend.bluetooth.fitprolib.utils.DateUtils.getDate;
+import static xfkj.fitpro.application.MyApplication.setWindowStatusBarColor;
 
 public class MeasureActivity extends BaseActivity implements View.OnClickListener{
 

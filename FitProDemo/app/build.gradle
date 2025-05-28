@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    namespace 'xfkj.fitpro'
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
     defaultConfig {
@@ -26,8 +27,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     repositories {
@@ -52,13 +53,13 @@ android {
 }
 
 dependencies {
+//    implementation project(path: ':fitprolib')
     implementation 'org.jetbrains:annotations:15.0'
     configurations {
         all*.exclude group: 'com.android.support', module: 'support-v13'
     }
-    implementation fileTree(include: ['*.jar'], dir: 'libs')//test
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation fileTree(dir: 'libs', include: ['*.aar'])
-
     implementation rootProject.ext.dependencies["design"]
     implementation rootProject.ext.dependencies["appcompat"]
     implementation rootProject.ext.dependencies["legacy-support-v4"]
@@ -70,14 +71,13 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
     implementation 'com.airbnb.android:lottie:2.8.0'
     //工具类框架
-    implementation 'com.blankj:utilcodex:1.31.0'
+    implementation 'com.blankj:utilcodex:1.31.1'
     //网络请求框架
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
-
 
     //图片加载框架
     implementation rootProject.ext.dependencies["glide"]
@@ -87,7 +87,9 @@ dependencies {
     //事件分发框架
     implementation rootProject.ext.dependencies["eventbus"]
     implementation rootProject.ext.dependencies["recyclerview"]
-    implementation rootProject.ext.dependencies["runtime-ktx"]
+
+    implementation rootProject.ext.dependencies["work-runtime"]
+    //侧滑控件
     implementation 'com.yanzhenjie:recyclerview-swipe:1.1.4'
     implementation 'com.github.yougaohui:FitProDemo:1.2.91'
 }

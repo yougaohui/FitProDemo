@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+
 import com.legend.bluetooth.fitprolib.model.WatchThemeDetailsResponse;
 
 import java.util.List;

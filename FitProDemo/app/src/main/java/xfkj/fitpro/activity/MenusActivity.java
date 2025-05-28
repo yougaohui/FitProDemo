@@ -72,31 +72,31 @@ public class MenusActivity extends BaseActivity implements RadioGroup.OnCheckedC
                 case Profile.MsgWhat.what2:
                     if (map.get("state").equals("0"))
                     {//断开连接
-                        //     batteryProgress.setProgress(0,getString(R.string.un_connect_txt));//
-                        state_btn.setChecked(false);
+                   //     batteryProgress.setProgress(0,getString(R.string.un_connect_txt));//
+                    state_btn.setChecked(false);
                     } else if (map.get("state").equals("1"))
                     {//连接成功
-                        //      battery = SaveKeyValues.getIntValues("battery", 0);
-                        //      battery = battery<=0?1:battery;
-                        //       batteryProgress.setProgress(battery,getString(R.string.connectd_txt));
+                  //      battery = SaveKeyValues.getIntValues("battery", 0);
+                  //      battery = battery<=0?1:battery;
+                 //       batteryProgress.setProgress(battery,getString(R.string.connectd_txt));
                         state_btn.setChecked(true);
                     } else if (map.get("state").equals(-1))
                     {//连接失败
-                        //      batteryProgress.setProgress(0,getString(R.string.un_connect_txt));//
+                  //      batteryProgress.setProgress(0,getString(R.string.un_connect_txt));//
                         state_btn.setChecked(false);
                     } else if (map.get("state").equals("3"))
                     {//连接失败
-                        //    batteryProgress.setProgress(0,getString(R.string.connecting_txt));
+                    //    batteryProgress.setProgress(0,getString(R.string.connecting_txt));
                         state_btn.setChecked(false);
                     }else{
-                        //   batteryProgress.setProgress(0,getString(R.string.un_connect_txt));//
+                     //   batteryProgress.setProgress(0,getString(R.string.un_connect_txt));//
                         state_btn.setChecked(false);
                     }
                     break;
                 case Profile.MsgWhat.what4:
-                    //   battery = (Integer) Integer.valueOf(map.get("battery").toString());
-                    //    battery = battery<=0?1:battery;
-                    //   batteryProgress.setProgress(battery,getString(R.string.connectd_txt));//
+                 //   battery = (Integer) Integer.valueOf(map.get("battery").toString());
+                //    battery = battery<=0?1:battery;
+                 //   batteryProgress.setProgress(battery,getString(R.string.connectd_txt));//
                     state_btn.setChecked(true);
                     break;
                 case Profile.MsgWhat.what80:
@@ -235,8 +235,8 @@ public class MenusActivity extends BaseActivity implements RadioGroup.OnCheckedC
 
     public void gotoBluetooth()
     {
-        setTitle(getString(R.string.bluetooth_title));
-        findViewById(R.id.right_btn).setVisibility(View.GONE);
+		setTitle(getString(R.string.bluetooth_title));
+		findViewById(R.id.right_btn).setVisibility(View.GONE);
         radioGroup.clearCheck();
         switchFragment(bluetoothFragment).commit();
         enterBluetooth = 0;
@@ -246,16 +246,16 @@ public class MenusActivity extends BaseActivity implements RadioGroup.OnCheckedC
     protected void onPause()
     {
         super.onPause();
-        if(leReceiver != null)
-            leReceiver.unregisterLeReceiver();
+		if(leReceiver != null)
+        leReceiver.unregisterLeReceiver();
     }
 
     @Override
     protected void onResume()
     {
         simulateProgress();
-        if(leReceiver != null)
-            leReceiver.registerLeReceiver();
+		if(leReceiver != null)
+        leReceiver.registerLeReceiver();
         showNotifyPermissionDialog(MenusActivity.this);
         super.onResume();
     }
@@ -308,8 +308,8 @@ public class MenusActivity extends BaseActivity implements RadioGroup.OnCheckedC
             } else
             {
 
-                //    Intent intent = new Intent(this, AppStatusService.class);
-                //   stopService(intent);
+            //    Intent intent = new Intent(this, AppStatusService.class);
+             //   stopService(intent);
                 removeALLActivity_();
             }
             return true;

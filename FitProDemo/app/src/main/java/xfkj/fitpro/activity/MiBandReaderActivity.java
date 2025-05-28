@@ -1,11 +1,5 @@
 package xfkj.fitpro.activity;
 
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetStepValue;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetUinfoValue;
-import static com.legend.bluetooth.fitprolib.utils.BleUtils.setLeServiceEnable;
-import static xfkj.fitpro.application.MyApplication.removeActivity_;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -46,6 +40,12 @@ import java.util.Map;
 
 import xfkj.fitpro.R;
 import xfkj.fitpro.base.BaseActivity;
+
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetStepValue;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSetUinfoValue;
+import static com.legend.bluetooth.fitprolib.utils.BleUtils.setLeServiceEnable;
+import static xfkj.fitpro.application.MyApplication.removeActivity_;
 
 @SuppressLint("NewApi")
 public class MiBandReaderActivity extends BaseActivity implements AdapterView.OnItemClickListener {

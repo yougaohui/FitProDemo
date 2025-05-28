@@ -8,13 +8,18 @@ import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +42,7 @@ import xfkj.fitpro.adapter.ClockDialDetailsAdapter;
 import xfkj.fitpro.utils.DialogHelper;
 import xfkj.fitpro.utils.PictureSelectorUtils;
 import xfkj.fitpro.utils.glide.GlideUitls;
+import xfkj.fitpro.view.RxRunTextView;
 import xfkj.fitpro.view.SpaceItemDecoration;
 
 public class ClockDialDetailsActivity extends WatchThemeDetailsBaseActivity {

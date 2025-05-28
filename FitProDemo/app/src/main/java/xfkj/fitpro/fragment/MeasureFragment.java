@@ -1,15 +1,14 @@
 package xfkj.fitpro.fragment;
 
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSportBloodRateRecive;
-import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSportHeartRateRecive;
-
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +20,6 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
-
-import androidx.annotation.Nullable;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.legend.bluetooth.fitprolib.bluetooth.Profile;
@@ -40,6 +37,9 @@ import xfkj.fitpro.db.SqliteDBAcces;
 import xfkj.fitpro.utils.LoadingDailog;
 import xfkj.fitpro.view.MyBloodView;
 import xfkj.fitpro.view.MyHeartView;
+
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSportBloodRateRecive;
+import static com.legend.bluetooth.fitprolib.bluetooth.SendData.getSportHeartRateRecive;
 
 public class MeasureFragment extends BaseFragment implements View.OnClickListener
 {
@@ -318,6 +318,7 @@ public class MeasureFragment extends BaseFragment implements View.OnClickListene
         super.onDestroy();
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v)
     {

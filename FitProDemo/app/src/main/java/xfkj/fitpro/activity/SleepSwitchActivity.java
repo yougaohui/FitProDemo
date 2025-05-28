@@ -1,7 +1,5 @@
 package xfkj.fitpro.activity;
 
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-
 import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
@@ -24,8 +22,10 @@ import java.util.Map;
 import xfkj.fitpro.Constants;
 import xfkj.fitpro.R;
 import xfkj.fitpro.base.BaseActivity;
-import xfkj.fitpro.utils.LoadingDailog;
 import xfkj.fitpro.view.LongSitPopupWin;
+import xfkj.fitpro.utils.LoadingDailog;
+
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
 
 public class SleepSwitchActivity extends BaseActivity implements View.OnClickListener {
 

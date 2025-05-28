@@ -1,8 +1,5 @@
 package xfkj.fitpro.base;
 
-import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
-import static xfkj.fitpro.application.MyApplication.clearChatMsg;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -11,15 +8,15 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Process;
 import android.provider.Settings;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import com.legend.bluetooth.fitprolib.bluetooth.BleManager;
 import com.legend.bluetooth.fitprolib.utils.SDKTools;
@@ -28,6 +25,9 @@ import xfkj.fitpro.R;
 import xfkj.fitpro.activity.WelcomeActivity;
 import xfkj.fitpro.application.MyApplication;
 import xfkj.fitpro.utils.PermissionUtil;
+
+import static com.legend.bluetooth.fitprolib.application.FitProSDK.Logdebug;
+import static xfkj.fitpro.application.MyApplication.clearChatMsg;
 
 public abstract class BaseActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback
 {
