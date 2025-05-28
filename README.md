@@ -15,6 +15,9 @@
     V1.2.91
     a.新增Skype、Kakaotalk、LinkedIn、Snapchat、tiktok、telegram等消息通知
 
+    V1.2.92
+    a.兼容android 15
+
 ## 1、集成
 ### （1）在项目根目录的 build.gradle 文件中添加 JitPack 仓库地址：
     allprojects {
@@ -25,9 +28,7 @@
         }
     }
 ### （2）模块的 build.gradle 文件
-    implementation 'com.github.yougaohui:FitProDemo:1.2.91'
-    implementation 'com.blankj:utilcodex:1.31.1' 
-    implementation 'androidx.work:work-runtime:2.7.1'
+    implementation 'com.github.yougaohui:FitProDemo:1.2.92'
 
 ## 2、在Application初始化
     public class MyApplication extends Application {
