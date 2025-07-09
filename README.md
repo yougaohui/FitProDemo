@@ -1093,7 +1093,7 @@
     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- 移除 SDK 添加的摄像头特征声明 -->
+    <!-- 移除 SDK 添加的蓝牙特征声明 -->
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         tools:node="remove" />
