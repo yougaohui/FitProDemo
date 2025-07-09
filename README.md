@@ -1053,3 +1053,49 @@
 
 ## 21、混淆
     -keep class com.legend.bluetooth.fitprolib.model.** { *;}
+
+## 22、关于SDK内部权限问题
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+  
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    目前SDK包含这些权限和特征，如果主项目不需要某个权限和特征，如果主项目不需要可以通过主项目清单文件移除:
+    如:
+    移除某些权限在项目清单文件中:
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+        <!-- 移除不需要的通话权限 -->
+        <uses-permission
+            android:name="android.permission.CALL_PHONE"
+            tools:node="remove" />
+    
+        <uses-permission
+            android:name="android.permission.ANSWER_PHONE_CALLS"
+            tools:node="remove" />
+    
+        ...
+    </manifest>
+    移除某些特征在项目清单文件中:
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 移除 SDK 添加的摄像头特征声明 -->
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        tools:node="remove" />
+
+    </manifest>
