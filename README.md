@@ -18,6 +18,9 @@
     V1.2.92
     a.兼容android 15
 
+    V1.2.93
+    a.新增表盘升级需要的so库文件
+
 ## 1、集成
 ### （1）在项目根目录的 build.gradle 文件中添加 JitPack 仓库地址：
     allprojects {
@@ -28,7 +31,7 @@
         }
     }
 ### （2）模块的 build.gradle 文件
-    implementation 'com.github.yougaohui:FitProDemo:1.2.92'
+    implementation 'com.github.yougaohui:FitProDemo:1.2.93'
 
 ## 2、在Application初始化
     public class MyApplication extends Application {
