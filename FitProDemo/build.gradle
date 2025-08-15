@@ -36,8 +36,8 @@ publishing {
         aar(MavenPublication) {
             groupId = 'com.github.yougaohui'
             artifactId = 'fitprodemo'  // 确保使用小写字母
-            version = '1.2.93'  // 确保每次发布时版本号唯一
-            artifact(file('../SDK/fitpro_V1.2.93_release_20250807.aar'))  // 确保路径正确
+            version = '1.2.94'  // 确保每次发布时版本号唯一
+            artifact(file('../SDK/fitpro_V1.2.94_release_20250815.aar'))  // 确保路径正确
             pom {
                 withXml {
                     def dependenciesNode = asNode().appendNode('dependencies')
